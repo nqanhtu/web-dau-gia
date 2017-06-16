@@ -1,0 +1,25 @@
+.mainbox {
+    margin-top: 50px;
+}
+
+.panel-body {
+    padding-top: 30px;
+}
+
+.alert {
+    display: none;
+}
+
+.input-group {
+    margin-bottom: 20px
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.center block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

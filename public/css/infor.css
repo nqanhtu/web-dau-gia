@@ -1,0 +1,162 @@
+/* INFORMATION */
+
+.img-responsive{
+	margin-top: 10px !important;
+}
+
+.profile-sidebar{
+	background: #EFEFEF;
+	border-radius: 3%;
+	border-style: outset;
+	border-color: #DDDDDD;
+}
+
+.profile-userpic img {
+	margin: 0 auto;
+	width: 50%;
+	height: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-dob {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: bold;
+  margin-bottom: 5px;
+}
+
+.profile-usermenu {
+  margin-top: 1px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* PANEL DANH SÁCH ĐẤU GIÁ */
+.panel-personal{
+  margin-top: 20px;
+}
+
+.panel-heading{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* PANEL FULL INFORMATION */
+.panel-title-full-infor{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5b9bd1;
+  margin: auto;
+}
+
+.panel-title-aution-products{
+  font-size: 18px;
+  font-weight: 600;
+  color: #5b9bd1;
+  margin: auto;
+  padding-top:8px;
+}
+
+.search-item{
+  float: right;
+}
+
+.pagination {
+  margin: 0px !important;
+}
+
+table td{
+  vertical-align: middle !important;
+}
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+.list-address{
+  margin-top: 20px;
+  border-left: 2px inset;
+}
+
+.list-address .radio label{
+  margin: 10px;
+}
+
+.title-list-address{
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.detail-list-address{
+  max-height: 314px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.detail-list-address ul{
+  list-style: none;
+  margin: -20px 0  0 -30px;
+}
+
+.table > thead > tr > th{
+  align-items: center;
+  text-align: center;
+}
+
+center .text-left{
+	margin-left: 15px;
+}

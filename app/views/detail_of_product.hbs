@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>detail_of_product.html</title>
+
+	<link rel="stylesheet" type="text/css" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./public/css/bootstrap-theme.min.css">
+	<!-- Custom css -->
+	<link rel="stylesheet" type="text/css" href="./public/css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="./public/css/footer.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- CSS of the search bar -->
+	<link rel="stylesheet" type="text/css" href="./public/css/search-bar.css">
+
+	<!-- CSS of this view -->
+	<link rel="stylesheet" type="text/css" href="./public/css/detail_of_product.css">
+
+</head>
+<body>
+
+	<!-- Navication bar -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">BOP Team</a>
+			</div> <!-- Brand and toggle get grouped for better mobile display -->
+
+			<!--Right side on navication bar-->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+	                <li class="active"><a href="#home">Home</a></li>
+	                <li><a href="#about">About</a></li>
+	                <li><a href="#contact">Contact US</a></li>
+	                <li><a href="signup.html">Register</a></li>
+	            </ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div> <!--Right side on navication bar-->
+		</div> 
+	</nav> <!-- Navication bar -->
+
+	<!-- Search Bar -->
+	<div id="flipkart-navbar">
+	    <div class="container">
+	        <div class="row row-search">
+				<form class="col-md-12">
+				  <div class="input-group">
+				    <input type="text" class="form-control" placeholder="Search">
+				    <div class="input-group-btn">
+				      <button class="btn btn-default" type="submit">
+				        <i class="glyphicon glyphicon-search"></i>
+				      </button>
+				    </div>
+				  </div>
+				</form>
+	        </div>
+	    </div>
+	</div> <!-- Search Bar -->
+	
+	<div class="container">
+ 
+    </div> <!-- /container -->
+
+    <div class="container" style="margin-top: 20px;">
+    	<div class="panel panel-info">
+    		<div class="panel-heading">
+    			<h3 class="panel-title"><b>Product Name</b></h3>
+    		</div>
+    		<div class="panel-body">
+		        <div class="row">
+		            <div class="col-sm-6">
+		                <div class="carousel slide" data-ride="carousel" id="carousel">
+		                    <div class="carousel-inner">
+		                        <div class="item active">
+		                            <img src="http://placehold.it/350x250/e8117f/fff&text=Product+Main"></img>
+		                        </div>
+		                        <div class="item">
+		                            <img src="http://placehold.it/350x250/00ffff/000&text=Product+Image+2"></img>
+		                        </div>
+		                        <div class="item">
+		                            <img src="http://placehold.it/350x250/ff00ff/fff&text=Product+Image+3"></img>
+		                        </div>
+		                        <div class="item">
+		                            <img src="http://placehold.it/350x250/ff00ff/fff&text=Product+Image+4"></img>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="clearfix">
+		                    <div class="carousel slide" data-interval="false" id="thumbcarousel">
+		                        <div class="carousel-inner">
+		                            <div class="item active">
+		                                <div class="thumb" data-slide-to="0" data-target="#carousel">
+		                                    <img src="http://placehold.it/100/e8117f/fff&text=Product+Main"/>
+		                                </div>
+		                                <div class="thumb" data-slide-to="1" data-target="#carousel">
+		                                    <img src="http://placehold.it/100/00ffff/000&text=Product+Image+2"/>
+		                                </div>
+		                                <div class="thumb" data-slide-to="2" data-target="#carousel">
+		                                    <img src="http://placehold.it/100/ff00ff/fff&text=Product+Image+3"/>
+		                                </div>
+		                                <div class="thumb" data-slide-to="3" data-target="#carousel">
+		                                    <img src="http://placehold.it/100/ff00ff/fff&text=Product+Image+4"/>
+		                                </div>
+		                            </div>
+		                        </div> <!-- /carousel-inner -->
+		                        <a class="left carousel-control" data-slide="prev" href="#thumbcarousel" role="button">
+		                            <span class="glyphicon glyphicon-chevron-left">
+		                            </span>
+		                        </a>
+		                        <a class="right carousel-control" data-slide="next" href="#thumbcarousel" role="button">
+		                            <span class="glyphicon glyphicon-chevron-right">
+		                            </span>
+		                        </a>
+		                    </div> <!-- /thumbcarousel -->
+		                </div> <!-- /clearfix -->
+		            </div> <!-- /col-sm-6 -->
+		            <div class="col-sm-6">
+			            <p>Product description goes here.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+		            	<p>
+		            		<b>Number of Bids: </b>5
+		            		<a data-toggle="modal" href='#bid-history-id'> (Bid History)</a>
+		            		<div class="modal fade" id="bid-history-id">
+		            			<div class="modal-dialog">
+		            				<div class="modal-content">
+		            					<div class="modal-header">
+		            						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		            						<h4 class="modal-title">Bid History</h4>
+		            					</div>
+		            					<div class="modal-body">
+		            						<div class="table-responsive">
+		            							<table class="table table-hover">
+		            								<thead>
+		            									<tr>
+		            										<th>Bidder</th>
+		            										<th>Date</th>
+		            										<th>Time</th>
+		            									</tr>
+		            								</thead>
+		            								<tbody>
+		            									<tr>
+		            										<td>R.L</td>
+		            										<td>May 29, 2017 08:40:00 PM</td>
+		            										<td>$15.00</td>
+		            									</tr>
+		            									<tr>
+		            										<td>G.I. (NJ)</td>
+		            										<td>May 29, 2017 01:30:37 PM</td>
+		            										<td>$12.00</td>
+		            									</tr>
+		            									<tr>
+		            										<td>L.D. (CT)</td>
+		            										<td>May 29, 2017 04:01:47 AM</td>
+		            										<td>$9.00</td>
+		            									</tr>
+		            								</tbody>
+		            							</table>
+		            						</div>
+		            					</div>
+		            				</div>
+		            			</div>
+		            		</div>
+		            	</p>
+		            	<p><b>Bid Increament: </b>3$</p>
+		            	<p><b>Shipping Cost Per Unit: </b>5$</p>
+		            	<p><b>ID: </b>125214</p>
+		            	<p><b>Condition: </b>Like New</p>
+		            	<p><b>Close date: </b>May 30, 2017, 03:00:00 PM</p>
+		            	<p><b>Time left: </b>00 days 13:07:30</p>
+		            	<h2>Bid to beat: $500.00</h2>
+						<form>
+							<label for="bid-money">Enter your max bid:</label>
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Money to bid" id="bid-money">
+								<div class="input-group-btn">
+									<button class="btn btn-primary" type="submit">Bid Now</button>
+								</div>
+							</div>
+						</form>
+		            </div> <!-- /col-sm-6 -->
+		        </div> <!-- /row -->
+    		</div>
+    	</div>
+    </div>
+
+	<!-- Container content -->
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+			<li><a data-toggle="tab" href="#menu1">Contact and Shipping</a></li>
+		</ul>
+
+		<!-- Tab content -->
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+				<h3>Description</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+			<div id="menu1" class="tab-pane fade">
+				<h3>Contact and Shipping</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div> <!-- Tab content -->
+	</div> <!-- Container content -->
+
+
+    
+
+
+	<!-- Footer -->
+	<footer class="footer-distributed">
+		<div class="footer-left">
+			<h3>BOP<span>Team</span></h3>
+			<p class="footer-links">
+				<a href="#">Home</a>
+				<a href="#">Blog</a>
+				<a href="#">Pricing</a>
+				<a href="#">About</a>
+				<a href="#">Faq</a>
+				<a href="#">Contact</a>
+			</p>
+			<p class="footer-company-name">Bop Team &copy; 2017</p>
+		</div>
+
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p><span>69 Anonymous Street</span> Hanoi, Vietnam</p>
+			</div>
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>+84 12 345 6789</p>
+			</div>
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p><a href="mailto:support@company.com">mail@bopteam.vn</a></p>
+			</div>
+		</div>
+		<div class="footer-right">
+			<p class="footer-company-about">
+				<span>About Us</span>
+				Hello, world! We are Bop Team.
+			</p>
+			<div class="footer-icons">
+				<a href="#facebook"><i class="fa fa-facebook"></i></a>
+				<a href="#twitter"><i class="fa fa-twitter"></i></a>
+				<a href="#google-plus"><i class="fa fa-google-plus"></i></a>
+				<a href="#github"><i class="fa fa-github"></i></a>
+			</div>
+		</div>
+	</footer> <!-- Footer -->
+</body>
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="./public/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./public/js/bootstrap.min.js"></script>
+
+<!-- Script of the search bar -->
+<script type="text/javascript" src="./public/js/search-bar.js"></script>
+
+<!-- Script of this view -->
+<script type="text/javascript" src="./public/js/detail_of_product.js"></script>
+
+</html>

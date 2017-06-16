@@ -1,0 +1,21 @@
+{
+  "name": "bop-team",
+  "version": "1.0.0",
+  "description": "**Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Bop Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "firebase": "^4.1.1",
+    "handlebars": "^4.0.10"
+  },
+  "devDependencies": {}
+}
