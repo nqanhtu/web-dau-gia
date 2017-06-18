@@ -13,16 +13,22 @@ var loginController = {
 
     },
     submit: function (req, res) {
-        if (firebase.auth().currentUser) {
-            // [START signout]
-            firebase.auth().signOut();
-            // [END signout]
-        }
+        // if (firebase.auth().currentUser) {
+        //     // [START signout]
+        //     firebase.auth().signOut();
+        //     // [END signout]
+        // }
         firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
             .then(function () {
                 console.log('Dang nhap thanh cong');
                 res.redirect('/');
-                console.log(firebase.auth().currentUser.email);
+                firebase.auth().onAuthStateChanged(function (user) {
+                    if (user) {
+                        
+                    } else {
+                        // No user is signed in.
+                    }
+                });
             })
             .catch(function (error) {
                 // Handle Errors here.
