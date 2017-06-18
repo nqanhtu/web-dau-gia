@@ -16,9 +16,9 @@ router.get('/about', controllers.about.about);
 router.get('/contact', controllers.about.contact);
 router.get('/login', controllers.login.formLogin);
 router.post('/login', controllers.login.submit);
+router.get('/signup', controllers.signup.formSignup);
+router.post('/signup', controllers.signup.submit);
 
-
-//router.get('/signup', controllers.login.formSignup);
 //router.get('/logout', controllers.login.logout);
 
 module.exports = function (app) {

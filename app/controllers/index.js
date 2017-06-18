@@ -4,4 +4,5 @@ module.exports = {
     home: require('./HomeController'),
     information: require('./InformationController'),
     login: require('./LoginController'),
+    signup: require('./SignupController'),
 }

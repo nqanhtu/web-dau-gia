@@ -1,26 +1,21 @@
 var firebase = require('firebase');
-
-var loginController = {
-    formLogin: function (req, res) {
+var signupController = {
+    formSignup: function (req, res) {
         //console.log(req.flash('loginMessage'));
         // render the page and pass in any flash data if it exists
         //res.render("login", { message: req.flash('loginMessage')[0] });
-        res.render("login");
+        res.render("signup");
     },
-    logout: function (req, res) {
-        req.logout();
-        res.redirect('/');
 
-    },
     submit: function (req, res) {
         if (firebase.auth().currentUser) {
             // [START signout]
             firebase.auth().signOut();
             // [END signout]
         }
-        firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+        firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
             .then(function () {
-                console.log('Dang nhap thanh cong');
+                console.log('Dang ky thanh cong');
                 res.redirect('/');
                 console.log(firebase.auth().currentUser.email);
             })
@@ -36,4 +31,4 @@ var loginController = {
 
 }
 
-module.exports = loginController;
+module.exports = signupController;
