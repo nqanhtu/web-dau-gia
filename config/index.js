@@ -1,6 +1,5 @@
-var routes = require('./routes');
-module.exports = function (app) {
+module.exports = function(app) {
     require('./middlewares')(app);
-    require('./views')(app);
     require('./routes')(app);
+    require('./views')(app);
 }

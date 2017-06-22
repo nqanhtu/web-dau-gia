@@ -1,12 +1,17 @@
-var HomeController = {
-	index: function (req, res) {
-		res.render('index', {
-			title: 'Bop-Team',
-			page: 'index',
-			active: { home: true },
-			user: req.user
-		})
-	}
+var homeModel = require('../models/homeModel');
+
+var homeController = {
+
+    index: function (req, res) {
+
+        homeModel.loadAllProduct()
+            .then(function (rows) {
+                res.render('home', {
+                    layout: 'main',
+                    products: rows
+                });
+            });
+    },
 };
 
-module.exports = HomeController;
+module.exports = homeController;
