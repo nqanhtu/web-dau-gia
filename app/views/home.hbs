@@ -1,0 +1,29 @@
+{{#section 'css'}}
+<style>
+	.overme {
+		width: 150px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		color: red;
+	}
+</style>
+{{/section}}
+
+{{#each products}}
+<div class="col-md-4">
+	<div class="thumbnail">
+		<img src="{{ThumbnailUrl}}" alt="{{Name}}">
+		<div class="caption">
+			<a href="#">
+				<h4>{{Name}}</h4>
+			</a>
+			<div class="row">
+				<div class="overme col-md-8">Example</div>
+				<div style="font-size: 15px;" class="col-md-4 text-left">{{formatCurrency StartPrice}}đ</div>
+			</div>
+			<p><a href="#" class="btn btn-success center-block" role="button">Bid Now</a></p>
+		</div>
+	</div>
+</div>
+{{/each}}

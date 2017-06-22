@@ -1,22 +1,33 @@
 {
-  "name": "bop-team",
+  "name": "auction-web",
   "version": "1.0.0",
-  "description": "**Name of your app** là repository cho đồ án nhóm. Nhóm tối đa 4 thành viên.",
+  "description": "A simple auction website based on node",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "git+https://github.com/tuleminh396/auction-web.git"
   },
-  "author": "Bop Team",
-  "license": "MIT",
+  "keywords": [
+    "auction"
+  ],
+  "author": "BOP Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuleminh396/auction-web/issues"
+  },
+  "homepage": "https://github.com/tuleminh396/auction-web#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "crypto": "0.0.3",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
-    "firebase": "^4.1.1",
-    "handlebars": "^4.0.10"
-  },
-  "devDependencies": {}
+    "express-handlebars-sections": "^1.0.1",
+    "mustache": "^2.3.0",
+    "mysql": "^2.13.0",
+    "q": "^1.5.0",
+    "wnumb": "^1.1.0"
+  }
 }
