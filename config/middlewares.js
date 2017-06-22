@@ -1,7 +1,6 @@
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var expressValidator = require('express-validator');
 
 module.exports = function(app) {
     app.use(bodyParser.json());
