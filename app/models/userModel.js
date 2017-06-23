@@ -24,7 +24,7 @@ module.exports = {
     // },
     getUserByEmail: function (email) {
         var deffered = Q.defer();
-        var sql = 'select * from clients where Email = ' + email;
+        var sql = 'select * from clients where Email = ' + '\'' + email + '\'';
         auctionDb.load(sql).then(function (rows) {
             deffered.resolve(rows[0]);
         });
@@ -32,7 +32,7 @@ module.exports = {
     },
     getUserByID: function (id, callback) {
         var deffered = Q.defer();
-        var sql = 'select * from clients where id = ' + id;
+        var sql = 'select * from clients where ID = ' + id;
         auctionDb.load(sql).then(function (rows) {
             deffered.resolve(rows[0]);
         });
