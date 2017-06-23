@@ -10,15 +10,16 @@ passport.use(new LocalStrategy({
 },
 	function (email, password, done) {
 		var enPwd = crypto.createHash('md5').update(password).digest('hex');
-		console.log(enPwd);
 		User.getUserByEmail(email).then(function (user) {
-			if (!user) { return done(null, false, { message: 'Unknown User' }) };
-			if (user.password != enPwd) { return done(null, false, { message: 'Invalid password' }) };
+			if (!user) { return done(null, false, console.log('Unknown User')) };
+			if (user.Password != enPwd) { return done(null, false, console.log('Invalid password')) };
+			console.log(user);
 			return done(null, user);
 		});
 	}));
 passport.serializeUser(function (user, done) {
-	done(null, user.id);
+	console.log(user.Email);
+	done(null, user.ID);
 });
 passport.deserializeUser(function (id, done) {
 	User.getUserByID(id).then(function (user) {
@@ -39,6 +40,7 @@ module.exports = function (app) {
 	app.post('/register', controllers.register.addClient);
 
 	app.get('/', controllers.home.index);
+<<<<<<< HEAD
 	app.get('/login',controllers.login.formLogin);
 	app.post('/login',passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),controllers.login.submit);
 
@@ -46,4 +48,11 @@ module.exports = function (app) {
 	 * Get information personal:
 	 */
 	app.get('/infor_person', controllers.information.information);
+=======
+	app.get('/login', controllers.login.formLogin);
+	app.post('/login', passport.authenticate('local',{ successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true })
+	);
+>>>>>>> d2e9940bd3793c33418b5df6cf5c2074a15c3d24
 };
