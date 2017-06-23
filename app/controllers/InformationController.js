@@ -1,6 +1,6 @@
-var firebase = require('firebase');
 var InformationController = {
   information: function (req, res) {
+    /*
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         console.log(user.email);
@@ -8,13 +8,16 @@ var InformationController = {
         // No user is signed in.
       }
     });
+    */
 
     res.render('information', {
       title: 'Bop-Team',
+      layout: 'infor',
       active: { information: true },
       user: req.user
     })
   },
+  
   shipping_address: function (req, res) {
     res.render('shipping_address', {
       user: req.user // get the user out of session and pass to template
@@ -40,8 +43,4 @@ var InformationController = {
   },
 
 };
-
-
-
-
 module.exports = InformationController;

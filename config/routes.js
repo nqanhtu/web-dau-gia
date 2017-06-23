@@ -41,4 +41,9 @@ module.exports = function (app) {
 	app.get('/', controllers.home.index);
 	app.get('/login',controllers.login.formLogin);
 	app.post('/login',passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),controllers.login.submit);
+
+	/**
+	 * Get information personal:
+	 */
+	app.get('/infor_person', controllers.information.information);
 };

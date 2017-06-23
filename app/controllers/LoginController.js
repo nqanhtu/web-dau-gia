@@ -1,8 +1,10 @@
-var firebase = require('firebase');
 
 var loginController = {
     formLogin: function (req, res) {
-        res.render("login");
+        res.render("login", 
+            {
+                layout : false,
+            });
     },
     logout: function (req, res) {
         req.logout();
