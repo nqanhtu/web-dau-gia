@@ -29,14 +29,12 @@ function connect() {
 var auctionDb = {
     load: function(sql) {
         var deferred = Q.defer();
-
         connect().then(function(cn) {
             cn.query(sql, function(err, rows, fields) {
                 if (err) throw err;
                 deferred.resolve(rows);
             });
         });
-
         return deferred.promise;
     },
 

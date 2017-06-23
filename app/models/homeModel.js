@@ -1,6 +1,5 @@
 var Q = require('q');
 var mustache = require('mustache');
-
 var auctionDb = require('../../app-helpers/dbHelper');
 
 var homeModel = {
@@ -19,7 +18,6 @@ var homeModel = {
     loadLastestBidder: function (productID) {
         var deffered = Q.defer();
         var sql = '';
-
         auctionDb.load(sql).then(function (rows) {
             deffered.resolve(rows);
         });
