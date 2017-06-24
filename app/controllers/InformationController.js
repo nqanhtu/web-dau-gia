@@ -13,7 +13,6 @@ var InformationController = {
     res.render('information', {
       title: 'Profile Information',
       layout: 'infor',
-      active: { information: true },
       user: req.user
     })
   },
