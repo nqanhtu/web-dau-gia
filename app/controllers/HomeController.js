@@ -3,7 +3,6 @@ var productModel = require('../models/productModel');
 var homeController = {
 
     index: function (req, res) {
-<<<<<<< HEAD
         productModel.loadAllProduct()
             .then(function (products) {
                 productModel.loadLastestBidder().then(function (rows) {
@@ -28,14 +27,6 @@ var homeController = {
                         products: products,
                         bids: rows
                     });
-=======
-console.log(req.user);
-        homeModel.loadAllProduct()
-            .then(function (rows) {
-                res.render('home', {
-                    layout: 'main',
-                    products: rows
->>>>>>> 2a7479e1a2fef89a76e84cf238f3a6f05d61a7ed
                 });
             });
     },

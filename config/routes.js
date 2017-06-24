@@ -33,18 +33,10 @@ module.exports = function (app) {
     app.get('/register', controllers.register.index);
     app.post('/register', controllers.register.addClient);
 
-<<<<<<< HEAD
     app.get('/', controllers.home.index);
 
     app.get('/addProduct', controllers.product.index);
     app.post('/addProduct', controllers.product.addProduct);
-	
-<<<<<<< HEAD
-	app.get('/login',controllers.login.formLogin);
-	app.post('/login',passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),controllers.login.submit);
-=======
-	app.get('/', controllers.home.index);
->>>>>>> 2a7479e1a2fef89a76e84cf238f3a6f05d61a7ed
 
 	
 	/**
