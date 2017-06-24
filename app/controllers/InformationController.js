@@ -9,7 +9,7 @@ var InformationController = {
       }
     });
     */
-
+    //console.log(req.user);
     res.render('information', {
       title: 'Bop-Team',
       layout: 'infor',
