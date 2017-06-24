@@ -10,7 +10,7 @@
 				<div class="form-group">
 					<label class="control-label col-md-3" for="name">Full name:</label>
 					<div class="col-md-6">
-						<input type="name" class="form-control" id="name" value = "{{user.fullName}}" disabled>
+						<input type="name" class="form-control" id="name" value = "{{user.full_name}}" disabled>
 					</div>
 				</div>	
 				<div class="form-group">
@@ -29,19 +29,19 @@
 				<div class="form-group">
 					<label class="control-label col-md-3" for="password">Old password:</label>
 					<div class="col-md-6">
-						<input type="password" class="form-control" id="password" value = "{{user.password}}" disabled>
+						<input type="password" class="form-control" id="password" value = "" disabled>
 					</div>
 				</div>				
 				<div class="form-group">
 					<label class="control-label col-md-3" for="password">New password:</label>
 					<div class="col-md-6">
-						<input type="password" class="form-control" id="password" value = "{{user.password}}" disabled>
+						<input type="password" class="form-control" id="password" value = "" disabled>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-md-3" for="password"> Retype new password:</label>
 					<div class="col-md-6">
-						<input type="password" class="form-control" id="password" value = "{{user.password}}"disabled> 
+						<input type="password" class="form-control" id="password" value = "" disabled> 
 					</div>
 				</div>
 				<div class="row">
@@ -61,7 +61,7 @@
 </div>
 
 <script type="text/javascript">
-
+	
 </script>
 {{#section 'profilemenu'}}
 	<li id="pro_1" class="active">
