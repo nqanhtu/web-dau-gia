@@ -44,8 +44,36 @@ module.exports = function (app) {
 	/**
 	 * Get information personal:
 	 */
-	app.get('/infor_person', controllers.information.information);
+	app.get('/information', controllers.information.information);
 
+	/**
+	 * Get list products auction: 
+	 */
+	app.get('/list_products_auction', controllers.information.list_products_auction);
+
+	/**
+	 * Get list products follows:
+	 */
+	app.get('/list_products_follows', controllers.information.list_products_follows);
+
+	/**
+	 * Get Result Auction:
+	 */
+	app.get('/list_products_auctioned', controllers.information.list_products_auctioned);
+
+	/**
+	 * Shipping Address:
+	 */
+	app.get('/shipping_address', controllers.information.shipping_address);
+
+	/**
+	 * Detail Feedback:
+	 */
+	app.get('/detail_feedback', controllers.information.detail_feedback);
+
+	/**
+	 * Login user
+	 */
 	app.get('/login', controllers.login.formLogin);
 	app.post('/login', passport.authenticate('local',{ successRedirect: '/',
                                    failureRedirect: '/login',
