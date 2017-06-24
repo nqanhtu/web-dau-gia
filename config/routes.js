@@ -73,7 +73,7 @@ module.exports = function (app) {
 	 * Login user
 	 */
 	app.get('/login', controllers.login.formLogin);
-	app.post('/login', passport.authenticate('local',{ successRedirect: '/',
+	app.post('/login', passport.authenticate('local',{ successRedirect: '/information',
                                    failureRedirect: '/login',
                                    failureFlash: true })
 	);
