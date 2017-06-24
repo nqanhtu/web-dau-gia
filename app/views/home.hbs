@@ -15,13 +15,10 @@
 	<div class="thumbnail">
 		<img src="{{ThumbnailUrl}}" alt="{{Name}}">
 		<div class="caption">
-			<a href="#">
-				<h4>{{Name}}</h4>
-			</a>
-			<div class="row">
-				<div class="overme col-md-8">Example</div>
-				<div style="font-size: 15px;" class="col-md-4 text-left">{{formatCurrency StartPrice}}đ</div>
-			</div>
+			<a href="#" class="text-center"><h4>{{Name}}</h4></a>
+			<div class="text-center">Bids: {{Bids}}</div>
+			<div class="text-center" style="font-size: 15px;">Price: <b>{{formatCurrency StartPrice}}đ</b></div>
+			<div class="text-center">Example</div>
 			<p><a href="#" class="btn btn-success center-block" role="button">Bid Now</a></p>
 		</div>
 	</div>

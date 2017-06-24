@@ -29,17 +29,15 @@ passport.deserializeUser(function (id, done) {
 
 
 module.exports = function (app) {
-    /**
-     * register page route
-     */
-	app.get('/register', controllers.register.index);
 
-    /**
-     * add a client to database
-     */
-	app.post('/register', controllers.register.addClient);
+    app.get('/register', controllers.register.index);
+    app.post('/register', controllers.register.addClient);
 
-	app.get('/', controllers.home.index);
+    app.get('/', controllers.home.index);
+
+    app.get('/addProduct', controllers.product.index);
+    app.post('/addProduct', controllers.product.addProduct);
+	
 <<<<<<< HEAD
 	app.get('/login',controllers.login.formLogin);
 	app.post('/login',passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),controllers.login.submit);
