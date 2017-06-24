@@ -1,31 +1,46 @@
 var productModel = require('../models/ProductModel');
 
 var homeController = {
+
+
+    /**
+     * Render index page '/'
+     */
     index: function (req, res) {
-        productModel.loadAllProduct()
-            .then(function (products) {
-                productModel.loadLastestBidder().then(function (rows) {
+        productModel.LoadAllProduct().then(function (products) {
 
-                    for(var i = 0; i < products.length; ++i) {
-                        products[i]['Bids'] = 0;
-                    };
+            productModel.LoadLastestBidder().then(function (bids) {
 
-                    for (var i = 0; i < rows.length; ++i) {
-                        for (var j = 0; j < products.length; ++j) {
-                            if (products[j].ID == rows[i].ProductID) {
-                                products[j].Bids = rows[i].Bids;
-                            };
+                // Add new field 'bid_number' to each product
+                for(var i = 0; i < products.length; ++i) {
+                    products[i]['bid_number'] = 0;
+                };
+
+                // Update 'bid_number' field each product
+                // by bids table
+                for (var i = 0; i < bids.length; ++i) {
+                    for (var j = 0; j < products.length; ++j) {
+                        if (products[j].id === bids[i].product_id) {
+                            products[j].bid_number = bids[i].bid_number;
                         };
                     };
+                };
 
-                    res.render('home', {
-                        layout: 'main',
-                        products: products,
-                        bids: rows
-                    });
+                console.log(products);
+
+                // Render home page with:
+                //  layout: main.hbs
+                //  products: product list
+                res.render('home', {
+                    layout: 'main',
+                    products: products
                 });
             });
+        });
     },
+
+
+
 };
 
 module.exports = homeController;

@@ -4,10 +4,16 @@ var mustache = require('mustache');
 var auctionDb = require('../../app-helpers/dbHelper');
 
 var productModel = {
-    loadAllProduct: function () {
+
+
+    /**
+     * Load all product function for home page
+     * Query all products and show it
+     */
+    LoadAllProduct: function () {
 
         var deffered = Q.defer();
-        var sql = 'select * from products, images where ProductID = ID and `Index` = 1;';
+        var sql = 'SELECT * FROM products, product_images where `product_id` = `id` and `index` = 1;';
 
         auctionDb.load(sql).then(function (rows) {
             deffered.resolve(rows);
@@ -16,9 +22,15 @@ var productModel = {
         return deffered.promise;
     },
 
-    loadLastestBidder: function () {
+
+
+    /**
+     * Load last bidder to show it on the page
+     * Plugging it to products information
+     */
+    LoadLastestBidder: function () {
         var deffered = Q.defer();
-        var sql = 'select ProductID, count(*) as Bids from bids group by ProductID';
+        var sql = 'SELECT `product_id`, COUNT(*) as `bid_number` FROM bids GROUP BY `product_id`;';
 
         auctionDb.load(sql).then(function (rows) {
             deffered.resolve(rows);
