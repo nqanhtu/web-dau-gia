@@ -75,4 +75,7 @@ module.exports = function (app) {
                                    failureRedirect: '/login',
                                    failureFlash: true })
 	);
+
+	app.get('/logout', controllers.login.logout);
+	
 };

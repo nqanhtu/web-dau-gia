@@ -5,7 +5,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-
+var flash = require('connect-flash');
 
 
 module.exports = function (app) {

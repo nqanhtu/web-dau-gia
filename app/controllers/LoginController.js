@@ -1,15 +1,16 @@
 
 var loginController = {
     formLogin: function (req, res) {
-        res.render("login", 
+        res.render("login",
             {
-                layout : false,
+                layout: false,
             });
     },
     logout: function (req, res) {
-        req.logout();
-        res.redirect('/');
 
+        req.logout();
+        req.flash('success_msg', 'You are logged out');
+        res.redirect('/login');
     },
     submit: function (req, res) {
         if (!req.user) {
