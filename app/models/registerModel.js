@@ -1,19 +1,23 @@
 var Q = require('q');
 var mustache = require('mustache');
-
-var auctionDb = require('../../app-helpers/dbHelper');
+var db = require('../../app-helpers/dbHelper');
 
 var registerModel = {
-    insert: function(entity) {
+
+    /**
+     * Insert a user to database
+     * entity: data to insert
+     */
+    AddUser: function(entity) {
 
         var deffered = Q.defer();
 
         var sql = mustache.render(
-            'INSERT INTO `clients`(`FullName`,`Address`,`Email`,`Password`) VALUES ("{{name}}", "{{address}}", "{{email}}", "{{password}}")',
+            'INSERT INTO users (`full_name`, `email`, `address`, `password`) VALUES ("{{full_name}}", "{{email}}", "{{address}}", "{{password}}");',
             entity
         );
 
-        auctionDb.insert(sql).then(function(insertId) {
+        db.insert(sql).then(function(insertId) {
             deffered.resolve(insertId);
         });
 
