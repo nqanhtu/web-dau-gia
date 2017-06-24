@@ -10,25 +10,25 @@
 				<div class="form-group">
 					<label class="control-label col-md-3" for="name">Họ và tên:</label>
 					<div class="col-md-6">
-						<input type="name" class="form-control" id="name">
+						<input type="name" class="form-control" id="name" value = "{{user.fullName}}">
 					</div>
 				</div>	
 				<div class="form-group">
 					<label class="control-label col-md-3" for="email">Email:</label>
 					<div class="col-md-6">
-						<input type="email" class="form-control" id="email">
+						<input type="email" class="form-control" id="email" value = "{{user.email}}">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-md-3" for="password">Mật khẩu:</label>
 					<div class="col-md-6">
-						<input type="password" class="form-control" id="password">
+						<input type="password" class="form-control" id="password" value = "{{user.password}}">
 					</div>
 				</div>				
 				<div class="form-group">
 					<label class="control-label col-md-3" for="">Địa chỉ:</label>
 					<div class="col-md-6">
-						<input type="text" class="form-control" id="address" disabled>
+						<input type="text" class="form-control" id="address" value = "{{user.address}}" disabled>
 					</div>
 				</div>
 				<div>
@@ -46,7 +46,7 @@
 		Overview </a>
 	</li>
 	<li id="pro_2">
-		<a href="list_products_auction">
+		<a href="shipping_address">
 		<i class="glyphicon glyphicon-send"></i>
 		Shipping Address </a>
 	</li>
