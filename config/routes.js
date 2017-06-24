@@ -40,19 +40,15 @@ module.exports = function (app) {
 	app.post('/register', controllers.register.addClient);
 
 	app.get('/', controllers.home.index);
-<<<<<<< HEAD
-	app.get('/login',controllers.login.formLogin);
-	app.post('/login',passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),controllers.login.submit);
-
+	
 	/**
 	 * Get information personal:
 	 */
 	app.get('/infor_person', controllers.information.information);
-=======
+
 	app.get('/login', controllers.login.formLogin);
 	app.post('/login', passport.authenticate('local',{ successRedirect: '/',
                                    failureRedirect: '/login',
                                    failureFlash: true })
 	);
->>>>>>> d2e9940bd3793c33418b5df6cf5c2074a15c3d24
 };
