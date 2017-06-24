@@ -2,7 +2,7 @@ CREATE TABLE users (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `full_name` TEXT NOT NULL,
     `email` TEXT NOT NULL,
-    `address` TEXT NOT NULL,
+    `ADDress` TEXT NOT NULL,
     `password` TEXT NOT NULL,
     `admin` INT NOT NULL DEFAULT 0,
     `like` INT UNSIGNED DEFAULT 0
@@ -75,67 +75,67 @@ CREATE TABLE ban (
 
 
 -- -----------------------
--- Foreign key
+-- FOREIGN KEY
 -- -----------------------
 ALTER TABLE products
-add constraint fk_products_users
-foreign key (`seller_id`)
-references users (`id`);
+ADD CONSTRAINT fk_products_users
+FOREIGN KEY (`seller_id`)
+REFERENCES users (`id`);
 
 ALTER TABLE product_description
-add constraint fk_description_products
-foreign key (`product_id`)
-references products (`id`);
+ADD CONSTRAINT fk_description_products
+FOREIGN KEY (`product_id`)
+REFERENCES products (`id`);
 
-alter table product_images
-add constraint fk_images_products
-foreign key (`product_id`)
-references products (`id`);
+ALTER TABLE product_images
+ADD CONSTRAINT fk_images_products
+FOREIGN KEY (`product_id`)
+REFERENCES products (`id`);
 
-alter table bids
-add constraint fk_bids_users
-foreign key (`bidder_id`)
-references users (`id`);
+ALTER TABLE bids
+ADD CONSTRAINT fk_bids_users
+FOREIGN KEY (`bidder_id`)
+REFERENCES users (`id`);
 
-alter table bids
-add constraint fk_bids_products
-foreign key (`product_id`)
-references products (`id`);
+ALTER TABLE bids
+ADD CONSTRAINT fk_bids_products
+FOREIGN KEY (`product_id`)
+REFERENCES products (`id`);
 
 -- rating table
-alter table rating
-add constraint fk_rating_users_rated
-foreign key (`rated_id`)
-references users (`id`);
+ALTER TABLE rating
+ADD CONSTRAINT fk_rating_users_rated
+FOREIGN KEY (`rated_id`)
+REFERENCES users (`id`);
 
-alter table rating
-add constraint fk_rating_users_rating
-foreign key (`rating_id`)
-references users (`id`);
+ALTER TABLE rating
+ADD CONSTRAINT fk_rating_users_rating
+FOREIGN KEY (`rating_id`)
+REFERENCES users (`id`);
 
-alter table rating
-add constraint fk_rating_products
-foreign key (`product_id`)
-references products (`id`);
+ALTER TABLE rating
+ADD CONSTRAINT fk_rating_products
+FOREIGN KEY (`product_id`)
+REFERENCES products (`id`);
 
--- following table foreign key
-alter table following
-add constraint fk_following_users
-foreign key (`follower`)
-references users (`id`);
+-- following table FOREIGN KEY
+ALTER TABLE following
+ADD CONSTRAINT fk_following_users
+FOREIGN KEY (`follower`)
+REFERENCES users (`id`);
 
-alter table following
-add constraint fk_following_products
-foreign key (`product_id`)
-references products (`id`);
+ALTER TABLE following
+ADD CONSTRAINT fk_following_products
+FOREIGN KEY (`product_id`)
+REFERENCES products (`id`);
 
--- ban table foreign key
-alter table ban
-add constraint fk_ban_users
-foreign key (`user_id`)
-references users (`id`);
+-- ban table FOREIGN KEY
+ALTER TABLE ban
+ADD CONSTRAINT fk_ban_users
+FOREIGN KEY (`user_id`)
+REFERENCES users (`id`);
 
-alter table ban
-add constraint fk_ban_products
-foreign key (`product_id`)
-references products (`id`);
+ALTER TABLE ban
+ADD CONSTRAINT fk_ban_products
+FOREIGN KEY (`product_id`)
+REFERENCES products (`id`);
