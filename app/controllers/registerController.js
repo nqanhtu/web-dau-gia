@@ -2,23 +2,30 @@ var crypto = require('crypto');
 var registerModel = require('../models/RegisterModel');
 
 var registerController = {
-    index: function(req, res) {
+
+    /**
+     * Index page render
+     */
+    Index: function(req, res) {
         res.render('register', {
             layout: false
         });
     },
 
-    addClient: function(req, res) {
-        var enPwd = crypto.createHash('md5').update(req.body.password).digest('hex');
+    AddUser: function(req, res) {
+        // Use crypto module to encrypt the password
+        var encryptedPassword = crypto.createHash('md5').update(req.body.password).digest('hex');
+
+        // Description of entity
         var entity = {
-            name: req.body.name,
+            full_name: req.body.name,
             address: req.body.address,
             email: req.body.email,
-            password: enPwd
+            password: encryptedPassword
         };
 
-        registerModel.insert(entity).then(function(insertId) {
-            res.render('home', {layout: false});
+        registerModel.AddUser(entity).then(function(insertId) {
+            res.redirect('/');
         });
     },
 };

@@ -30,8 +30,8 @@ passport.deserializeUser(function (id, done) {
 
 module.exports = function (app) {
 
-    app.get('/register', controllers.register.index);
-    app.post('/register', controllers.register.addClient);
+    app.get('/register', controllers.register.Index);
+    app.post('/register', controllers.register.AddUser);
 
     app.get('/addProduct', controllers.product.index);
     app.post('/addProduct', controllers.product.addProduct);
