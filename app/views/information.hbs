@@ -2,13 +2,13 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title-full-infor">
-			THÔNG TIN TÀI KHOẢN
+			PERSONAL INFORMATION
 			</h3>
 		</div>
 		<div class="panel-body">
 			<form class="form-horizontal">
 				<div class="form-group">
-					<label class="control-label col-md-3" for="name">Họ và tên:</label>
+					<label class="control-label col-md-3" for="name">Full name:</label>
 					<div class="col-md-6">
 						<input type="name" class="form-control" id="name" value = "{{user.fullName}}">
 					</div>
@@ -20,19 +20,27 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-md-3" for="password">Mật khẩu:</label>
+					<label class="control-label col-md-3" for="password">Password:</label>
 					<div class="col-md-6">
 						<input type="password" class="form-control" id="password" value = "{{user.password}}">
 					</div>
 				</div>				
 				<div class="form-group">
-					<label class="control-label col-md-3" for="">Địa chỉ:</label>
+					<label class="control-label col-md-3" for="">Address:</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" id="address" value = "{{user.address}}" disabled>
 					</div>
 				</div>
-				<div>
-					<button type="button" class="btn btn-success center-block"><i class="glyphicon glyphicon-refresh"></i> Update</button>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<div class="col-md-6">
+							<button type="button" class="btn btn-primary center-block"><i class="glyphicon glyphicon-edit"></i>    Edit</button>
+						</div>
+						<div class="col-md-6">
+							<button type="button" class="btn btn-success center-block"><i class="glyphicon glyphicon-refresh"></i> Update</button>
+						</div>					</div>
+					<div class="col-md-4"></div>
 				</div>
 			</form>																					
 		</div>
