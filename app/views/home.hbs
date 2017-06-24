@@ -13,11 +13,11 @@
 {{#each products}}
 <div class="col-md-4">
 	<div class="thumbnail">
-		<img src="{{ThumbnailUrl}}" alt="{{Name}}">
+		<img src="{{thumb_url}}" alt="{{name}}">
 		<div class="caption">
-			<a href="#" class="text-center"><h4>{{Name}}</h4></a>
-			<div class="text-center">Bids: {{Bids}}</div>
-			<div class="text-center" style="font-size: 15px;">Price: <b>{{formatCurrency StartPrice}}đ</b></div>
+			<a href="#" class="text-center"><h4>{{name}}</h4></a>
+			<div class="text-center">Bids: {{bid_number}}</div>
+			<div class="text-center" style="font-size: 15px;">Price: <b>{{formatCurrency start_price}}đ</b></div>
 			<div class="text-center">Example</div>
 			<p><a href="#" class="btn btn-success center-block" role="button">Bid Now</a></p>
 		</div>
