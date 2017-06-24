@@ -36,7 +36,7 @@ module.exports = function (app) {
     app.get('/addProduct', controllers.product.index);
     app.post('/addProduct', controllers.product.addProduct);
 
-	
+	app.get('/', controllers.home.index);	
 	/**
 	 * Get information personal:
 	 */
