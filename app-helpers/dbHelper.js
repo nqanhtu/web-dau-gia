@@ -1,11 +1,11 @@
 var Q = require('q');
 var mysql = require('mysql');
 
-var HOST = 'sl-us-south-1-portal.0.dblayer.com',
-    DB = 'auctions',
+var HOST = 'sl-eu-fra-2-portal.0.dblayer.com',
+    DB = 'AuctionDB',
     USER = 'admin',
-    PWD = 'BESJAKDQVYPNMOAV',
-    PORT = '17322';
+    PWD = 'PYSQLMRWHKGVDTAS',
+    PORT = '15515';
 
 function connect() {
     var deferred = Q.defer();
