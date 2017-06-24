@@ -12,18 +12,18 @@ passport.use(new LocalStrategy({
 		var enPwd = crypto.createHash('md5').update(password).digest('hex');
 		User.getUserByEmail(email).then(function (user) {
 			if (!user) { return done(null, false, console.log('Unknown User')) };
-			if (user.Password != enPwd) { return done(null, false, console.log('Invalid password')) };
-			console.log(user);
+			if (user.password != enPwd) { return done(null, false, console.log('Invalid password')) };
 			return done(null, user);
 		});
 	}));
 passport.serializeUser(function (user, done) {
-	console.log(user.Email);
-	done(null, user.ID);
+	done(null, user.id);
 });
 passport.deserializeUser(function (id, done) {
 	User.getUserByID(id).then(function (user) {
-		done(err, user);
+
+	console.log(user);
+		done(null, user);
 	});
 });
 
@@ -33,6 +33,7 @@ module.exports = function (app) {
     app.get('/register', controllers.register.index);
     app.post('/register', controllers.register.addClient);
 
+<<<<<<< HEAD
     app.get('/', controllers.home.index);
 
     app.get('/addProduct', controllers.product.index);
@@ -41,16 +42,47 @@ module.exports = function (app) {
 <<<<<<< HEAD
 	app.get('/login',controllers.login.formLogin);
 	app.post('/login',passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),controllers.login.submit);
+=======
+	app.get('/', controllers.home.index);
+>>>>>>> 2a7479e1a2fef89a76e84cf238f3a6f05d61a7ed
 
+	
 	/**
 	 * Get information personal:
 	 */
-	app.get('/infor_person', controllers.information.information);
-=======
+	app.get('/information', controllers.information.information);
+
+	/**
+	 * Get list products auction: 
+	 */
+	app.get('/list_products_auction', controllers.information.list_products_auction);
+
+	/**
+	 * Get list products follows:
+	 */
+	app.get('/list_products_follows', controllers.information.list_products_follows);
+
+	/**
+	 * Get Result Auction:
+	 */
+	app.get('/list_products_auctioned', controllers.information.list_products_auctioned);
+
+	/**
+	 * Shipping Address:
+	 */
+	app.get('/shipping_address', controllers.information.shipping_address);
+
+	/**
+	 * Detail Feedback:
+	 */
+	app.get('/detail_feedback', controllers.information.detail_feedback);
+
+	/**
+	 * Login user
+	 */
 	app.get('/login', controllers.login.formLogin);
 	app.post('/login', passport.authenticate('local',{ successRedirect: '/',
                                    failureRedirect: '/login',
                                    failureFlash: true })
 	);
->>>>>>> d2e9940bd3793c33418b5df6cf5c2074a15c3d24
 };
