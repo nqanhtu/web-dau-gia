@@ -2,7 +2,7 @@ CREATE TABLE users (
     `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `full_name` TEXT NOT NULL,
     `email` TEXT NOT NULL,
-    `ADDress` TEXT NOT NULL,
+    `address` TEXT NOT NULL,
     `password` TEXT NOT NULL,
     `admin` INT NOT NULL DEFAULT 0,
     `like` INT UNSIGNED DEFAULT 0
