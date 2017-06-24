@@ -1,4 +1,4 @@
-var productModel = require('../models/productModel');
+var productModel = require('../models/ProductModel');
 
 var homeController = {
     index: function (req, res) {

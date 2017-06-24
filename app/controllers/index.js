@@ -1,7 +1,7 @@
 module.exports = {
-    register: require('./registerController'),
+    register: require('./RegisterController'),
     home: require('./homeController'),
-    product: require('./productController'),
+    product: require('./ProductController'),
     information: require('./InformationController'),
     login: require('./LoginController')
 };

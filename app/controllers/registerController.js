@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-var registerModel = require('../models/registerModel');
+var registerModel = require('../models/RegisterModel');
 
 var registerController = {
     index: function(req, res) {
