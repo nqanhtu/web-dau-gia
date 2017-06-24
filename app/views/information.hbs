@@ -10,25 +10,38 @@
 				<div class="form-group">
 					<label class="control-label col-md-3" for="name">Full name:</label>
 					<div class="col-md-6">
-						<input type="name" class="form-control" id="name" value = "{{user.fullName}}">
+						<input type="name" class="form-control" id="name" value = "{{user.fullName}}" disabled>
 					</div>
 				</div>	
 				<div class="form-group">
 					<label class="control-label col-md-3" for="email">Email:</label>
 					<div class="col-md-6">
-						<input type="email" class="form-control" id="email" value = "{{user.email}}">
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-md-3" for="password">Password:</label>
-					<div class="col-md-6">
-						<input type="password" class="form-control" id="password" value = "{{user.password}}">
+						<input type="email" class="form-control" id="email" value = "{{user.email}}" disabled>
 					</div>
 				</div>				
 				<div class="form-group">
 					<label class="control-label col-md-3" for="">Address:</label>
 					<div class="col-md-6">
 						<input type="text" class="form-control" id="address" value = "{{user.address}}" disabled>
+					</div>
+				</div>
+				<hr>
+				<div class="form-group">
+					<label class="control-label col-md-3" for="password">Old password:</label>
+					<div class="col-md-6">
+						<input type="password" class="form-control" id="password" value = "{{user.password}}" disabled>
+					</div>
+				</div>				
+				<div class="form-group">
+					<label class="control-label col-md-3" for="password">New password:</label>
+					<div class="col-md-6">
+						<input type="password" class="form-control" id="password" value = "{{user.password}}" disabled>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-3" for="password"> Retype new password:</label>
+					<div class="col-md-6">
+						<input type="password" class="form-control" id="password" value = "{{user.password}}"disabled> 
 					</div>
 				</div>
 				<div class="row">
@@ -47,6 +60,9 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+
+</script>
 {{#section 'profilemenu'}}
 	<li id="pro_1" class="active">
 		<a href="information">
