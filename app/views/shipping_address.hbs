@@ -1,0 +1,914 @@
+<div class="col-md-9">				
+    <div class="container-fluid">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                SHIPPING ADDRESS
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <br>
+                        <form id="edit-addaddress" class="form-horizontal" method="GET">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Họ tên:</label>
+                                <div class="col-md-8">
+                                    <input type="name" for="fullName" forType="1" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Email:</label>
+                                <div class="col-md-8">
+                                    <input type="email" for="email" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Số điện thoại:</label>
+                                <div class="col-md-8">
+                                    <input type="mobile" for="phoneNumber" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Địa chỉ:</label>
+                                <div class="col-md-8 ">
+                                    <input type="address" for="address" class="form-control" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Tỉnh thành:</label>
+                                <div class="col-md-8">
+                                    <select for="province" class="form-control">
+                                        <option value="1">Cao Bằng</option>
+                                        <option value="2">Bắc Ninh</option>
+                                        <option value="3">Hà Giang</option>
+                                        <option value="4">Lai Châu</option>
+                                        <option value="5">Lào Cai</option>
+                                        <option value="6">Bắc Kạn</option>
+                                        <option value="7">Tuyên Quang</option>
+                                        <option value="8">Hưng Yên</option>
+                                        <option value="9">Phú Yên</option>
+                                        <option value="10">Điện Biên</option>
+                                        <option value="11">Yên Bái</option>
+                                        <option value="12">Thái Nguyên</option>
+                                        <option value="13">Sóc Trăng</option>
+                                        <option value="14">Lạng Sơn</option>
+                                        <option value="15">Vĩnh Phúc</option>
+                                        <option value="16">Sơn La</option>
+                                        <option value="17">Phú Thọ</option>
+                                        <option value="18">Hà Nội</option>
+                                        <option value="19">Bắc Giang</option>
+                                        <option value="20">Quảng Ninh</option>
+                                        <option value="22">Hải Dương</option>
+                                        <option value="23">Hòa Bình</option>
+                                        <option value="24">Hải Phòng</option>
+                                        <option value="25">Hà Nam</option>
+                                        <option value="26">Thái Bình</option>
+                                        <option value="27">Ninh Bình</option>
+                                        <option value="28">Nam Định</option>
+                                        <option value="29">Thanh Hóa</option>
+                                        <option value="30">Nghệ An</option>
+                                        <option value="31">Hà Tĩnh</option>
+                                        <option value="32">Quảng Bình</option>
+                                        <option value="33">Quảng Trị</option>
+                                        <option value="34">Thừa Thiên Huế</option>
+                                        <option value="35">Đà Nẵng</option>
+                                        <option value="36">Quảng Nam </option>
+                                        <option value="37">Quảng Ngãi</option>
+                                        <option value="38">Kon Tum</option>
+                                        <option value="39">Bình Định </option>
+                                        <option value="40">Gia Lai</option>
+                                        <option value="42">Đăk Lăk </option>
+                                        <option value="43">Khánh Hòa</option>
+                                        <option value="44">Đăk Nông</option>
+                                        <option value="45">Bình Phước </option>
+                                        <option value="46">Lâm Đồng</option>
+                                        <option value="47">Ninh Thuận</option>
+                                        <option value="48">Tây Ninh</option>
+                                        <option value="49">Bình Dương</option>
+                                        <option value="50">Đồng Nai</option>
+                                        <option value="51">Bình Thuận</option>
+                                        <option value="52">TP. Hồ Chí Minh</option>
+                                        <option value="53">Long An </option>
+                                        <option value="54">Bà Rịa -  Vũng Tàu</option>
+                                        <option value="56">An Giang</option>
+                                        <option value="57">Đồng Tháp</option>
+                                        <option value="58">Tiền Giang</option>
+                                        <option value="59">Cần Thơ</option>
+                                        <option value="60">Bến Tre</option>
+                                        <option value="61">Vĩnh Long</option>
+                                        <option value="62">Kiên Giang</option>
+                                        <option value="63">Hậu Giang</option>
+                                        <option value="64">Trà Vinh</option>
+                                        <option value="65">Bạc Liêu</option>
+                                        <option value="68">Cà Mau</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Quận/Huyện:</label>
+                                <div class="col-md-8">
+                                    <select for="district" class="form-control">
+                                        <option value="1" province="1" >Huyện Thạch An</option>
+                                        <option value="2" province="1" >Huyện Trà Lĩnh</option>
+                                        <option value="3" province="1" >Huyện Hạ Lang</option>
+                                        <option value="4" province="1" >Huyện Nguyên Bình</option>
+                                        <option value="5" province="1" >Huyện Bảo Lạc</option>
+                                        <option value="6" province="1" >Huyện Phục Hòa</option>
+                                        <option value="7" province="1" >Huyện Trùng Khánh</option>
+                                        <option value="8" province="1" >Huyện Hòa An</option>
+                                        <option value="9" province="1" >Huyện Quảng Uyên</option>
+                                        <option value="10" province="1" >Huyện Thông Nông</option>
+                                        <option value="11" province="1" >Huyện Bảo Lâm</option>
+                                        <option value="12" province="1" >Thành Phố Cao Bằng</option>
+                                        <option value="13" province="1" >Huyện Hà Quảng</option>
+                                        <option value="14" province="2" >Huyện Lương Tài</option>
+                                        <option value="15" province="2" >Thành Phố Bắc Ninh</option>
+                                        <option value="16" province="2" >Huyện Gia Bình</option>
+                                        <option value="17" province="2" >Huyện Thuận Thành</option>
+                                        <option value="18" province="2" >Huyện Quế Võ</option>
+                                        <option value="19" province="2" >Huyện Yên Phong</option>
+                                        <option value="20" province="2" >Huyện Tiên Du</option>
+                                        <option value="21" province="2" >Huyện Từ Sơn</option>
+                                        <option value="22" province="3" >Huyện Hoàng Su Phì</option>
+                                        <option value="23" province="3" >Huyện Mèo Vạc</option>
+                                        <option value="24" province="3" >Huyện Quang Bình</option>
+                                        <option value="25" province="3" >Huyện Quản Bạ</option>
+                                        <option value="26" province="3" >Huyện Vị Xuyên</option>
+                                        <option value="27" province="3" >Huyện Bắc Mê</option>
+                                        <option value="28" province="3" >Huyện Xín Mần</option>
+                                        <option value="29" province="3" >Huyện Bắc Quang</option>
+                                        <option value="30" province="3" >Thành Phố Hà Giang</option>
+                                        <option value="31" province="3" >Huyện Đồng Văn</option>
+                                        <option value="32" province="3" >Huyện Yên Minh</option>
+                                        <option value="33" province="4" >Huyện Tam Đường</option>
+                                        <option value="34" province="4" >Huyện Phong Thổ</option>
+                                        <option value="35" province="4" >Huyện Sìn Hồ</option>
+                                        <option value="36" province="4" >Huyện Than Uyên</option>
+                                        <option value="37" province="4" >Huyện Mường Tè</option>
+                                        <option value="38" province="4" >Thành phố Lai Châu</option>
+                                        <option value="39" province="4" >Huyện Tân Uyên</option>
+                                        <option value="40" province="5" >Thành Phố Lào Cai</option>
+                                        <option value="41" province="5" >Huyện Sa Pa</option>
+                                        <option value="42" province="5" >Huyện Mường Khương</option>
+                                        <option value="43" province="5" >Huyện Bát Xát</option>
+                                        <option value="44" province="5" >Huyện Bảo Thắng</option>
+                                        <option value="45" province="5" >Huyện Văn Bàn</option>
+                                        <option value="46" province="5" >Huyện Bắc Hà</option>
+                                        <option value="47" province="5" >Huyện Si Ma Cai</option>
+                                        <option value="48" province="5" >Huyện Bảo Yên</option>
+                                        <option value="49" province="6" >Huyện Chợ Mới</option>
+                                        <option value="50" province="6" >Huyện Chợ đồn</option>
+                                        <option value="51" province="6" >Huyện Ngân Sơn</option>
+                                        <option value="52" province="6" >Thành Phố Bắc Kạn</option>
+                                        <option value="53" province="6" >Huyện Pắc Nặm</option>
+                                        <option value="54" province="6" >Huyện Na Rì</option>
+                                        <option value="55" province="6" >Huyện Bạch Thông</option>
+                                        <option value="56" province="6" >Huyện Ba Bể</option>
+                                        <option value="57" province="7" >Thành phố Tuyên Quang</option>
+                                        <option value="58" province="7" >Huyện Yên Sơn</option>
+                                        <option value="59" province="7" >Huyện Hàm Yên</option>
+                                        <option value="60" province="7" >Huyện Sơn Dương</option>
+                                        <option value="61" province="7" >Huyện Chiêm Hóa</option>
+                                        <option value="62" province="7" >Huyện Nà Hang</option>
+                                        <option value="63" province="8" >Huyện Phù Cừ</option>
+                                        <option value="64" province="8" >Huyện Văn Lâm</option>
+                                        <option value="65" province="8" >Huyện Khoái Châu</option>
+                                        <option value="66" province="8" >Huyện Yên Mỹ</option>
+                                        <option value="67" province="8" >Huyện Ân Thi</option>
+                                        <option value="68" province="8" >Thành Phố Hưng Yên</option>
+                                        <option value="69" province="8" >Huyện Văn Giang</option>
+                                        <option value="70" province="8" >Huyện Mỹ Hào</option>
+                                        <option value="71" province="8" >Huyện Kim Động</option>
+                                        <option value="72" province="8" >Huyện Tiên Lữ </option>
+                                        <option value="73" province="9" >Huyện Phú Hòa</option>
+                                        <option value="74" province="9" >Thị Xã Sông Cầu</option>
+                                        <option value="75" province="9" >Huyện Tuy An</option>
+                                        <option value="76" province="9" >Huyện Sông Hinh</option>
+                                        <option value="77" province="9" >Huyện Tây Hòa</option>
+                                        <option value="78" province="9" >Huyện Đông Hòa</option>
+                                        <option value="79" province="9" >Thành Phố Tuy Hòa</option>
+                                        <option value="80" province="9" >Huyện Sơn Hòa</option>
+                                        <option value="81" province="9" >Huyện Đồng Xuân</option>
+                                        <option value="82" province="10" >Thành Phố Điện Biên Phủ</option>
+                                        <option value="83" province="10" >Huyện Điện Biên</option>
+                                        <option value="84" province="10" >Huyện Điện Biên Đông</option>
+                                        <option value="85" province="10" >Thị Xã Mường Lay</option>
+                                        <option value="86" province="10" >Huyện Tủa Chùa</option>
+                                        <option value="87" province="10" >Huyện Mường Nhé</option>
+                                        <option value="88" province="10" >Huyện Mường Chà</option>
+                                        <option value="89" province="10" >Huyện Mường Áng</option>
+                                        <option value="90" province="10" >Huyện Tuần Giáo</option>
+                                        <option value="91" province="11" >Huyện Văn Chấn</option>
+                                        <option value="92" province="11" >Huyện Văn Yên</option>
+                                        <option value="93" province="11" >Huyện Trấn Yên</option>
+                                        <option value="94" province="11" >Huyện Yên Bình</option>
+                                        <option value="95" province="11" >Huyện Trạm Tấu</option>
+                                        <option value="96" province="11" >Huyện Lục Yên</option>
+                                        <option value="97" province="11" >Thị Xã Nghĩa Lộ</option>
+                                        <option value="98" province="11" >Thành Phố Yên Bái</option>
+                                        <option value="99" province="11" >Huyện Mù Căng Chải</option>
+                                        <option value="100" province="12" >Huyện Phổ Yên</option>
+                                        <option value="101" province="12" >Huyện Phú Lương </option>
+                                        <option value="102" province="12" >Huyện Võ Nhai</option>
+                                        <option value="103" province="12" >Thành Phố Thái Nguyên</option>
+                                        <option value="104" province="12" >Huyện Phú Bình</option>
+                                        <option value="105" province="12" >Huyện Đồng Hỷ</option>
+                                        <option value="106" province="12" >Huyện Đại Từ</option>
+                                        <option value="107" province="12" >Huyện Định Hóa</option>
+                                        <option value="108" province="12" >Thị Xã Sông Công</option>
+                                        <option value="109" province="13" >Huyện Long Phú</option>
+                                        <option value="110" province="13" >Thị Xã Vĩnh Châu</option>
+                                        <option value="111" province="13" >Huyện Thạnh Trị</option>
+                                        <option value="112" province="13" >Huyện Châu Thành</option>
+                                        <option value="113" province="13" >Huyện Ngã Năm</option>
+                                        <option value="114" province="13" >Huyện Kế Sách</option>
+                                        <option value="115" province="13" >Huyện Cù Lao Dung</option>
+                                        <option value="116" province="13" >Thành Phố Sóc Trăng</option>
+                                        <option value="117" province="13" >Huyện Mỹ Xuyên</option>
+                                        <option value="118" province="13" >Huyện Mỹ Tú</option>
+                                        <option value="119" province="14" >Huyện Văn Quan</option>
+                                        <option value="120" province="14" >Huyện Hữu Lũng</option>
+                                        <option value="121" province="14" >Huyện Chi Lăng</option>
+                                        <option value="122" province="14" >Thành Phố Lạng Sơn</option>
+                                        <option value="123" province="14" >Huyện Bắc Sơn</option>
+                                        <option value="124" province="14" >Huyện Văn Lãng</option>
+                                        <option value="125" province="14" >Huyện Bình Gia</option>
+                                        <option value="126" province="14" >Huyện Tràng Định</option>
+                                        <option value="127" province="14" >Huyện Lộc Bình</option>
+                                        <option value="128" province="14" >Huyện Cao Lộc</option>
+                                        <option value="129" province="14" >Huyện Đình Lập</option>
+                                        <option value="130" province="15" >Thị Xã Phúc Yên</option>
+                                        <option value="131" province="15" >Huyện Vĩnh Tường</option>
+                                        <option value="132" province="15" >Thành Phố Vĩnh Yên</option>
+                                        <option value="133" province="15" >Huyên Yên Lạc</option>
+                                        <option value="134" province="15" >Huyện Lập Thạch</option>
+                                        <option value="135" province="15" >Huỵên Tam Đảo</option>
+                                        <option value="136" province="15" >Huyện Tam Dương</option>
+                                        <option value="137" province="15" >Huyện Bình Xuyên</option>
+                                        <option value="138" province="15" >Huyện Sông Lô</option>
+                                        <option value="139" province="16" >Huyện Quỳnh Nhai</option>
+                                        <option value="140" province="16" >Huyện Mường La</option>
+                                        <option value="141" province="16" >Huyện Sông Mã</option>
+                                        <option value="142" province="16" >Thành phố Sơn La</option>
+                                        <option value="143" province="16" >Huyện Mai Sơn</option>
+                                        <option value="144" province="16" >Huyện Phù Yên</option>
+                                        <option value="145" province="16" >Huyện Sốp Cộp</option>
+                                        <option value="146" province="16" >Huyện Thuận Châu</option>
+                                        <option value="147" province="16" >Huyện Bắc Yên</option>
+                                        <option value="148" province="16" >Huyện Mộc Châu</option>
+                                        <option value="149" province="16" >Huyện Yên Châu</option>
+                                        <option value="150" province="17" >Thi Xã Phú Thọ</option>
+                                        <option value="151" province="17" >Huyện Thanh Ba</option>
+                                        <option value="152" province="17" >Thành Phố Việt Trì</option>
+                                        <option value="153" province="17" >Huyện Đoan Hùng</option>
+                                        <option value="154" province="17" >Huyện Thanh Thủy</option>
+                                        <option value="155" province="17" >Huyện Phù Ninh</option>
+                                        <option value="156" province="17" >Huyện Thanh Sơn</option>
+                                        <option value="157" province="17" >Huyện Tân Sơn</option>
+                                        <option value="158" province="17" >Huyện Yên Lập</option>
+                                        <option value="159" province="17" >Huyện Cẩm Khê</option>
+                                        <option value="160" province="17" >Huyện Tam Nông</option>
+                                        <option value="161" province="17" >Huyện Lâm Thao</option>
+                                        <option value="162" province="17" >Huyện Hạ Hòa</option>
+                                        <option value="163" province="18" >Quận Hoàn Kiếm</option>
+                                        <option value="164" province="18" >Huyện Ba Vì</option>
+                                        <option value="165" province="18" >Quận Nam Từ Liêm</option>
+                                        <option value="166" province="18" >Huyện Hoài Đức</option>
+                                        <option value="167" province="18" >Quận Hoàng Mai</option>
+                                        <option value="168" province="18" >Huyện Thạch Thất</option>
+                                        <option value="169" province="18" >Huyện Chương Mỹ</option>
+                                        <option value="170" province="18" >Quận Hà Đông</option>
+                                        <option value="171" province="18" >Huyện Sóc Sơn</option>
+                                        <option value="172" province="18" >Huyện Gia Lâm</option>
+                                        <option value="173" province="18" >Quận Hai Bà Trưng</option>
+                                        <option value="174" province="18" >Quận Tây Hồ</option>
+                                        <option value="175" province="18" >Huyện Mê Linh</option>
+                                        <option value="176" province="18" >Huyện Thanh Trì</option>
+                                        <option value="177" province="18" >Huyện Ứng Hòa</option>
+                                        <option value="178" province="18" >Quận Cầu Giấy</option>
+                                        <option value="179" province="18" >Huyện Phúc Thọ</option>
+                                        <option value="180" province="18" >Huyện Thanh Oai</option>
+                                        <option value="181" province="18" >Huyện Thường Tín</option>
+                                        <option value="182" province="18" >Huyện Mỹ Đức</option>
+                                        <option value="183" province="18" >Thị Xã Sơn Tây</option>
+                                        <option value="184" province="18" >Huyện Phú Xuyên</option>
+                                        <option value="185" province="18" >Huyện Đan Phượng</option>
+                                        <option value="186" province="18" >Quận Long Biên</option>
+                                        <option value="187" province="18" >Huyện Quốc Oai</option>
+                                        <option value="188" province="18" >Huyện Đông Anh</option>
+                                        <option value="189" province="18" >Quận Ba Đình</option>
+                                        <option value="190" province="18" >Quận Thanh Xuân</option>
+                                        <option value="191" province="18" >Quận Đống Đa</option>
+                                        <option value="192" province="19" >Thành Phố Bắc Giang</option>
+                                        <option value="193" province="19" >Huyện Hiệp Hòa</option>
+                                        <option value="194" province="19" >Huyện Việt Yên</option>
+                                        <option value="195" province="19" >Huyện Sơn Động</option>
+                                        <option value="196" province="19" >Huyện Yên Thế</option>
+                                        <option value="197" province="19" >Huyện Yên Dũng</option>
+                                        <option value="198" province="19" >Huyện Lục Ngạn</option>
+                                        <option value="199" province="19" >Huyện Lục Nam</option>
+                                        <option value="200" province="19" >Huyện Lạng Giang</option>
+                                        <option value="201" province="19" >Huyện Tân Yên</option>
+                                        <option value="202" province="20" >Huyện Tiên Yên</option>
+                                        <option value="203" province="20" >Thành phố Uông Bí</option>
+                                        <option value="204" province="20" >Thị Xã Quảng Yên</option>
+                                        <option value="205" province="20" >Huyện Đông Triều</option>
+                                        <option value="206" province="20" >Huyện Ba Chẽ</option>
+                                        <option value="207" province="20" >Huyện Bình Liêu</option>
+                                        <option value="208" province="20" >Huyện Đầm Hà</option>
+                                        <option value="209" province="20" >Huyện Hoành Bồ</option>
+                                        <option value="210" province="20" >Huyện Vân Đồn</option>
+                                        <option value="211" province="20" >Thành phố Cẩm Phả</option>
+                                        <option value="212" province="20" >Huyện Cô Tô</option>
+                                        <option value="213" province="20" >Thành Phố Móng Cái</option>
+                                        <option value="214" province="20" >Huyện Hải Hà</option>
+                                        <option value="215" province="20" >Thành Phố Hạ Long</option>
+                                        <option value="216" province="22" >Thành Phố Hải Dương</option>
+                                        <option value="217" province="22" >Huyện Ninh Giang</option>
+                                        <option value="218" province="22" >Huyện Tứ Kỳ</option>
+                                        <option value="219" province="22" >Huyện Thanh Hà </option>
+                                        <option value="220" province="22" >Huyện Cẩm Giàng</option>
+                                        <option value="221" province="22" >Huyện Kim Thành </option>
+                                        <option value="222" province="22" >Huyện Thanh Miện</option>
+                                        <option value="223" province="22" >Huyện Nam Sách</option>
+                                        <option value="224" province="22" >Huyện Kinh Môn</option>
+                                        <option value="225" province="22" >Thị Xã Chí Linh</option>
+                                        <option value="226" province="22" >Huyện Bình Giang</option>
+                                        <option value="227" province="22" >Huyện Gia Lộc</option>
+                                        <option value="228" province="23" >Huyện Kỳ Sơn</option>
+                                        <option value="229" province="23" >Huyện Đà Bắc</option>
+                                        <option value="230" province="23" >Huyện Lạc Thủy</option>
+                                        <option value="231" province="23" >Huyện Kim Bôi</option>
+                                        <option value="232" province="23" >Huyện Tân Lạc</option>
+                                        <option value="233" province="23" >Huyện Lạc Sơn</option>
+                                        <option value="234" province="23" >Huyện Lương Sơn</option>
+                                        <option value="235" province="23" >Huyện Mai Châu</option>
+                                        <option value="236" province="23" >Huyện Yên Thủy</option>
+                                        <option value="237" province="23" >Thành Phố Hòa Bình</option>
+                                        <option value="238" province="23" >Huyện Cao Phong</option>
+                                        <option value="239" province="24" >Quận Hồng Bàng</option>
+                                        <option value="240" province="24" >Quận Đồ Sơn</option>
+                                        <option value="241" province="24" >Quận Lê Chân</option>
+                                        <option value="242" province="24" >Huyện An Dương</option>
+                                        <option value="243" province="24" >Huyện Đảo Bạch Long Vĩ</option>
+                                        <option value="244" province="24" >Huyện Kiến Thụy</option>
+                                        <option value="245" province="24" >Quận Hải An</option>
+                                        <option value="246" province="24" >Quận Dương Kinh</option>
+                                        <option value="247" province="24" >Huyện An Lão</option>
+                                        <option value="248" province="24" >Huyện Vĩnh Bảo</option>
+                                        <option value="249" province="24" >Quận Kiến An</option>
+                                        <option value="250" province="24" >Huyện Đảo Cát Hải</option>
+                                        <option value="251" province="24" >Huyện Thủy Nguyên</option>
+                                        <option value="252" province="24" >Quận Ngô Quyền</option>
+                                        <option value="253" province="24" >Huyện Tiên Lãng</option>
+                                        <option value="254" province="25" >Huyện Duy Tiên</option>
+                                        <option value="255" province="25" >Huyện Kim Bảng</option>
+                                        <option value="256" province="25" >Huyện Lý Nhân</option>
+                                        <option value="257" province="25" >Huyện Bình Lục</option>
+                                        <option value="258" province="25" >Thành Phố Phủ Lý</option>
+                                        <option value="259" province="25" >Huyện Thanh Liêm</option>
+                                        <option value="260" province="26" >Huyện Thái Thụy</option>
+                                        <option value="261" province="26" >Huyện Vũ Thư</option>
+                                        <option value="262" province="26" >Huyện Quỳnh Phụ</option>
+                                        <option value="263" province="26" >Huyện Hưng Hà</option>
+                                        <option value="264" province="26" >Huyện Quỳnh Côi</option>
+                                        <option value="265" province="26" >Thành Phố Thái Bình</option>
+                                        <option value="266" province="26" >Huyện Đông Hưng</option>
+                                        <option value="267" province="26" >Huyện Tiền Hải</option>
+                                        <option value="268" province="26" >Huyện Kiến Xương</option>
+                                        <option value="269" province="27" >Thành Phố Ninh Bình</option>
+                                        <option value="270" province="27" >Thị Xã Tam điệp</option>
+                                        <option value="271" province="27" >Huyện Kim Sơn</option>
+                                        <option value="272" province="27" >Huyện Nho Quan</option>
+                                        <option value="273" province="27" >Huyện Gia Viễn</option>
+                                        <option value="274" province="27" >Huyện Hoa Lư</option>
+                                        <option value="275" province="27" >Huyện Yên Mô</option>
+                                        <option value="276" province="27" >Huyện Ý Yên</option>
+                                        <option value="277" province="27" >Huyện Yên Khánh</option>
+                                        <option value="278" province="28" >Huyện Ý Yên</option>
+                                        <option value="279" province="28" >Huyện Nam Trực</option>
+                                        <option value="280" province="28" >Huyện Trực Ninh</option>
+                                        <option value="281" province="28" >Huyện Mỹ Lộc</option>
+                                        <option value="282" province="28" >Huyện Xuân Trường</option>
+                                        <option value="283" province="28" >Huyện Giao Thủy</option>
+                                        <option value="284" province="28" >Huyện Nghĩa Hưng</option>
+                                        <option value="285" province="28" >Thành Phố Nam định</option>
+                                        <option value="286" province="28" >Huyện Hải Hậu</option>
+                                        <option value="287" province="28" >Huyện Vụ Bản</option>
+                                        <option value="288" province="29" >Huyện Ngọc Lặc</option>
+                                        <option value="289" province="29" >Huyện Hoằng Hóa</option>
+                                        <option value="290" province="29" >Huyện Quan Sơn</option>
+                                        <option value="291" province="29" >Huyện Thọ Xuân</option>
+                                        <option value="292" province="29" >Huyện Thạch Thành</option>
+                                        <option value="293" province="29" >Thị Xã Sầm Sơn</option>
+                                        <option value="294" province="29" >Huyện Quảng Xương</option>
+                                        <option value="295" province="29" >Huyện Nga Sơn</option>
+                                        <option value="296" province="29" >Huyện Đông Sơn</option>
+                                        <option value="297" province="29" >Huyện Vĩnh Lộc</option>
+                                        <option value="298" province="29" >Huyện Lang Chánh</option>
+                                        <option value="299" province="29" >Thành Phố Thanh Hóa</option>
+                                        <option value="300" province="29" >Huyện Triệu Sơn</option>
+                                        <option value="301" province="29" >Huyện Nông Cống</option>
+                                        <option value="302" province="29" >Huyện Tĩnh Gia</option>
+                                        <option value="303" province="29" >Huyện Thường Xuân</option>
+                                        <option value="304" province="29" >Huyện Yên định</option>
+                                        <option value="305" province="29" >Huyện Như Xuân</option>
+                                        <option value="306" province="29" >Huyện Bá Thước</option>
+                                        <option value="307" province="29" >Huyện Hậu Lộc</option>
+                                        <option value="308" province="29" >Huyện Như Thanh</option>
+                                        <option value="309" province="29" >Thị Xã Bỉm Sơn</option>
+                                        <option value="310" province="29" >Huyện Hà Trung</option>
+                                        <option value="311" province="29" >Huyện Thiệu Hóa</option>
+                                        <option value="312" province="29" >Huyện Mường Lát</option>
+                                        <option value="313" province="29" >Huyện Cẩm Thủy</option>
+                                        <option value="314" province="29" >Huyện Quan Hóa</option>
+                                        <option value="315" province="30" >Huyện Anh Sơn</option>
+                                        <option value="316" province="30" >Huyện Thanh Chương</option>
+                                        <option value="317" province="30" >Huyện Quỳnh Lưu</option>
+                                        <option value="318" province="30" >Huyện Quỳ Hợp</option>
+                                        <option value="319" province="30" >Huyện Con Cuông</option>
+                                        <option value="320" province="30" >Huyện Hưng Nguyên</option>
+                                        <option value="321" province="30" >Huyện Nghĩa Đàn</option>
+                                        <option value="322" province="30" >Thị Xã Thái Hòa</option>
+                                        <option value="323" province="30" >Huyện Quỳ Châu</option>
+                                        <option value="324" province="30" >Thị Xã Cửa Lò</option>
+                                        <option value="325" province="30" >Huyện Tương Dương</option>
+                                        <option value="326" province="30" >Huyện Quế Phong</option>
+                                        <option value="327" province="30" >Huyện Nam Đàn</option>
+                                        <option value="328" province="30" >Huyện Tân Kỳ</option>
+                                        <option value="329" province="30" >Huyện Diễn Châu</option>
+                                        <option value="330" province="30" >Huyện Kỳ Sơn</option>
+                                        <option value="331" province="30" >Thành Phố Vinh</option>
+                                        <option value="332" province="30" >Huyện Đô Lương</option>
+                                        <option value="333" province="30" >Huyện Nghi Lộc</option>
+                                        <option value="334" province="30" >Huyện Yên Thành</option>
+                                        <option value="335" province="31" >Huyện Vũ Quang</option>
+                                        <option value="336" province="31" >Huyện Đức Thọ</option>
+                                        <option value="337" province="31" >Huyện Can Lộc</option>
+                                        <option value="338" province="31" >Huyện Lộc Hà</option>
+                                        <option value="339" province="31" >Thị Xã Hồng Lĩnh</option>
+                                        <option value="340" province="31" >Huyện Nghi Xuân</option>
+                                        <option value="341" province="31" >Huyện Hương Sơn</option>
+                                        <option value="342" province="31" >Huyện Hương Khê</option>
+                                        <option value="343" province="31" >Huyện Cẩm Xuyên</option>
+                                        <option value="344" province="31" >Huyện Kỳ Anh</option>
+                                        <option value="345" province="31" >Thành Phố Hà Tĩnh</option>
+                                        <option value="346" province="31" >Huyện Thạch Hà</option>
+                                        <option value="347" province="32" >Huyện Lệ Thủy</option>
+                                        <option value="348" province="32" >Huyện Tuyên Hóa</option>
+                                        <option value="349" province="32" >Thành Phố Đồng Hới</option>
+                                        <option value="350" province="32" >Huyện Bố Trạch</option>
+                                        <option value="351" province="32" >Huyện Quảng Trạch</option>
+                                        <option value="352" province="32" >Huyện Minh Hóa</option>
+                                        <option value="353" province="32" >Huyện Quảng Ninh</option>
+                                        <option value="354" province="33" >Huyện Triệu Phong</option>
+                                        <option value="355" province="33" >Thành Phố đông Hà</option>
+                                        <option value="356" province="33" >Huyện Gio Linh</option>
+                                        <option value="357" province="33" >Huyện Hướng Hóa</option>
+                                        <option value="358" province="33" >Thị Xã Quảng Trị</option>
+                                        <option value="359" province="33" >Huyện Cam Lộ</option>
+                                        <option value="360" province="33" >Huyện Đảo Cồn Cỏ</option>
+                                        <option value="361" province="33" >Huyện Đak Rông</option>
+                                        <option value="362" province="33" >Huyện Hải Lăng</option>
+                                        <option value="363" province="33" >Huyện Vĩnh Linh</option>
+                                        <option value="364" province="34" >Huyện Hương Trà</option>
+                                        <option value="365" province="34" >Huyện Phú Vang</option>
+                                        <option value="366" province="34" >Huyện Phú Lộc</option>
+                                        <option value="367" province="34" >Thị Xã Hương Thủy</option>
+                                        <option value="368" province="34" >Huyện A Lưới</option>
+                                        <option value="369" province="34" >Huyện Phong Điền</option>
+                                        <option value="370" province="34" >Huyện Quảng Điền</option>
+                                        <option value="371" province="34" >Thành Phố Huế</option>
+                                        <option value="372" province="34" >Huyện Nam đông</option>
+                                        <option value="373" province="35" >Quận Cẩm Lệ</option>
+                                        <option value="374" province="35" >Quận Thanh Khê</option>
+                                        <option value="375" province="35" >Quận Ngũ Hành Sơn</option>
+                                        <option value="376" province="35" >Quận Hải Châu</option>
+                                        <option value="377" province="35" >Quận Sơn Trà</option>
+                                        <option value="378" province="35" >Huyện Hòa Vang</option>
+                                        <option value="379" province="35" >Quận Liên Chiểu</option>
+                                        <option value="380" province="35" >Huyện Hoàng Sa</option>
+                                        <option value="381" province="36" >Huyện Phú Ninh</option>
+                                        <option value="382" province="36" >Huyện Phước Sơn</option>
+                                        <option value="383" province="36" >Huyện Đại Lộc</option>
+                                        <option value="384" province="36" >Huyện Nam Giang</option>
+                                        <option value="385" province="36" >Huyện Thăng Bình</option>
+                                        <option value="386" province="36" >Thành Phố Tam Kỳ</option>
+                                        <option value="387" province="36" >Huyện Nam Trà My</option>
+                                        <option value="388" province="36" >Huyện Đông Giang</option>
+                                        <option value="389" province="36" >Huyện Bắc Trà My</option>
+                                        <option value="390" province="36" >Huyện Tây Giang</option>
+                                        <option value="391" province="36" >Thành Phố Hội An</option>
+                                        <option value="392" province="36" >Huyện Tiên Phước</option>
+                                        <option value="393" province="36" >Huyện Hiệp Đức</option>
+                                        <option value="394" province="36" >Huyện Điện Bàn</option>
+                                        <option value="395" province="36" >Huyện Duy Xuyên</option>
+                                        <option value="396" province="36" >Huyện Quế Sơn</option>
+                                        <option value="397" province="36" >Huyện Nông Sơn</option>
+                                        <option value="398" province="36" >Huyện Núi Thành</option>
+                                        <option value="399" province="37" >Huyện Nghĩa Hành</option>
+                                        <option value="400" province="37" >Huyện Tư Nghĩa</option>
+                                        <option value="401" province="37" >Huyện Ba Tơ</option>
+                                        <option value="402" province="37" >Huyện Minh Long</option>
+                                        <option value="403" province="37" >Huyện Bình Sơn</option>
+                                        <option value="404" province="37" >Thành Phố Quảng Ngãi</option>
+                                        <option value="405" province="37" >Huyện Mộ đức</option>
+                                        <option value="406" province="37" >Huyện Sơn Tây</option>
+                                        <option value="407" province="37" >Huyện Trà Bồng</option>
+                                        <option value="408" province="37" >Huyện Tây Trà</option>
+                                        <option value="409" province="37" >Huyện Lý Sơn</option>
+                                        <option value="410" province="37" >Huyện Sơn Hà</option>
+                                        <option value="411" province="37" >Huyện đức Phổ</option>
+                                        <option value="412" province="37" >Huyện Sơn Tịnh</option>
+                                        <option value="413" province="38" >Huyện Đắk Hà</option>
+                                        <option value="414" province="38" >Huyện Đắk Glei</option>
+                                        <option value="415" province="38" >Huyện Sa Thầy</option>
+                                        <option value="416" province="38" >Huyện Tu Mơ Rông</option>
+                                        <option value="417" province="38" >Huyện Kon Plông</option>
+                                        <option value="418" province="38" >Thành Phố Kon Tum</option>
+                                        <option value="419" province="38" >Huyện Đắk Tô</option>
+                                        <option value="420" province="38" >Huyện Ngọc Hồi</option>
+                                        <option value="421" province="38" >Huyện Kon Rẫy</option>
+                                        <option value="422" province="39" >Huyên Tây Sơn</option>
+                                        <option value="423" province="39" >Huyện HoàI ân</option>
+                                        <option value="424" province="39" >Huyện Vân Canh</option>
+                                        <option value="425" province="39" >Huyện An Nhơn</option>
+                                        <option value="426" province="39" >Huyện HoàI Nhơn</option>
+                                        <option value="427" province="39" >Huyện Phù Cát</option>
+                                        <option value="429" province="39" >Huyện Vĩnh Thạnh</option>
+                                        <option value="430" province="39" >Thành Phố Quy Nhơn</option>
+                                        <option value="431" province="39" >Huyện Tuy Phước</option>
+                                        <option value="432" province="39" >Huyện Phù Mỹ</option>
+                                        <option value="433" province="40" >Huyện Chư Prông</option>
+                                        <option value="434" province="40" >Huyện Krông Pa</option>
+                                        <option value="435" province="40" >Huyện Phú Thiện</option>
+                                        <option value="436" province="40" >Thành Phố Pleiku</option>
+                                        <option value="437" province="40" >Huyện Đăk Đoa</option>
+                                        <option value="438" province="40" >Huyện Đăk Pơ</option>
+                                        <option value="439" province="40" >Huyện Ia Grai</option>
+                                        <option value="440" province="40" >Huyện Đức Cơ</option>
+                                        <option value="441" province="40" >Huyện Chư Sê</option>
+                                        <option value="442" province="40" >Huyện Kbang</option>
+                                        <option value="443" province="40" >Huyện Kông Chro</option>
+                                        <option value="444" province="40" >Huyện Mang Yang</option>
+                                        <option value="445" province="40" >Huyện Chư Păh</option>
+                                        <option value="446" province="40" >Huyện Ia Pa</option>
+                                        <option value="447" province="40" >Huyện Chư Pưh</option>
+                                        <option value="448" province="40" >Thị Xã An Khê</option>
+                                        <option value="449" province="40" >Thị Xã Ayun Pa</option>
+                                        <option value="450" province="42" >Huyện Krông Búk</option>
+                                        <option value="451" province="42" >Huyện Krông Năng</option>
+                                        <option value="452" province="42" >Thị Xã Buôn Hồ</option>
+                                        <option value="453" province="42" >Huyện Cư Kuin</option>
+                                        <option value="454" province="42" >Huyện Ea Kar</option>
+                                        <option value="455" province="42" >Thành Phố Buôn Ma Thuột</option>
+                                        <option value="456" province="42" >Huyện Krông A Na</option>
+                                        <option value="457" province="42" >Huyện Krông Pắk</option>
+                                        <option value="458" province="42" >Huyện Lắk</option>
+                                        <option value="459" province="42" >Huyện Cư M'gar</option>
+                                        <option value="460" province="42" >Huyện Buôn đôn</option>
+                                        <option value="461" province="42" >Huyện Ea Súp</option>
+                                        <option value="462" province="42" >Huyện Krông Bông</option>
+                                        <option value="463" province="42" >Huyện M'Đrắk</option>
+                                        <option value="464" province="42" >Huyện Ea H'leo</option>
+                                        <option value="465" province="43" >Thành Phố Nha Trang</option>
+                                        <option value="466" province="43" >Huyện Ninh Hòa</option>
+                                        <option value="467" province="43" >Huyện Khánh Sơn</option>
+                                        <option value="468" province="43" >Thành Phố Cam Ranh</option>
+                                        <option value="469" province="43" >Huyện Diên Khánh</option>
+                                        <option value="470" province="43" >Huyện Khánh Vĩnh</option>
+                                        <option value="471" province="43" >Huyện Vạn Ninh</option>
+                                        <option value="472" province="43" >Huyện Cam Lâm</option>
+                                        <option value="473" province="43" >Huyện Đảo Trường Sa</option>
+                                        <option value="474" province="44" >Huyện Đắk Glong</option>
+                                        <option value="475" province="44" >Huyện Tuy đức</option>
+                                        <option value="476" province="44" >Huyện Đăk R'lấp</option>
+                                        <option value="477" province="44" >Thị Xã Gia Nghĩa</option>
+                                        <option value="478" province="44" >Huyện Cư Jút</option>
+                                        <option value="479" province="44" >Huyện Krông Nô</option>
+                                        <option value="480" province="44" >Huyện Đắk Song</option>
+                                        <option value="481" province="44" >Huyện Đắk Mil</option>
+                                        <option value="482" province="45" >Huyện Bù đốp</option>
+                                        <option value="483" province="45" >Huyện Lộc Ninh</option>
+                                        <option value="484" province="45" >Thị Xã Phước Long</option>
+                                        <option value="485" province="45" >Thị Xã Đồng Xoài</option>
+                                        <option value="486" province="45" >Huyện Đồng Phú</option>
+                                        <option value="487" province="45" >Huyện Bù Gia Mập</option>
+                                        <option value="488" province="45" >Huyện Hớn Quản</option>
+                                        <option value="489" province="45" >Thị Xã Bình Long</option>
+                                        <option value="490" province="45" >Huyện Chơn Thành</option>
+                                        <option value="491" province="45" >Huyện Bù đăng</option>
+                                        <option value="492" province="46" >Huyện Đức Trọng</option>
+                                        <option value="493" province="46" >Huyện Lạc Dương</option>
+                                        <option value="494" province="46" >Huyện Bảo Lâm</option>
+                                        <option value="495" province="46" >Huyện Cát Tiên</option>
+                                        <option value="496" province="46" >Huyện Di Linh</option>
+                                        <option value="497" province="46" >Huyện Đạ Huoai</option>
+                                        <option value="498" province="46" >Huyện Lâm Hà</option>
+                                        <option value="499" province="46" >Thành Phố Đà Lạt</option>
+                                        <option value="500" province="46" >Huyện Đạ Tẻh</option>
+                                        <option value="501" province="46" >Huyện Đơn Dương</option>
+                                        <option value="502" province="46" >Huyện Đam Rông</option>
+                                        <option value="503" province="46" >Thị Xã Bảo Lộc</option>
+                                        <option value="504" province="47" >Huyện Bác Ái</option>
+                                        <option value="505" province="47" >Huyện Ninh Phước</option>
+                                        <option value="506" province="47" >Huyện Ninh Sơn</option>
+                                        <option value="507" province="47" >Huyện Thuận Nam</option>
+                                        <option value="508" province="47" >Huyện Ninh Hải</option>
+                                        <option value="509" province="47" >Huyện Thuận Bắc</option>
+                                        <option value="510" province="47" >Tp.Phan Rang - Tháp Chàm</option>
+                                        <option value="511" province="48" >Huyện Tân Châu</option>
+                                        <option value="512" province="48" >Huyện Châu Thành</option>
+                                        <option value="513" province="48" >Huyện Bến Cầu</option>
+                                        <option value="514" province="48" >Thị Xã Tây Ninh</option>
+                                        <option value="515" province="48" >Huyện Hòa Thành</option>
+                                        <option value="516" province="48" >Huyện Tân Biên</option>
+                                        <option value="517" province="48" >Huyện Gò Dầu</option>
+                                        <option value="518" province="48" >Huyện Trảng Bàng</option>
+                                        <option value="519" province="48" >Huyện Dương Minh Châu</option>
+                                        <option value="520" province="49" >Huyện Tân Uyên</option>
+                                        <option value="521" province="49" >Huyện Dĩ An</option>
+                                        <option value="522" province="49" >Huyện Bến Cát</option>
+                                        <option value="523" province="49" >Huyện Dầu Tiếng</option>
+                                        <option value="524" province="49" >Thị Xã Thủ Dầu Một</option>
+                                        <option value="525" province="49" >Huyện Thuận An</option>
+                                        <option value="526" province="49" >Huyện Phú Giáo</option>
+                                        <option value="527" province="50" >Huyện Trảng Bom</option>
+                                        <option value="528" province="50" >Thị Xã Long Khánh</option>
+                                        <option value="529" province="50" >Huyện Tân Phú</option>
+                                        <option value="530" province="50" >Huyện Thống Nhất</option>
+                                        <option value="531" province="50" >Huyện Vĩnh Cửu</option>
+                                        <option value="532" province="50" >Huyện Nhơn Trạch</option>
+                                        <option value="533" province="50" >Thành Phố Biên Hòa</option>
+                                        <option value="534" province="50" >Huyện Cẩm Mỹ</option>
+                                        <option value="535" province="50" >Huyện Xuân Lộc</option>
+                                        <option value="536" province="50" >Huyện Định Quán</option>
+                                        <option value="537" province="50" >Huyện Long Thành</option>
+                                        <option value="538" province="51" >Huyện Hàm Thuận Bắc</option>
+                                        <option value="539" province="51" >Huyện Đảo Phú Quý</option>
+                                        <option value="540" province="51" >Huyện Tuy Phong</option>
+                                        <option value="541" province="51" >Huyện Tánh Linh</option>
+                                        <option value="542" province="51" >Huyện Đức Linh</option>
+                                        <option value="543" province="51" >Thị Xã La Gi</option>
+                                        <option value="544" province="51" >Huyện Bắc Bình</option>
+                                        <option value="545" province="51" >Huyện Hàm Tân</option>
+                                        <option value="546" province="51" >Thành Phố Phan Thiết</option>
+                                        <option value="547" province="51" >Huyện Hàm Thuận Nam</option>
+                                        <option value="548" province="52" >Quận 6</option>
+                                        <option value="549" province="52" >Quận 5</option>
+                                        <option value="550" province="52" >Quận 3</option>
+                                        <option value="551" province="52" >Quận Tân Bình</option>
+                                        <option value="552" province="52" >Quận Tân Phú</option>
+                                        <option value="553" province="52" >Huyện Củ Chi</option>
+                                        <option value="554" province="52" >Huyện Nhà Bè</option>
+                                        <option value="555" province="52" >Quận 10</option>
+                                        <option value="556" province="52" >Quận 7</option>
+                                        <option value="557" province="52" >Quận 12</option>
+                                        <option value="558" province="52" >Quận 9</option>
+                                        <option value="559" province="52" >Huyện Cần Giờ</option>
+                                        <option value="560" province="52" >Quận 1</option>
+                                        <option value="561" province="52" >Quận Gò Vấp</option>
+                                        <option value="562" province="52" >Quận 11</option>
+                                        <option value="563" province="52" >Huyện Hóc Môn</option>
+                                        <option value="564" province="52" >Quận Bình Tân</option>
+                                        <option value="565" province="52" >Quận 8</option>
+                                        <option value="566" province="52" >Quận 4</option>
+                                        <option value="567" province="52" >Huyện Bình Chánh</option>
+                                        <option value="568" province="52" >Quận Thủ đức</option>
+                                        <option value="569" province="52" >Quận Bình Thạnh</option>
+                                        <option value="570" province="52" >Quận Phú Nhuận</option>
+                                        <option value="571" province="52" >Quận 2</option>
+                                        <option value="572" province="53" >Huyện Tân Trụ</option>
+                                        <option value="573" province="53" >Huyện Đức Huệ</option>
+                                        <option value="574" province="53" >Huyện Cần Guộc</option>
+                                        <option value="575" province="53" >Huyện Cần đước</option>
+                                        <option value="576" province="53" >Thành Phố Tân An</option>
+                                        <option value="577" province="53" >Huyện Thủ Thừa</option>
+                                        <option value="578" province="53" >Huyện Tân Hưng</option>
+                                        <option value="579" province="53" >Huyện Châu Thành</option>
+                                        <option value="580" province="53" >Huyện Bến Lức</option>
+                                        <option value="581" province="53" >Huyện Tân Thạnh</option>
+                                        <option value="582" province="53" >Huyện Thạnh Hóa</option>
+                                        <option value="583" province="53" >Huyện Mộc Hóa</option>
+                                        <option value="584" province="53" >Huyện Đức Hòa</option>
+                                        <option value="585" province="53" >Huyện Vĩnh Hưng</option>
+                                        <option value="586" province="54" >Thị Xã Bà Rịa</option>
+                                        <option value="587" province="54" >Huyện Tân Thành</option>
+                                        <option value="588" province="54" >Huyện Xuyên Mộc</option>
+                                        <option value="589" province="54" >Huyện Côn đảo</option>
+                                        <option value="590" province="54" >Huyện Long điền</option>
+                                        <option value="591" province="54" >Huyện Châu đức</option>
+                                        <option value="592" province="54" >Thành Phố Vũng Tàu</option>
+                                        <option value="593" province="54" >Huyện Đất Đỏ</option>
+                                        <option value="594" province="56" >Thị Xã Châu Đốc</option>
+                                        <option value="595" province="56" >Huyện Phú Tân</option>
+                                        <option value="596" province="56" >Huyện Thoại Sơn</option>
+                                        <option value="597" province="56" >Thành Phố Long Xuyên</option>
+                                        <option value="598" province="56" >Huyện An Phú</option>
+                                        <option value="599" province="56" >Huyện Chợ Mới</option>
+                                        <option value="600" province="56" >Huyện Châu Phú</option>
+                                        <option value="601" province="56" >Thị Xã Tân Châu</option>
+                                        <option value="602" province="56" >Huyện Tịnh Biên</option>
+                                        <option value="603" province="56" >Huyện Châu Thành</option>
+                                        <option value="604" province="56" >Huyện Tri Tôn</option>
+                                        <option value="605" province="57" >Huyện Tân Hồng</option>
+                                        <option value="606" province="57" >Huyện Thanh Bình</option>
+                                        <option value="607" province="57" >Huyện Lấp Vò</option>
+                                        <option value="608" province="57" >Huyện Tam Nông</option>
+                                        <option value="609" province="57" >Thành Phố Cao Lãnh</option>
+                                        <option value="610" province="57" >Huyện Tháp Mười</option>
+                                        <option value="611" province="57" >Huyện Lai Vung</option>
+                                        <option value="612" province="57" >Huyện Châu Thành</option>
+                                        <option value="613" province="57" >Huyện Hồng Ngự</option>
+                                        <option value="614" province="57" >Huyện Cao Lãnh</option>
+                                        <option value="615" province="57" >Thị Xã Sa Đéc</option>
+                                        <option value="616" province="58" >Thị Xã Gò Công</option>
+                                        <option value="617" province="58" >Huyện Tân Phú Đông</option>
+                                        <option value="618" province="58" >Huyện Chợ Gạo</option>
+                                        <option value="619" province="58" >Thành Phố Mỹ Tho</option>
+                                        <option value="620" province="58" >Huyện Cai Lậy</option>
+                                        <option value="621" province="58" >Huyện Gò Công Tây</option>
+                                        <option value="622" province="58" >Huyện Cái Bè</option>
+                                        <option value="623" province="58" >Huyện Gò Công Đông</option>
+                                        <option value="624" province="58" >Huyện Châu Thành</option>
+                                        <option value="625" province="58" >Huyện Tân Phước</option>
+                                        <option value="626" province="59" >Quận Ô Môn</option>
+                                        <option value="627" province="59" >Huyện Thới Lai</option>
+                                        <option value="628" province="59" >Quận Ninh Kiều</option>
+                                        <option value="629" province="59" >Quận Thốt Nốt</option>
+                                        <option value="630" province="59" >Quận Bình Thủy</option>
+                                        <option value="631" province="59" >Huyện Phụng Hiệp</option>
+                                        <option value="632" province="59" >Huyện Vĩnh Thạnh</option>
+                                        <option value="633" province="59" >Huyện Châu Thành A</option>
+                                        <option value="634" province="59" >Huyện Phong điền</option>
+                                        <option value="635" province="59" >Thị Xã Ngã Bảy</option>
+                                        <option value="636" province="59" >Quận Cái Răng</option>
+                                        <option value="637" province="59" >Huyện Cờ Đỏ</option>
+                                        <option value="638" province="60" >Huyện Ba Tri</option>
+                                        <option value="639" province="60" >Huyện Châu Thành</option>
+                                        <option value="640" province="60" >Huyện Chợ Lách</option>
+                                        <option value="641" province="60" >Huyện Bình Đại</option>
+                                        <option value="642" province="60" >Huyện Mỏ Cày Nam</option>
+                                        <option value="643" province="60" >Huyện Mỏ Cày Bắc</option>
+                                        <option value="644" province="60" >Thành Phố Bến Tre</option>
+                                        <option value="645" province="60" >Huyện Thạnh Phú</option>
+                                        <option value="646" province="60" >Huyện Giồng Trôm</option>
+                                        <option value="647" province="61" >Huyện Trà Ôn</option>
+                                        <option value="648" province="61" >Thành Phố Vĩnh Long</option>
+                                        <option value="649" province="61" >Huyện Bình Minh</option>
+                                        <option value="650" province="61" >Huyện Tam Bình</option>
+                                        <option value="651" province="61" >Huyện Long Hồ</option>
+                                        <option value="652" province="61" >Huyện Bình Tân</option>
+                                        <option value="653" province="61" >Huyện Vũng Liêm</option>
+                                        <option value="654" province="61" >Huyện Mang Thít</option>
+                                        <option value="655" province="62" >Huyện Gò Quao</option>
+                                        <option value="656" province="62" >Huyện An Biên</option>
+                                        <option value="657" province="62" >Huyện Giồng Riềng</option>
+                                        <option value="658" province="62" >Huyện U Minh Thượng</option>
+                                        <option value="659" province="62" >Huyện An Minh</option>
+                                        <option value="660" province="62" >Huyện Kiên Lương</option>
+                                        <option value="661" province="62" >Huyện Châu Thành</option>
+                                        <option value="662" province="62" >Huyện Hòn Đất</option>
+                                        <option value="663" province="62" >Huyên Giang Thành</option>
+                                        <option value="664" province="62" >Huyện Vĩnh Thuận</option>
+                                        <option value="665" province="62" >Thị Xã Hà Tiên</option>
+                                        <option value="666" province="62" >Thành Phố Rạch Giá</option>
+                                        <option value="667" province="62" >Huyện Tân Hiệp</option>
+                                        <option value="668" province="62" >Huyện Kiên Hải</option>
+                                        <option value="669" province="62" >Huyện Đảo Phú Quốc</option>
+                                        <option value="670" province="63" >Thành Phố Vị Thanh</option>
+                                        <option value="671" province="63" >Huyện Châu Thành A</option>
+                                        <option value="672" province="63" >Huyện Long Mỹ</option>
+                                        <option value="673" province="63" >Huyện Châu Thành </option>
+                                        <option value="674" province="63" >Huyện Vị Thủy</option>
+                                        <option value="675" province="63" >Thị Xã Ngã Bảy</option>
+                                        <option value="676" province="63" >Huyện Phụng Hiệp</option>
+                                        <option value="677" province="64" >Huyện Trà Cú</option>
+                                        <option value="678" province="64" >Huyện Duyên Hải</option>
+                                        <option value="679" province="64" >Huyện Cầu Kè</option>
+                                        <option value="680" province="64" >Huyện Càng Long</option>
+                                        <option value="681" province="64" >Huyện Châu Thành</option>
+                                        <option value="682" province="64" >Huyện Cầu Ngang</option>
+                                        <option value="683" province="64" >Thành Phố Trà Vinh</option>
+                                        <option value="684" province="64" >Huyện Tiểu Cần</option>
+                                        <option value="685" province="65" >Huyện Phước Long</option>
+                                        <option value="686" province="65" >Huyện Hòa Bình</option>
+                                        <option value="687" province="65" >Huyện Đông Hải</option>
+                                        <option value="688" province="65" >Thị Xã Bạc Liêu</option>
+                                        <option value="689" province="65" >Huyện Giá Rai</option>
+                                        <option value="690" province="65" >Huyện Vĩnh Lợi</option>
+                                        <option value="691" province="65" >Huyện Hồng Dân</option>
+                                        <option value="692" province="68" >Huyện Cái Nước</option>
+                                        <option value="693" province="68" >Huyện Năm Căn</option>
+                                        <option value="694" province="68" >Huyện Đầm Dơi</option>
+                                        <option value="695" province="68" >Huyện Ngọc Hiển</option>
+                                        <option value="696" province="68" >Huyện Thới Bình</option>
+                                        <option value="697" province="68" >Huyện Phú Tân</option>
+                                        <option value="698" province="68" >Thành Phố Cà Mau</option>
+                                        <option value="699" province="68" >Huyện U Minh</option>
+                                        <option value="700" province="68" >Huyện Trần Văn Thời</option>
+                                        <option value="702" province="7" >Huyện Lâm Bình</option>
+                                        <option value="704" province="10" >Huyện Nậm Pồ</option>
+                                        <option value="705" province="4" >Huyện Nậm Nhùn</option>
+                                        <option value="707" province="13" >Thị trấn Trần Đề</option>
+                                        <option value="713" province="4" >Huyện Tân Uyên</option>
+                                        <option value="714" province="16" >Huyện Vân Hồ</option>
+                                        <option value="717" province="18" >Quận Bắc Từ Liêm</option>
+                                        <option value="719" province="32" >Thị xã Ba Đồn</option>
+                                        <option value="720" province="30" >Thị xã Hoàng Mai</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group btn-step2">
+                                <div class="col-md-3"></div>
+
+                                <div class="col-md-3 text-center">
+                                    <button type="button" class="btn btn-primary" disabled><i class="fa fa-refresh"></i>  Cập nhật</button>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <button type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Thêm mới</button>
+                                </div>
+                            </div> 
+                        </form>
+                    </div>
+                    <div class="col-md-6 list-address">
+                        <div class="title-list-address">
+                            Chọn địa chỉ trong danh bạ
+                        </div>
+                        <div class="detail-list-address">
+                            <ul>
+                                <li>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Huỳnh Anh Vinh - anhvinha1@gmail.com - 012365478989
+                                        </label>
+                                    </div>														
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Nguyễn Quốc Anh Tú - nqatu@gmail.com - 0123654789
+                                        </label>
+                                    </div>														
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Võ Hiếu Trung - vhtrung@gmail.com - 0123654789
+                                        </label>
+                                    </div>														
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Lê Minh Tú - lmtu@gmail.com - 0123456987
+                                        </label>
+                                    </div>														
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Thái Thanh Sang - ttsang@gmail.com - 0321456987
+                                        </label>
+                                    </div>														
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Huỳnh Anh Dự - hadu@gmail.com - 0321456789
+                                        </label>
+                                    </div>														
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="address">
+                                        Hoàng Thái Thiên Văn- httvan@gmail.com - 0123456985
+                                        </label>
+                                    </div>														
+                                </li>
+                            </ul>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#section 'profilemenu'}}
+	<li id="pro_1" class="">
+		<a href="information">
+		<i class="glyphicon glyphicon-home"></i>
+		Overview </a>
+	</li>
+	<li id="pro_2" class="active">
+		<a href="shipping_address">
+		<i class="glyphicon glyphicon-send"></i>
+		Shipping Address </a>
+	</li>
+	<li id="pro_3">
+		<a href="detail_feedback">
+		<i class="glyphicon glyphicon-edit"></i>
+		Detail Feedback </a>
+	</li>
+{{/section}}
+
+{{#section 'auctionmenu'}}
+    <a href="list_products_auctioned" class="list-group-item">List products auctioning</a>
+    <a href="list_products_follows" class="list-group-item">List products following</a>
+    <a href="list_products_auction" class="list-group-item">List result products auctioned</a>
+{{/section}}
