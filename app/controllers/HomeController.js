@@ -1,4 +1,5 @@
 var productModel = require('../models/ProductModel');
+var dateFormat = require('dateformat');
 
 var homeController = {
 
@@ -12,6 +13,11 @@ var homeController = {
             productModel.LoadNumberBidder().then(function (bids) {
 
                 productModel.LoadLastestBidder().then(function (lastestUsers) {
+
+                    for(var i = 0; i < products.length; ++i) {
+                        products[i].start_time = dateFormat(products[i].start_time, "yyyy/mm/dd hh:MM:ss");
+                        products[i].end_time = dateFormat(products[i].end_time, "yyyy/mm/dd hh:MM:ss");
+                    }
 
                     // Add new field 'bid_number' to each product
                     for (var i = 0; i < products.length; ++i) {
