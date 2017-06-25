@@ -53,7 +53,7 @@ var InformationController = {
           oldemail: req.user.email,
       };
 
-      informationModel.UpdateUser(entity).then(function(insertId) {
+      informationModel.UpdatePassword(entity).then(function(insertId) {
           res.redirect('/login');
       });
     }
