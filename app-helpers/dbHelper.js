@@ -34,7 +34,6 @@ var auctionDb = {
         connect().then(function (cn) {
             cn.query(sql, function (err, rows, fields) {
                 if (err) throw err;
-                cn.end();
                 deferred.resolve(rows);
                 cn.end({timeout:60000});
             });
@@ -49,7 +48,6 @@ var auctionDb = {
         connect().then(function (cn) {
             cn.query(sql, function (err, res) {
                 if (err) throw err;
-                cn.end();
                 deferred.resolve(res.insertId);
                 cn.end({timeout:60000});
             });
@@ -66,7 +64,6 @@ var auctionDb = {
         connect().then(function (cn) {
             cn.query(sql, function (err, res) {
                 if (err) throw err;
-                cn.end();
                 deferred.resolve(res.changedRows);
                 cn.end({timeout:60000});
             });
@@ -84,7 +81,6 @@ var auctionDb = {
         connect().then(function (cn) {
             cn.query(sql, function (err, res) {
                 if (err) throw err;
-                cn.end();
                 deferred.resolve(res.affectedRows);
                 cn.end({timeout:60000});
             });
