@@ -29,7 +29,7 @@
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
 						<div class="col-md-6">
-							<button type="button" class="btn btn-primary center-block" id="edit" onclick="fn_update()"><i class="glyphicon glyphicon-edit"></i>    Edit</button>
+							<button type="button" class="btn btn-primary center-block" id="edit" onclick="fn_update()"><i class="glyphicon glyphicon-edit"></i> Edit</button>
 						</div>
 						<div class="col-md-6">
 							<button type="submit" class="btn btn-success center-block" id="update" disabled><i class="glyphicon glyphicon-refresh"></i> Update</button>
@@ -56,11 +56,19 @@
                 });
             }
         });
-		$("#edit").attr("disabled", "disabled"); 
 		$("#update").removeAttr('disabled');
+		if (document.getElementById("edit").textContent == " Edit")
+		{
+			document.getElementById("edit").innerHTML = '<i class="glyphicon glyphicon-edit"></i> Cancel';
+		}
+		else{
+			document.getElementById("edit").innerHTML = '<i class="glyphicon glyphicon-edit"></i> Edit';
+			update.setAttribute("disabled", "disabled");
+			validator.resetForm();
+		}
 	};
 
-	$('#updateinformation').validate({
+	var validator = $('#updateinformation').validate({
 		rules: {
 			email: {
 				required: true,
