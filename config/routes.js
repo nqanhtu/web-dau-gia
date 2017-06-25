@@ -26,6 +26,14 @@ passport.deserializeUser(function (id, done) {
 });
 
 
+function ensureAuthenticated(req, res, next) {
+	if (req.isAuthenticated()) {
+		return next();
+	} else {
+		res.redirect('/login');
+	}
+}
+
 module.exports = function (app) {
 
     app.get('/register', controllers.register.Index);
@@ -38,7 +46,7 @@ module.exports = function (app) {
 	/**
 	 * Get information personal:
 	 */
-	app.get('/information', controllers.information.information);
+	app.get('/information',ensureAuthenticated, controllers.information.information);
 	app.post('/information', controllers.information.updateInfo);
 
 	/**
