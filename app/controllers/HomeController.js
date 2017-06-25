@@ -17,12 +17,14 @@ var homeController = {
                     for (var i = 0; i < products.length; ++i) {
                         products[i]['bid_number'] = 0;
                         products[i]['lastest_bidder'] = 'NOT BID YET';
+                        products[i]['current_price'] = products[i].start_price;
                     };
 
                     for (var i = 0; i < lastestUsers.length; ++i) {
                         for (var j = 0; j < products.length; ++j) {
                             if (products[j].id === lastestUsers[i].product_id) {
                                 products[j].lastest_bidder = lastestUsers[i].email;
+                                products[j].current_price = lastestUsers[i].bidded_price;
                             };
                         };
                     };

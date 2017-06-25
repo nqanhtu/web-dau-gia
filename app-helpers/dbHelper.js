@@ -11,6 +11,7 @@ function connect() {
     var deferred = Q.defer();
 
     var cn = mysql.createConnection({
+        connectionLimit: 3,
         host: HOST,
         user: USER,
         password: PWD,
