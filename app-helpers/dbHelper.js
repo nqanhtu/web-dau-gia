@@ -11,7 +11,7 @@ function connect() {
     var deferred = Q.defer();
 
     var cn = mysql.createConnection({
-        connectionLimit: 3,
+        connectionLimit: 200,
         host: HOST,
         user: USER,
         password: PWD,
@@ -20,7 +20,7 @@ function connect() {
         migrate: 'safe'
     });
 
-    cn.connect(function(err) {
+    cn.connect(function (err) {
         if (err) throw err;
         deferred.resolve(cn);
     });
@@ -29,11 +29,12 @@ function connect() {
 }
 
 var auctionDb = {
-    load: function(sql) {
+    load: function (sql) {
         var deferred = Q.defer();
-        connect().then(function(cn) {
-            cn.query(sql, function(err, rows, fields) {
+        connect().then(function (cn) {
+            cn.query(sql, function (err, rows, fields) {
                 if (err) throw err;
+                cn.end();
                 deferred.resolve(rows);
                 cn.end({timeout:60000});
             });
@@ -41,46 +42,54 @@ var auctionDb = {
         return deferred.promise;
     },
 
-    insert: function(sql) {
+    insert: function (sql) {
 
         var deferred = Q.defer();
 
-        connect().then(function(cn) {
-            cn.query(sql, function(err, res) {
+        connect().then(function (cn) {
+            cn.query(sql, function (err, res) {
                 if (err) throw err;
+                cn.end();
                 deferred.resolve(res.insertId);
                 cn.end({timeout:60000});
             });
+
         });
 
         return deferred.promise;
     },
 
-    update: function(sql) {
+    update: function (sql) {
 
         var deferred = Q.defer();
 
-        connect().then(function(cn) {
-            cn.query(sql, function(err, res) {
+        connect().then(function (cn) {
+            cn.query(sql, function (err, res) {
                 if (err) throw err;
+                cn.end();
                 deferred.resolve(res.changedRows);
                 cn.end({timeout:60000});
             });
+
+
         });
 
         return deferred.promise;
     },
 
-    delete: function(sql) {
+    delete: function (sql) {
 
         var deferred = Q.defer();
 
-        connect().then(function(cn) {
-            cn.query(sql, function(err, res) {
+        connect().then(function (cn) {
+            cn.query(sql, function (err, res) {
                 if (err) throw err;
+                cn.end();
                 deferred.resolve(res.affectedRows);
                 cn.end({timeout:60000});
             });
+
+
         });
         return deferred.promise;
     }
