@@ -39,8 +39,6 @@ var homeController = {
                         };
                     };
 
-                    console.log(products);
-
                     // Render home page with:
                     //  layout: main.hbs
                     //  products: product list

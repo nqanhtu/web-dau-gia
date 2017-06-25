@@ -10,32 +10,32 @@ var HOST = 'eu-cdbr-west-01.cleardb.com',
 function connect() {
     var deferred = Q.defer();
 
-    var cn = mysql.createConnection({
-        connectionLimit: 200,
-        host: HOST,
-        user: USER,
-        password: PWD,
-        database: DB,
-        port: PORT,
-        migrate: 'safe'
+    var pool = mysql.createPool({
+        connectionLimit     : 10,
+        host                : HOST,
+        user                : USER,
+        password            : PWD,
+        database            : DB,
+        port                : PORT,
+        migrate             : 'safe'
     });
 
-    cn.connect(function (err) {
+    pool.getConnection(function (err, connection) {
         if (err) throw err;
-        deferred.resolve(cn);
+        deferred.resolve(connection);
     });
 
     return deferred.promise;
 }
 
-var auctionDb = {
+var db = {
     load: function (sql) {
         var deferred = Q.defer();
-        connect().then(function (cn) {
-            cn.query(sql, function (err, rows, fields) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, rows, fields) {
                 if (err) throw err;
                 deferred.resolve(rows);
-                cn.end({timeout:60000});
+                connection.release();
             });
         });
         return deferred.promise;
@@ -45,11 +45,11 @@ var auctionDb = {
 
         var deferred = Q.defer();
 
-        connect().then(function (cn) {
-            cn.query(sql, function (err, res) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, res) {
                 if (err) throw err;
                 deferred.resolve(res.insertId);
-                cn.end({timeout:60000});
+                connection.release();
             });
 
         });
@@ -61,11 +61,11 @@ var auctionDb = {
 
         var deferred = Q.defer();
 
-        connect().then(function (cn) {
-            cn.query(sql, function (err, res) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, res) {
                 if (err) throw err;
                 deferred.resolve(res.changedRows);
-                cn.end({timeout:60000});
+                connection.release();
             });
 
 
@@ -78,11 +78,11 @@ var auctionDb = {
 
         var deferred = Q.defer();
 
-        connect().then(function (cn) {
-            cn.query(sql, function (err, res) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, res) {
                 if (err) throw err;
                 deferred.resolve(res.affectedRows);
-                cn.end({timeout:60000});
+                connection.release();
             });
 
 
@@ -91,4 +91,4 @@ var auctionDb = {
     }
 }
 
-module.exports = auctionDb;
+module.exports = db;
