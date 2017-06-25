@@ -21,13 +21,15 @@ productController = {
     
     AddProduct: function (req, res) {
 
-        console.log(req.body);
-
         var entity = {
             name: req.body.productName,
-            startPrice: req.body.startPrice,
+            start_price: req.body.startPrice,
+            step_price: req.body.stepPrice,
             price: req.body.price,
-            seller: req.body.seller,
+            start_time: 'NOW()',
+            category: req.body.category,
+            end_time: req.body.duration,
+            seller_id: req.body.user_picked,
             mainThumbnail: req.body.mainThumbnail,
             thumbnail1: req.body.thumbnail1,
             thumbnail2: req.body.thumbnail2,
@@ -37,8 +39,8 @@ productController = {
         };
 
 
-        productModel.addAProductWithImages(entity).then(function (insertId) {
-            res.render('home', {layout: false});
+        productModel.AddAProductWithImages(entity).then(function (insertId) {
+            res.redirect('/');
         });
     }
 };
