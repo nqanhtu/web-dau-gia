@@ -33,8 +33,8 @@ module.exports = function (app) {
     app.get('/register', controllers.register.Index);
     app.post('/register', controllers.register.AddUser);
 
-    app.get('/addProduct', controllers.product.index);
-    app.post('/addProduct', controllers.product.addProduct);
+    app.get('/product/add', controllers.product.Index);
+    app.post('/product/add', controllers.product.AddProduct);
 
 	app.get('/', controllers.home.index);	
 	/**

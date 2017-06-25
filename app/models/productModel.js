@@ -1,6 +1,5 @@
 var Q = require('q');
 var mustache = require('mustache');
-
 var db = require('../../app-helpers/dbHelper');
 
 var productModel = {
@@ -39,7 +38,9 @@ var productModel = {
         return deffered.promise;
     },
 
-
+    /**
+     * Load lastest bidder
+     */
     LoadLastestBidder: function() {
         var deffered = Q.defer();
         var sql = 'SELECT * FROM bids b1, users u WHERE u.`id` = b1.`bidder_id` AND b1.`bidded_price` >= ALL(SELECT MAX(b2.`bidded_price`) FROM bids b2 WHERE b2.`product_id` = b1.`product_id`);';
@@ -51,27 +52,28 @@ var productModel = {
         return deffered.promise;
     },
 
-
-    addAProductWithImages: function (entity) {
+    AddAProductWithImages: function (entity) {
         var deffered = Q.defer();
         var sql = mustache.render(
             'insert into products(Name, StartPrice, StepPrice, StartTime, FinishTime, Type, Seller) values (\'{{name}}\', {{startPrice}}, 10000, now(), date_add(now(), interval 3 day), {{type}}, {{seller}});',
             entity
         );
 
-        auctionDb.insert(sql).then(function (insertId) {
-            deffered.resolve(insertId);
-            entity["insertId"] = insertId;
-            var insertImagesSql = mustache.render(
-                'insert into images(ProductID, `Index`, ThumbnailUrl, ImageUrl) values ({{insertId}}, 1, \'{{{mainThumbnail}}}\', \'{{{mainImage}}}\'),\
-                ({{insertId}}, 2, \'{{{thumbnail1}}}\', \'{{{image1}}}\'), ({{insertId}}, 3, \'{{{thumbnail2}}}\', \'{{{image2}}}\');',
-                entity
-            );
+        console.log(sql);
 
-            auctionDb.insert(insertImagesSql).then(function (insertId) {
-                deffered.resolve(insertId);
-            });
-        });
+        // db.insert(sql).then(function (insertId) {
+        //     deffered.resolve(insertId);
+        //     entity["insertId"] = insertId;
+        //     var insertImagesSql = mustache.render(
+        //         'insert into images(ProductID, `Index`, ThumbnailUrl, ImageUrl) values ({{insertId}}, 1, \'{{{mainThumbnail}}}\', \'{{{mainImage}}}\'),\
+        //         ({{insertId}}, 2, \'{{{thumbnail1}}}\', \'{{{image1}}}\'), ({{insertId}}, 3, \'{{{thumbnail2}}}\', \'{{{image2}}}\');',
+        //         entity
+        //     );
+
+        //     db.insert(insertImagesSql).then(function (insertId) {
+        //         deffered.resolve(insertId);
+        //     });
+        // });
 
         return deffered.promise;
     }
