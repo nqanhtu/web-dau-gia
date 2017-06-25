@@ -55,25 +55,26 @@ var productModel = {
     AddAProductWithImages: function (entity) {
         var deffered = Q.defer();
         var sql = mustache.render(
-            'insert into products(Name, StartPrice, StepPrice, StartTime, FinishTime, Type, Seller) values (\'{{name}}\', {{startPrice}}, 10000, now(), date_add(now(), interval 3 day), {{type}}, {{seller}});',
+            'INSERT INTO products (`name`, `start_price`, `step_price`, `price`, `start_time`, `category`, `end_time`, `seller_id`) VALUES\
+            ("{{name}}", {{start_price}}, {{step_price}}, {{price}}, {{start_time}}, {{category}}, DATE_ADD(NOW(), INTERVAL {{end_time}} DAY), {{seller_id}});',
             entity
         );
 
-        console.log(sql);
+        db.insert(sql).then(function (insertId) {
+            deffered.resolve(insertId);
+            entity["insert_id"] = insertId;
+            var sql = mustache.render(
+                'INSERT INTO product_images (`product_id`, `index`, `url`, `thumb_url`) VALUES\
+                ({{insert_id}}, 1, "{{{mainThumbnail}}}", "{{{mainImage}}}"),\
+                ({{insert_id}}, 2, "{{{thumbnail1}}}", "{{{image1}}}"),\
+                ({{insert_id}}, 3, "{{{thumbnail2}}}", "{{{image2}}}");',
+                entity
+            );
 
-        // db.insert(sql).then(function (insertId) {
-        //     deffered.resolve(insertId);
-        //     entity["insertId"] = insertId;
-        //     var insertImagesSql = mustache.render(
-        //         'insert into images(ProductID, `Index`, ThumbnailUrl, ImageUrl) values ({{insertId}}, 1, \'{{{mainThumbnail}}}\', \'{{{mainImage}}}\'),\
-        //         ({{insertId}}, 2, \'{{{thumbnail1}}}\', \'{{{image1}}}\'), ({{insertId}}, 3, \'{{{thumbnail2}}}\', \'{{{image2}}}\');',
-        //         entity
-        //     );
-
-        //     db.insert(insertImagesSql).then(function (insertId) {
-        //         deffered.resolve(insertId);
-        //     });
-        // });
+            db.insert(sql).then(function (insertId) {
+                deffered.resolve(insertId);
+            });
+        });
 
         return deffered.promise;
     }
