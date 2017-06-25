@@ -21,8 +21,6 @@ passport.serializeUser(function (user, done) {
 });
 passport.deserializeUser(function (id, done) {
 	User.getUserByID(id).then(function (user) {
-
-	console.log(user);
 		done(null, user);
 	});
 });
@@ -41,6 +39,13 @@ module.exports = function (app) {
 	 * Get information personal:
 	 */
 	app.get('/information', controllers.information.information);
+	app.post('/information', controllers.information.updateInfo);
+
+	/**
+	 * Get/Post password:
+	 */
+	app.get('/change_password', controllers.information.changePassword);
+	app.post('/change_password', controllers.information.updatePassword);
 
 	/**
 	 * Get list products auction: 
@@ -56,11 +61,6 @@ module.exports = function (app) {
 	 * Get Result Auction:
 	 */
 	app.get('/list_products_auctioned', controllers.information.list_products_auctioned);
-
-	/**
-	 * Shipping Address:
-	 */
-	app.get('/shipping_address', controllers.information.shipping_address);
 
 	/**
 	 * Detail Feedback:
