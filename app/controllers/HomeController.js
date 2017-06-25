@@ -1,4 +1,5 @@
-var productModel = require('../models/ProductModel');
+//var productModel = require('../models/ProductModel');
+var product = require('../models/product');
 var dateFormat = require('dateformat');
 
 var homeController = {
@@ -8,13 +9,13 @@ var homeController = {
      * Render index page '/'
      */
     index: function (req, res) {
-        productModel.LoadAllProduct().then(function (products) {
-
-            productModel.LoadNumberBidder().then(function (bids) {
-
-                productModel.LoadLastestBidder().then(function (lastestUsers) {
-
-                    for(var i = 0; i < products.length; ++i) {
+        product.LoadAllProduct(function (err,products) {
+            console.log(products);
+            product.LoadNumberBidder(function (err,bids) {
+                console.log(bids);
+                product.LoadLastestBidder(function (err,lastestUsers) {
+                    console.log(lastestUsers);
+                    for (var i = 0; i < products.length; ++i) {
                         products[i].start_time = dateFormat(products[i].start_time, "yyyy/mm/dd hh:MM:ss");
                         products[i].end_time = dateFormat(products[i].end_time, "yyyy/mm/dd hh:MM:ss");
                     }

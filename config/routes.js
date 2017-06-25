@@ -1,5 +1,7 @@
 var controllers = require('../app/controllers');
 var User = require('../app/models/userModel');
+var userModel = require('../app/models/user');
+
 var crypto = require('crypto');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -10,7 +12,7 @@ passport.use(new LocalStrategy({
 },
 	function (email, password, done) {
 		var enPwd = crypto.createHash('md5').update(password).digest('hex');
-		User.getUserByEmail(email).then(function (user) {
+		userModel.getUserByEmail(email, function (err, user) {
 			if (!user) { return done(null, false, console.log('Unknown User')) };
 			if (user.password != enPwd) { return done(null, false, console.log('Invalid password')) };
 			return done(null, user);
@@ -20,7 +22,7 @@ passport.serializeUser(function (user, done) {
 	done(null, user.id);
 });
 passport.deserializeUser(function (id, done) {
-	User.getUserByID(id).then(function (user) {
+	userModel.getUserByID(id, function (err, user) {
 		done(null, user);
 	});
 });
@@ -36,17 +38,17 @@ function ensureAuthenticated(req, res, next) {
 
 module.exports = function (app) {
 
-    app.get('/register', controllers.register.Index);
-    app.post('/register', controllers.register.AddUser);
+	app.get('/register', controllers.register.Index);
+	app.post('/register', controllers.register.AddUser);
 
-    app.get('/product/add', controllers.product.Index);
-    app.post('/product/add', controllers.product.AddProduct);
+	app.get('/product/add', controllers.product.Index);
+	app.post('/product/add', controllers.product.AddProduct);
 
-	app.get('/', controllers.home.index);	
+	app.get('/', controllers.home.index);
 	/**
 	 * Get information personal:
 	 */
-	app.get('/information',ensureAuthenticated, controllers.information.information);
+	app.get('/information', ensureAuthenticated, controllers.information.information);
 	app.post('/information', controllers.information.updateInfo);
 
 	/**
@@ -79,11 +81,13 @@ module.exports = function (app) {
 	 * Login user
 	 */
 	app.get('/login', controllers.login.formLogin);
-	app.post('/login', passport.authenticate('local',{ successRedirect: '/information',
-                                   failureRedirect: '/login',
-                                   failureFlash: true })
+	app.post('/login', passport.authenticate('local', {
+		successRedirect: '/login',
+		failureRedirect: '/login',
+		failureFlash: true
+	})
 	);
 
 	app.get('/logout', controllers.login.logout);
-	
+
 };

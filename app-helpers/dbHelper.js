@@ -11,13 +11,13 @@ function connect() {
     var deferred = Q.defer();
 
     var pool = mysql.createPool({
-        connectionLimit     : 10,
-        host                : HOST,
-        user                : USER,
-        password            : PWD,
-        database            : DB,
-        port                : PORT,
-        migrate             : 'safe'
+        connectionLimit: 10,
+        host: HOST,
+        user: USER,
+        password: PWD,
+        database: DB,
+        port: PORT,
+        migrate: 'safe'
     });
 
     pool.getConnection(function (err, connection) {
@@ -33,9 +33,10 @@ var db = {
         var deferred = Q.defer();
         connect().then(function (connection) {
             connection.query(sql, function (err, rows, fields) {
+                connection.release();
                 if (err) throw err;
                 deferred.resolve(rows);
-                connection.release();
+
             });
         });
         return deferred.promise;
@@ -47,9 +48,10 @@ var db = {
 
         connect().then(function (connection) {
             connection.query(sql, function (err, res) {
+                connection.release();
                 if (err) throw err;
                 deferred.resolve(res.insertId);
-                connection.release();
+
             });
 
         });
@@ -63,9 +65,9 @@ var db = {
 
         connect().then(function (connection) {
             connection.query(sql, function (err, res) {
-                if (err) throw err;
-                deferred.resolve(res.changedRows);
                 connection.release();
+                if (err) throw err;
+
             });
 
 
@@ -80,9 +82,10 @@ var db = {
 
         connect().then(function (connection) {
             connection.query(sql, function (err, res) {
+                connection.release();
                 if (err) throw err;
                 deferred.resolve(res.affectedRows);
-                connection.release();
+
             });
 
 

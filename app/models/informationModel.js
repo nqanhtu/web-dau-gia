@@ -1,6 +1,5 @@
-var Q = require('q');
 var mustache = require('mustache');
-var db = require('../../app-helpers/dbHelper');
+var pool = require('./db');
 
 var informationModel = {
 
@@ -9,19 +8,17 @@ var informationModel = {
      * entity: data to insert
      */
     UpdateUser: function(entity) {
-
-        var deffered = Q.defer();
-
         var sql = mustache.render(
             'UPDATE users SET `full_name` = "{{full_name}}", `email` = "{{email}}", `address` = "{{address}}" WHERE `email` = "{{oldemail}}";',
             entity
         );
-
-        db.insert(sql).then(function(insertId) {
-            deffered.resolve(insertId);
+        pool.getConnection(function (err, connection) {
+            connection.query(sql, function (error, results, fields) {
+                connection.release();
+                if (error) throw error;
+            });
         });
 
-        return deffered.promise;
     },
 
         /**
@@ -29,19 +26,17 @@ var informationModel = {
      * entity: data to insert
      */
     UpdatePassword: function(entity) {
-
-        var deffered = Q.defer();
-
         var sql = mustache.render(
             'UPDATE users SET `password` = "{{password}}" WHERE `email` = "{{oldemail}}";',
             entity
         );
-
-        db.insert(sql).then(function(insertId) {
-            deffered.resolve(insertId);
+        pool.getConnection(function (err, connection) {
+            connection.query(sql, function (error, results, fields) {
+                connection.release();
+                if (error) throw error;
+            });
         });
 
-        return deffered.promise;
     },
 };
 
