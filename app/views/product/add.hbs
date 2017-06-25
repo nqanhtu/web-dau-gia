@@ -31,7 +31,7 @@
 
                             <div class="form-group">
                                 <label for="startPrice">Category:</label>
-                                <select class="form-control">
+                                <select class="form-control" id="category">
                                     {{#each categories}}
                                     <option value="{{id}}">{{name}}</option>
                                     {{/each}}
@@ -109,6 +109,10 @@
 <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
 <script>
     $('#frmAddProduct').validate();
+
+    $duration = explode("_", $_POST['category']);
+    $duration_value = $duration[0];
+    $duration_name = $duration[1];
 </script>
 
 </html>

@@ -1,17 +1,10 @@
 var Q = require('q');
 var mysql = require('mysql');
 
-<<<<<<< HEAD
 var HOST = 'eu-cdbr-west-01.cleardb.com',
     DB = 'heroku_f096d1c00ffe1ff',
     USER = 'b17ec74fc26156',
     PWD = '6eb4c380',
-=======
-var HOST = '127.0.0.1',
-    DB = 'Auction',
-    USER = 'root',
-    PWD = '',
->>>>>>> 66faefd0f35b01c41a8831322da6f3465af969da
     PORT = '3306';
 
 function connect() {
@@ -23,7 +16,8 @@ function connect() {
         user: USER,
         password: PWD,
         database: DB,
-        port: PORT
+        port: PORT,
+        migrate: 'safe'
     });
 
     cn.connect(function(err) {
@@ -41,6 +35,7 @@ var auctionDb = {
             cn.query(sql, function(err, rows, fields) {
                 if (err) throw err;
                 deferred.resolve(rows);
+                cn.end({timeout:60000});
             });
         });
         return deferred.promise;
@@ -54,6 +49,7 @@ var auctionDb = {
             cn.query(sql, function(err, res) {
                 if (err) throw err;
                 deferred.resolve(res.insertId);
+                cn.end({timeout:60000});
             });
         });
 
@@ -68,6 +64,7 @@ var auctionDb = {
             cn.query(sql, function(err, res) {
                 if (err) throw err;
                 deferred.resolve(res.changedRows);
+                cn.end({timeout:60000});
             });
         });
 
@@ -82,9 +79,9 @@ var auctionDb = {
             cn.query(sql, function(err, res) {
                 if (err) throw err;
                 deferred.resolve(res.affectedRows);
+                cn.end({timeout:60000});
             });
         });
-
         return deferred.promise;
     }
 }
