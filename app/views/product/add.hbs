@@ -31,7 +31,7 @@
 
                             <div class="form-group">
                                 <label for="startPrice">Category:</label>
-                                <select class="form-control">
+                                <select class="form-control" name="category">
                                     {{#each categories}}
                                     <option value="{{id}}">{{name}}</option>
                                     {{/each}}
@@ -64,7 +64,7 @@
 
                             <div class="form-group">
                                 <label for="seller">Seller:</label>
-                                <select class="form-control">
+                                <select class="form-control" name="user_picked">
                                     {{#each userList}}
                                     <option value="{{id}}">{{full_name}}</option>
                                     {{/each}}
@@ -109,6 +109,18 @@
 <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
 <script>
     $('#frmAddProduct').validate();
+
+    $duration = explode("_", $_POST['duration']);
+    $duration_value = $duration[0];
+    $duration_name = $duration[1];
+
+    $user_picked = explode("_", $_POST['user_picked']);
+    $user_picked_value = $user_picked[0];
+    $user_picked_name = $user_picked[1];
+
+    $category = explode("_", $_POST['category']);
+    $category_value = $category[0];
+    $category_name = $category[1];
 </script>
 
 </html>

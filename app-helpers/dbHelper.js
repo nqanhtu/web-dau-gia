@@ -1,92 +1,94 @@
 var Q = require('q');
 var mysql = require('mysql');
 
-<<<<<<< HEAD
 var HOST = 'eu-cdbr-west-01.cleardb.com',
     DB = 'heroku_f096d1c00ffe1ff',
     USER = 'b17ec74fc26156',
     PWD = '6eb4c380',
-=======
-var HOST = '127.0.0.1',
-    DB = 'Auction',
-    USER = 'root',
-    PWD = '',
->>>>>>> 66faefd0f35b01c41a8831322da6f3465af969da
     PORT = '3306';
 
 function connect() {
     var deferred = Q.defer();
 
-    var cn = mysql.createConnection({
-        connectionLimit: 3,
-        host: HOST,
-        user: USER,
-        password: PWD,
-        database: DB,
-        port: PORT
+    var pool = mysql.createPool({
+        connectionLimit     : 10,
+        host                : HOST,
+        user                : USER,
+        password            : PWD,
+        database            : DB,
+        port                : PORT,
+        migrate             : 'safe'
     });
 
-    cn.connect(function(err) {
+    pool.getConnection(function (err, connection) {
         if (err) throw err;
-        deferred.resolve(cn);
+        deferred.resolve(connection);
     });
 
     return deferred.promise;
 }
 
-var auctionDb = {
-    load: function(sql) {
+var db = {
+    load: function (sql) {
         var deferred = Q.defer();
-        connect().then(function(cn) {
-            cn.query(sql, function(err, rows, fields) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, rows, fields) {
                 if (err) throw err;
                 deferred.resolve(rows);
+                connection.release();
             });
         });
         return deferred.promise;
     },
 
-    insert: function(sql) {
+    insert: function (sql) {
 
         var deferred = Q.defer();
 
-        connect().then(function(cn) {
-            cn.query(sql, function(err, res) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, res) {
                 if (err) throw err;
                 deferred.resolve(res.insertId);
+                connection.release();
             });
+
         });
 
         return deferred.promise;
     },
 
-    update: function(sql) {
+    update: function (sql) {
 
         var deferred = Q.defer();
 
-        connect().then(function(cn) {
-            cn.query(sql, function(err, res) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, res) {
                 if (err) throw err;
                 deferred.resolve(res.changedRows);
+                connection.release();
             });
+
+
         });
 
         return deferred.promise;
     },
 
-    delete: function(sql) {
+    delete: function (sql) {
 
         var deferred = Q.defer();
 
-        connect().then(function(cn) {
-            cn.query(sql, function(err, res) {
+        connect().then(function (connection) {
+            connection.query(sql, function (err, res) {
                 if (err) throw err;
                 deferred.resolve(res.affectedRows);
+                connection.release();
             });
-        });
 
+
+        });
         return deferred.promise;
     }
 }
 
-module.exports = auctionDb;
+module.exports = db;
