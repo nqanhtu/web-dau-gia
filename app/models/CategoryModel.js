@@ -5,7 +5,7 @@ var categoryModel = {
     /**
      * Get all categories
      */
-    GetCategories: function () {
+    GetCategories: function (callback) {
 
         var sql = 'SELECT * FROM categories;';
         pool.getConnection(function (err, connection) {

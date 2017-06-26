@@ -4,21 +4,17 @@ var categoryModel = require('../models/CategoryModel');
 
 productController = {
     Index: function (req, res) {
-
-        // Get all categories
-        categoryModel.GetCategories().then(function(categories) {
-            // Get all users for admin pick
-            userModel.GetAllUsers().then(function(userList) {
-                // Render add product page
+        categoryModel.GetCategories(function (categories) {
+            userModel.GetAllUsers(function (users) {
                 res.render('product/add', {
-                    userList: userList,
+                    userList: users,
                     categories: categories,
                     layout: false
                 });
             });
         });
     },
-    
+
     AddProduct: function (req, res) {
 
         var entity = {
@@ -38,10 +34,9 @@ productController = {
             image2: req.body.image2
         };
 
+        productModel.AddAProductWithImages(entity)
+        res.redirect('/product/add');
 
-        productModel.AddAProductWithImages(entity).then(function (insertId) {
-            res.redirect('/');
-        });
     }
 };
 

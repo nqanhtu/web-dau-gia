@@ -47,17 +47,32 @@ var productModel = {
         });
     },
 
-    AddAProductWithImages: function (entity, callback) {
+    AddAProductWithImages: function (entity) {
         var sql = mustache.render(
             'INSERT INTO products (`name`, `start_price`, `step_price`, `price`, `start_time`, `category`, `end_time`, `seller_id`) VALUES\
             ("{{name}}", {{start_price}}, {{step_price}}, {{price}}, {{start_time}}, {{category}}, DATE_ADD(NOW(), INTERVAL {{end_time}} DAY), {{seller_id}});',
             entity
         );
 
+
         pool.getConnection(function (err, connection) {
             connection.query(sql, function (error, results, fields) {
                 connection.release();
-                callback(results);
+
+                entity['insert_id'] = results.insertId;
+                var sql2 = mustache.render(
+                    'INSERT INTO product_images (`product_id`, `index`, `url`, `thumb_url`) VALUES\
+                        ({{insert_id}}, 1, "{{{mainThumbnail}}}", "{{{mainImage}}}"),\
+                        ({{insert_id}}, 2, "{{{thumbnail1}}}", "{{{image1}}}"),\
+                        ({{insert_id}}, 3, "{{{thumbnail2}}}", "{{{image2}}}");',
+                    entity
+                );
+                pool.getConnection(function (err, connection) {
+                        connection.query(sql2, function (error, results, fields) {
+                        connection.release();
+                        if (error) throw error;
+                    });
+                });
                 if (error) throw error;
             });
         });
