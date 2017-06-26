@@ -1,5 +1,4 @@
-//var productModel = require('../models/ProductModel');
-var product = require('../models/product');
+var product = require('../models/ProductModel');
 var dateFormat = require('dateformat');
 
 var homeController = {

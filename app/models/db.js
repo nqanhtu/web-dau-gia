@@ -12,7 +12,8 @@ var pool = mysql.createPool({
     password: PWD,
     database: DB,
     port: PORT,
-    migrate: 'safe'
+    migrate: 'safe',
+    acquireTimeout: 100000
 });
 
 module.exports = pool;

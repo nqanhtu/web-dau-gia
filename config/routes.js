@@ -1,6 +1,5 @@
 var controllers = require('../app/controllers');
-var User = require('../app/models/userModel');
-var userModel = require('../app/models/user');
+var userModel = require('../app/models/usermodel');
 
 var crypto = require('crypto');
 var passport = require('passport');
@@ -82,7 +81,7 @@ module.exports = function (app) {
 	 */
 	app.get('/login', controllers.login.formLogin);
 	app.post('/login', passport.authenticate('local', {
-		successRedirect: '/login',
+		successRedirect: '/',
 		failureRedirect: '/login',
 		failureFlash: true
 	})
