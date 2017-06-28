@@ -29,6 +29,7 @@ var products_auctioningModel = {
         );
         
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 callback(err, results);

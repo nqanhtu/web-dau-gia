@@ -9,6 +9,7 @@ var categoryModel = {
 
         var sql = 'SELECT * FROM categories;';
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 callback(results);

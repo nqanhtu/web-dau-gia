@@ -24,10 +24,7 @@ module.exports = {
 
     getUserByID: function (id, callback) {
         pool.getConnection(function (err, connection) {
-            if (err) {
-                // connection.release(); <-- this line is in error, as if there was an error getting a connection, then you won't have a connection to release
-                throw err;
-            }
+            if (err) throw err;
             var sql = 'select * from users where id = ' + id;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
@@ -40,10 +37,7 @@ module.exports = {
     GetAllUsers: function (callback) {
         var sql = 'SELECT id, full_name FROM users WHERE admin = 0;'
         pool.getConnection(function (err, connection) {
-            if (err) {
-                // connection.release(); <-- this line is in error, as if there was an error getting a connection, then you won't have a connection to release
-                throw err;
-            }
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 callback(results);
