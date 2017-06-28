@@ -1,15 +1,15 @@
 var mysql = require('mysql');
 
-// var HOST = 'eu-cdbr-west-01.cleardb.com',
-//     DB = 'heroku_f096d1c00ffe1ff',
-//     USER = 'b17ec74fc26156',
-//     PWD = '6eb4c380',
-//     PORT = '3306';
-var HOST = '192.168.100.6',
-    DB = 'auction_web_db',
-    USER = 'anhvinhitus',
-    PWD = '123456',
+var HOST = 'eu-cdbr-west-01.cleardb.com',
+    DB = 'heroku_f096d1c00ffe1ff',
+    USER = 'b17ec74fc26156',
+    PWD = '6eb4c380',
     PORT = '3306';
+// var HOST = '192.168.100.6',
+//     DB = 'auction_web_db',
+//     USER = 'anhvinhitus',
+//     PWD = '123456',
+//     PORT = '3306';
 
 
 var pool = mysql.createPool({
