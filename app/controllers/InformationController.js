@@ -74,21 +74,6 @@ var InformationController = {
     });
   },
 
-  list_products_follows: function (req, res) {
-    res.render('list_products_follows', {
-      title: 'List products follows',
-      layout: 'infor',
-      user: req.user // get the user out of session and pass to template
-    });
-  },
-
-  list_products_auction: function (req, res) {
-    res.render('list_products_auction', {
-      title: 'List products auction',
-      layout: 'infor',
-      user: req.user // get the user out of session and pass to template
-    });
-  },
 
 };
 module.exports = InformationController;

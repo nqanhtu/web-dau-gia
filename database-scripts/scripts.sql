@@ -5,7 +5,7 @@ CREATE TABLE users (
     `address` TEXT NOT NULL,
     `password` TEXT NOT NULL,
     `admin` INT NOT NULL DEFAULT 0,
-    `like` INT UNSIGNED DEFAULT 0
+    `rating_counter` INT UNSIGNED DEFAULT 0
 )  ENGINE=INNODB;
 
 CREATE TABLE products (

@@ -55,7 +55,7 @@
 				<div class="profile-sidebar">
 					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">
-						<img src="http://sv1.upsieutoc.com/2017/06/25/tai-anh-gai-xinh-cho-iphone-7-2.jpg" class="img-responsive" alt="">
+						<img src="{{user.avatar}}" class="img-responsive" alt="">
 					</div>
 					<!-- END SIDEBAR USERPIC -->
 					<!-- SIDEBAR USER TITLE -->
@@ -64,7 +64,7 @@
 							{{user.full_name}}
 						</div>
 						<div class="profile-usertitle-dob"> 
-							Tổng điểm: {{user.rate_counter}}
+							Tổng điểm: {{user.rating_counter}}
 						</div>
 					</div>
 					<!-- SIDEBAR MENU -->
@@ -134,6 +134,6 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+	<script type="text/javascript" src="js/product_filter.js"></script>
 </body>
 </html>

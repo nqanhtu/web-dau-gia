@@ -3,5 +3,7 @@ module.exports = {
     home: require('./homeController'),
     product: require('./ProductController'),
     information: require('./InformationController'),
-    login: require('./LoginController')
+    login: require('./LoginController'),
+    productsfollowing: require('./list_products_followingController'),
+    productsauctioning: require('./products_auctioningController'),
 };

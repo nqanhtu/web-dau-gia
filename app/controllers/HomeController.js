@@ -14,6 +14,7 @@ var homeController = {
                 console.log(bids);
                 product.LoadLastestBidder(function (err,lastestUsers) {
                     console.log(lastestUsers);
+                    
                     for (var i = 0; i < products.length; ++i) {
                         products[i].start_time = dateFormat(products[i].start_time, "yyyy/mm/dd hh:MM:ss");
                         products[i].end_time = dateFormat(products[i].end_time, "yyyy/mm/dd hh:MM:ss");

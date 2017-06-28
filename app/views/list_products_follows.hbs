@@ -1,13 +1,16 @@
+<!DOCTYPE html>
+
 <div class="col-md-9">
     <div class="container-fluid">
         <div class="panel panel-info">
             <div class="panel-heading ">
                 <div class="row">
-                    <div class="col-md-7">
-                        <h4 class="pull-left"> <b>
+                    <div class="col-md-12">
+                        <h4 class="text-center"> <b>
                             LIST PRODUCTS FOLLOWING
                         </b> </h4>
                     </div>
+                    {{!--
                     <div class="col-md-5 pull-right">
                         <form class="form-vertical" role="search" method="get" action="">
                             <div class="input-group">
@@ -17,7 +20,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div>--}}
                 </div>
             </div>
             <div class="panel-body">
@@ -27,8 +30,8 @@
                             Sắp xếp:
                             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Mới nhất <span class="caret" ></span></button>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="#">Mới nhất</a></li>
-                                <li><a href="#">Cũ nhất</a></li>					  		
+                                <li><a href="#" onclick="sortTable(2, 'desc')">Mới nhất</a></li>
+                                <li><a href="#" onclick="sortTable(2, 'asc')">Cũ nhất</a></li>
                             </ul>
                         </div>
                     </div>
@@ -45,13 +48,13 @@
                                 <label class="btn btn-warning btn-filter" data-target="fail">
                                     <input type="radio" name="options" id="option3" autocomplete="off"> Ending
                                 </label>
-                            </div>			                            	
+                            </div>
                         </div>
                     </div>
-                </div> 
+                </div>
                 <hr class="colorgraph">
-                <div class="table-responsive " >
-                    <table class="table table-striped table-bordered table-hover">
+                <div class="table-responsive ">
+                    <table class="table table-striped table-bordered table-hover" id="products-follows">
                         <thead>
                             <tr class="text-center">
                                 <th>Tên sản phẩm</th>
@@ -61,93 +64,47 @@
                                 <th>Tình trạng</th>
                                 <th>Đấu giá</th>
                                 <th>Xóa</th>
-                            </tr> 
+                            </tr>
                         </thead>
                         <tbody>
+                            {{#each products}} {{#if this.isExpired}}
                             <tr class="danger" data-status="fail">
-                                <td> <a href="detail_of_product.html">Tên sản phẩm</a></td>
+                                <td> <a href="detail_of_product.html">{{name}}</a></td>
                                 <td>Mô tả chi tiết thông tin sản phẩm</td>
-                                <td>Thời gian hết hạn</td>
-                                <td>10000 $ </td>
-                                <td>Đã hết giờ</td>
-                                <td class="disabled text-center"></td>
+                                <td class="text-right">{{end_time}}</td>
+                                <td class="text-right">{{price}}</td>
+                                <td class="text-right">Đã hết giờ</td>
+                                <td class="text-center"></td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-danger" data-title="Delete">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>			                          	
-                            <tr class="info" data-status="pending" >
-                                <td><a href="detail_of_product.html">Tên sản phẩm</a></td>
-                                <td>Mô tả chi tiết thông tin sản phẩm</td>
-                                <td>Thời gian hết hạn</td>
-                                <td>10000 $ </td>
-                                <td>Đang đấu giá</td>
-                                <td class="text-center">						                        
-                                    <button type="button" class="btn btn-success">
-                                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                                    </button>
-                                </td>
-                                <td class="text-center">						                        
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>			                          	
-                            <tr class="info" data-status="pending">
-                                <td><a href="detail_of_product.html">Tên sản phẩm</a></td>
-                                <td>Mô tả chi tiết thông tin sản phẩm</td>
-                                <td>Thời gian hết hạn</td>
-                                <td>10000 $ </td>
-                                <td>Đang đấu giá</td>
-                                <td class="text-center" data-status="pending">						                     
-                                    <button type="button" class="btn btn-success">
-                                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                                    </button>
-                                </td>
-                                <td class="text-center">						                        
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>			                          	
-                            <tr class="danger" data-status="fail">
-                                <td><a href="detail_of_product.html">Tên sản phẩm</a></td>
-                                <td>Mô tả chi tiết thông tin sản phẩm</td>
-                                <td>Thời gian hết hạn</td>
-                                <td>10000 $ </td>
-                                <td>Đã hết giờ</td>
-                                <td class="disabled text-center" >
-                                </td>
-                                <td class="text-center">						                        
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>			                          	
-                            <tr class="info" data-status="pending">
-                                <td><a href="detail_of_product.html">Tên sản phẩm</a></td>
-                                <td>Mô tả chi tiết thông tin sản phẩm</td>
-                                <td>Thời gian hết hạn</td>
-                                <td>10000 $ </td>
-                                <td>Đang đấu giá</td>
-                                <td class="text-center">						                        
-                                    <button type="button" class="btn btn-success">
-                                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                                    </button>
-                                </td>
-                                <td class="text-center">						                        
-                                    <button type="button" class="btn btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </button>
+                                                    <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
                                 </td>
                             </tr>
-
+                            {{else}}
+                            <tr class="success" data-status="pending">
+                                <td> <a href="detail_of_product.html">{{name}}</a></td>
+                                <td>Mô tả chi tiết thông tin sản phẩm</td>
+                                <td class="text-right">{{end_time}}</td>
+                                <td class="text-right">{{price}}</td>
+                                <td class="text-right">Đang đấu giá</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-success">
+                                            <i class="glyphicon glyphicon-shopping-cart"></i>
+                                        </button>
+                                </td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-danger" data-title="Delete">
+                                                    <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
+                                </td>
+                            </tr>
+                            {{/if}} {{/each}}
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="panel-footer" >
+            <div class="panel-footer">
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="pagination hidden-xs pull-right ">
@@ -168,27 +125,95 @@
     </div>
 </div>
 
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown();
+
+    $(".dropdown-menu").on('click', 'li a', function () {
+        $(this).parent().parent().siblings(".btn:first-child").html($(this).text() + ' <span class="caret"></span>');
+        $(this).parent().parent().siblings(".btn:first-child").val($(this).text());
+    });
+
+    function sortTable(n, type) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("products-follows");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = type;
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.getElementsByTagName("tr");
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 1; i < (rows.length - 1); i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("td")[n].textContent;
+
+                y = rows[i + 1].getElementsByTagName("td")[n].textContent;
+
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (new Date(x).getTime() > new Date(y).getTime()) {
+                        //if so, mark as a switch and break the loop:
+                        console.log('Lon hon');
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else if (dir == "desc") {
+                    if (new Date(x).getTime() < new Date(y).getTime()) {
+                        //if so, mark as a switch and break the loop:
+                        console.log('Nho hon');
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount++;
+            } else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    };
+
+</script>
+
 {{#section 'profilemenu'}}
-	<li id="pro_1" class="">
-		<a href="information">
+<li id="pro_1" class="">
+    <a href="information">
 		<i class="glyphicon glyphicon-home"></i>
 		Overview </a>
-	</li>
+</li>
 
-	<li id="pro_3">
-		<a href="detail_feedback">
+<li id="pro_3">
+    <a href="detail_feedback">
 		<i class="glyphicon glyphicon-edit"></i>
 		Detail Feedback </a>
-	</li>
-    <li id="pro_4" class="">
-		<a href="change_password">
+</li>
+<li id="pro_4" class="">
+    <a href="change_password">
 		<i class="glyphicon glyphicon-lock"></i>
 		Change Password </a>
-	</li>
-{{/section}}
-
-{{#section 'auctionmenu'}}
-    <a href="list_products_auctioned" class="list-group-item">List products auctioning</a>
-    <a href="list_products_follows" class="list-group-item active">List products following</a>
-    <a href="list_products_auction" class="list-group-item">List result products auctioned</a>
-{{/section}}
+</li>
+{{/section}} {{#section 'auctionmenu'}}
+<a href="list_products_auction" class="list-group-item">List products auctioning</a>
+<a href="list_products_follows" class="list-group-item active">List products following</a>
+<a href="list_products_auctioned" class="list-group-item">List result products auctioned</a> {{/section}}

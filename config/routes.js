@@ -59,17 +59,17 @@ module.exports = function (app) {
 	/**
 	 * Get list products auction: 
 	 */
-	app.get('/list_products_auction', controllers.information.list_products_auction);
+	app.get('/list_products_auction', ensureAuthenticated, controllers.productsauctioning.LoadProducts);
 
 	/**
 	 * Get list products follows:
 	 */
-	app.get('/list_products_follows', controllers.information.list_products_follows);
+	app.get('/list_products_follows', ensureAuthenticated, controllers.productsfollowing.LoadProducts);
 
 	/**
 	 * Get Result Auction:
 	 */
-	app.get('/list_products_auctioned', controllers.information.list_products_auctioned);
+	app.get('/list_products_auctioned', ensureAuthenticated, controllers.information.list_products_auctioned);
 
 	/**
 	 * Detail Feedback:
