@@ -65,15 +65,5 @@ var InformationController = {
       user: req.user // get the user out of session and pass to template
     });
   },
-
-  list_products_auctioned: function (req, res) {
-    res.render('list_products_auctioned', {
-      title: 'Result auctioned',
-      layout: 'infor',
-      user: req.user // get the user out of session and pass to template
-    });
-  },
-
-
 };
 module.exports = InformationController;

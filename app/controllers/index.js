@@ -6,4 +6,5 @@ module.exports = {
     login: require('./LoginController'),
     productsfollowing: require('./list_products_followingController'),
     productsauctioning: require('./products_auctioningController'),
+    productsauctioned: require('./products_auctionedController'),
 };

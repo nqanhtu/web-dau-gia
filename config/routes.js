@@ -69,7 +69,7 @@ module.exports = function (app) {
 	/**
 	 * Get Result Auction:
 	 */
-	app.get('/list_products_auctioned', ensureAuthenticated, controllers.information.list_products_auctioned);
+	app.get('/list_products_auctioned', ensureAuthenticated, controllers.productsauctioned.LoadProducts);
 
 	/**
 	 * Detail Feedback:
