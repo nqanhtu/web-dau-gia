@@ -15,6 +15,7 @@ var registerModel = {
             entity
         );
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 if (error) throw error;

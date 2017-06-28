@@ -9,8 +9,9 @@ var productModel = {
      * Query all products and show it
      */
     LoadAllProduct: function (callback) {
-        var sql = 'SELECT * FROM products, product_images where `product_id` = `id` and `index` = 1;';
+        var sql = 'SELECT * FROM products, product_images where `product_id` = `id` and `index` = 1  LIMIT 0, 5 ;';
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 callback(err, results);
@@ -25,6 +26,7 @@ var productModel = {
     LoadNumberBidder: function (callback) {
         var sql = 'SELECT `product_id`, COUNT(*) as `bid_number` FROM bids GROUP BY `product_id`;';
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 callback(err, results);
@@ -39,6 +41,7 @@ var productModel = {
     LoadLastestBidder: function (callback) {
         var sql = 'SELECT * FROM bids b1, users u WHERE u.`id` = b1.`bidder_id` AND b1.`bidded_price` >= ALL(SELECT MAX(b2.`bidded_price`) FROM bids b2 WHERE b2.`product_id` = b1.`product_id`);';
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
                 callback(err, results);
@@ -56,6 +59,7 @@ var productModel = {
 
 
         pool.getConnection(function (err, connection) {
+            if (err) throw err;
             connection.query(sql, function (error, results, fields) {
                 connection.release();
 
@@ -68,7 +72,8 @@ var productModel = {
                     entity
                 );
                 pool.getConnection(function (err, connection) {
-                        connection.query(sql2, function (error, results, fields) {
+                    if (err) throw err;
+                    connection.query(sql2, function (error, results, fields) {
                         connection.release();
                         if (error) throw error;
                     });
