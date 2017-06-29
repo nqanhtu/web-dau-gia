@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>{{title}}</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+	<!-- Custom css -->
+	<link rel="stylesheet" href="../css/footer.css">
+	<link rel="stylesheet" type="text/css" href="../css/infor.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	{{{_sections.css}}}
+
+    <style>
+		.navbar {
+			margin-bottom: 0;
+			border-radius: 0;
+		}
+	</style>
+</head>
+<body>	
+
+	{{> navbar user = user}}
+
+	<div class="container-fluid"  style="margin-top: 24px;">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="profile-sidebar">
+					<!-- SIDEBAR USERPIC -->
+					<div class="profile-userpic">
+						<img src="{{user.avatar}}" class="img-responsive" alt="">
+					</div>
+					<!-- END SIDEBAR USERPIC -->
+					<!-- SIDEBAR USER TITLE -->
+					<div class="profile-usertitle">
+						<div class="profile-usertitle-name">
+							{{user.full_name}}
+						</div>
+						<div class="profile-usertitle-dob"> 
+							<span class="glyphicon glyphicon-thumbs-up"></span> Like: {{user.like}} | 
+							<span class="glyphicon glyphicon-thumbs-down"></span> Dislike: {{user.dislike}}
+						</div>
+					</div>
+					<!-- SIDEBAR MENU -->
+					<div class="profile-usermenu">
+						<ul class="nav">
+							{{{_sections.profilemenu}}}
+						</ul>
+					</div>
+					<!-- END MENU -->
+				</div>	
+
+				<div class="panel panel-info class panel-personal">
+					<div class="panel-heading">
+						Auction Personal Management
+					</div>
+					<div class="list-group">
+						{{{_sections.auctionmenu}}}
+					</div>
+				</div>		
+			</div>
+			{{{body}}}
+		</div>
+	</div>	
+
+	{{> footer}}
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../js/product_filter.js"></script>
+	<script type="text/javascript" src="../../js/jquery.validate.min.js"></script>
+	{{{_sections.script}}}
+</body>
+</html>

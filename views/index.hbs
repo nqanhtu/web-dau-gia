@@ -1,0 +1,127 @@
+
+{{#section 'script'}}
+<script>
+	{{#each top4MostBiddedProducts}}
+	$("#counter-{{product_id}}0")
+	.countdown('{{end_time}}', function(event) {
+		$(this).text(event.strftime('%D day(s) %H:%M:%S'));
+	})
+	.on('finish.countdown', function(event) {
+	$(this).html('Expired!')
+		.parent().addClass('disabled')
+	});
+	{{/each}}
+
+	{{#each top4MostHighestPriceProducts}}
+	$("#counter-{{product_id}}00")
+	.countdown('{{end_time}}', function(event) {
+		$(this).text(event.strftime('%D day(s) %H:%M:%S'));
+	})
+	.on('finish.countdown', function(event) {
+	$(this).html('Expired!')
+		.parent().addClass('disabled')
+	});
+	{{/each}}
+
+	{{#each top4MostNearEndProducts}}
+	$("#counter-{{product_id}}000")
+	.countdown('{{end_time}}', function(event) {
+		$(this).text(event.strftime('%D day(s) %H:%M:%S'));
+	})
+	.on('finish.countdown', function(event) {
+	$(this).html('Expired!')
+		.parent().addClass('disabled')
+	});
+	{{/each}}
+</script>
+{{/section}}
+
+
+
+<div class="container"  style="margin-top: 24px;">
+
+	<h1> Top 4 most bid products </h1>
+	<hr>
+
+	<div class="panel panel-primary">
+
+		{{!-- Panel body --}}
+		<div class="panel-body">
+			<div class="row">
+				{{#each top4MostBiddedProducts}}
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img style="display:block;max-width:230px;max-height:95px;width:auto;height:auto;" src="{{thumb_url}}" alt="{{name}}">
+						<div class="caption">
+							<div class="text-center"><a href="#"><b>{{name}}</b></a></div>
+							<div class="text-center" style="font-size: 10px;">Bids {{number_bids}} | Price <b>{{formatCurrency lastest_price}}đ</b></div>
+							<div class="text-center" style="font-size: 12px;color:red;">{{lastest_bidder}}</div>
+							<div class="text-center" style="font-size: 12px; font-weight: bold;" id="counter-{{product_id}}0"></div>
+							<p><a href="/product/detail/{{product_id}}" class="btn btn-success center-block" role="button">Bid Now</a></p>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				
+			</div>
+		</div> {{!-- Panel body --}}
+
+	</div>
+
+	<h1> Top 4 products have the highest price </h1>
+	<hr>
+
+	<div class="panel panel-primary">
+
+		{{!-- Panel body --}}
+		<div class="panel-body">
+			<div class="row">
+
+				{{#each top4MostHighestPriceProducts}}
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img style="display:block;max-width:230px;max-height:95px;width:auto;height:auto;" src="{{thumb_url}}" alt="{{name}}">
+						<div class="caption">
+							<div class="text-center"><a href="#"><b>{{name}}</b></a></div>
+							<div class="text-center" style="font-size: 10px;">Bids {{number_bids}} | Price <b>{{formatCurrency lastest_price}}đ</b></div>
+							<div class="text-center" style="font-size: 12px;color:red;">{{lastest_bidder}}</div>
+							<div class="text-center" style="font-size: 12px; font-weight: bold;" id="counter-{{product_id}}00"></div>
+							<p><a href="/product/detail/{{product_id}}" class="btn btn-success center-block" role="button">Bid Now</a></p>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				
+			</div>
+		</div> {{!-- Panel body --}}
+	</div>
+
+	<h1> Top 4 products near the end </h1>
+	<hr>
+
+	<div class="panel panel-primary">
+
+		{{!-- Panel body --}}
+		<div class="panel-body">
+			<div class="row">
+
+				{{#each top4MostNearEndProducts}}
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<img style="display:block;max-width:230px;max-height:95px;width:auto;height:auto;" src="{{thumb_url}}" alt="{{name}}">
+						<div class="caption">
+							<div class="text-center"><a href="#"><b>{{name}}</b></a></div>
+							<div class="text-center" style="font-size: 10px;">Bids {{number_bids}} | Price <b>{{formatCurrency lastest_price}}đ</b></div>
+							<div class="text-center" style="font-size: 12px;color:red;">{{lastest_bidder}}</div>
+							<div class="text-center" style="font-size: 12px; font-weight: bold;" id="counter-{{product_id}}000"></div>
+							<p><a href="/product/detail/{{product_id}}" class="btn btn-success center-block" role="button">Bid Now</a></p>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				
+			</div>
+		</div> {{!-- Panel body --}}
+
+	</div>
+</div>

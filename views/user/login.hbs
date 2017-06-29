@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="../css/sign_in_out.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("../img/backgrounds/login_page_backgroud.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            position: relative;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+
+    <div class="bg">
+        <div class="container">
+            <div id="login" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">Log in</div>
+                    </div>
+                    <div class="panel-body">
+                        <form id="login_form" class="form-horizontal" role="form" action="/user/login" method="post">
+                            
+                            {{!----}}
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                                <input type="email" class="form-control" name="email" value="" placeholder="mail@example.com" required>
+                            </div> {{!----}}
+
+                            {{!----}}
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span>
+                                <input type="password" class="form-control" name="password" placeholder="Password" minlength="6" required>
+                            </div> {{!----}}
+
+                            {{#if message.length}}
+                            <div class="alert alert-danger">{{message}}</div>
+                            {{/if}}
+
+                            <div class="input-group">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" value=""> Remember me
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button style="width:100%;" type="submit" class="btn btn-primary center-block btn-lg">Login</button>
+
+                        </form>
+
+                        {{!----}}
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 2px solid#4682B4; padding-top:15px; font-size:85%">
+                                    Don't have account?
+                                    <a href="/user/register" class="">Register now!</a>
+                                    or back to <a href="/" class="">Home.</a>
+                                </div>
+                            </div>
+                        </div> {{!----}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script>
+    // override jquery validate plugin defaults
+    $.validator.setDefaults({
+        highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+</script>
+
+</html>

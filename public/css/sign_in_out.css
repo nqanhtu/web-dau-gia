@@ -1,13 +1,9 @@
 .mainbox {
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .panel-body {
     padding-top: 30px;
-}
-
-.alert {
-    display: none;
 }
 
 .input-group {

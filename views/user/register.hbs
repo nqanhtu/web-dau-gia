@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="../css/sign_in_out.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("../img/backgrounds/register_page_backgroud.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            position: relative;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body style="background-color: lightblue;">
+    <div class="bg">
+        <!-- Register form -->
+        <div class="container">
+            <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="panel-title">Register</div>
+                    </div>
+                    <div class="panel-body">
+
+                        <!-- Main form -->
+                        <form action="/user/register" id="registerForm" class="form-horizontal" method="post">
+
+                            {{#if message.length}}
+                            <div class="alert alert-danger">{{message}}</div>
+                            {{/if}}
+
+                            <!-- Email input -->
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                                <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                            </div> <!-- Email input -->
+
+                            <!---->
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon glyphicon-info-sign"></i>
+                                </span>
+                                <input type="text" class="form-control" name="fullName" placeholder="Full Name" required>
+                            </div> <!---->
+
+                            <!---->
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon glyphicon-font"></i>
+                                </span>
+                                <input type="text" class="form-control" name="address" placeholder="Address"  required>
+                            </div> <!---->
+
+                            <!---->
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon glyphicon-lock"></i>
+                                </span>
+                                <input type="password" class="form-control" name="password" id="password" minlength="6" placeholder="Password"  required>
+                            </div> <!---->
+
+                            <!---->
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon glyphicon-picture"></i>
+                                </span>
+                                <input type="url" class="form-control" name="avatar" placeholder="Avatar"  required>
+                            </div> <!---->
+
+                            <!-- Accept button -->
+                            <button style="width:100%;" type="submit" class="btn btn-success center-block btn-lg">Register</button>
+                            <!-- Accept button -->
+
+                        </form> <!-- Main form -->
+
+                        {{!----}}
+                        <div class="form-group">
+                        <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 2px solid#4682B4; padding-top:15px; font-size:85%">
+                                    Have an account?
+                                    <a href="/user/login" class="">Login now!</a>
+                                    or back to <a href="/" class="">Home.</a>
+                                </div>
+                            </div>
+                        </div> {{!----}}
+
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Register form -->
+    </div>
+
+</body>
+
+<!-- Latest compiled and minified JavaScript -->
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script>
+    // override jquery validate plugin defaults
+    $.validator.setDefaults({
+        highlight: function(element) {
+            $(element).closest('.form-group').addClass('has-error');
+        },
+        unhighlight: function(element) {
+            $(element).closest('.form-group').removeClass('has-error');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if(element.parent('.input-group').length) {
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+</script>
+
+</html>

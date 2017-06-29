@@ -1,0 +1,188 @@
+<div class="col-md-9">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title-full-infor">
+				PERSONAL INFORMATION
+			</h3>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" id="updateinformation" method="post">
+				<div class="form-group">
+					<label class="control-label col-md-3" for="name">Full name:</label>
+					<div class="col-md-6">
+						<input type="name" id="name" class="form-control" name="name" value="{{user.full_name}}" disabled>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-3" for="email">Email:</label>
+					<div class="col-md-6">
+						<input type="email" id="email" class="form-control" name="email" value="{{user.email}}" disabled>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-md-3" for="">Address:</label>
+					<div class="col-md-6">
+						<input type="text" id="address" class="form-control" name="address" value="{{user.address}}" disabled>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<div class="col-md-6">
+							<button type="button" class="btn btn-primary center-block" id="edit" onclick="fn_update()"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+						</div>
+						<div class="col-md-6">
+							<button type="submit" class="btn btn-success center-block" id="update" disabled><i class="glyphicon glyphicon-refresh"></i> Update</button>
+						</div>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
+		</div>
+	</div>
+</div>
+
+{{#section 'script'}}
+<script type="text/javascript">
+	function fn_update() {
+		$('#name').each(function () {
+			if ($(this).attr('disabled')) {
+				$(this).removeAttr('disabled');
+			}
+			else {
+				$(this).attr({
+					'disabled': 'disabled'
+				});
+			}
+		});
+
+		$('#email').each(function () {
+			if ($(this).attr('disabled')) {
+				$(this).removeAttr('disabled');
+			}
+			else {
+				$(this).attr({
+					'disabled': 'disabled'
+				});
+			}
+		});
+
+		$('#address').each(function () {
+			if ($(this).attr('disabled')) {
+				$(this).removeAttr('disabled');
+			}
+			else {
+				$(this).attr({
+					'disabled': 'disabled'
+				});
+			}
+		});
+
+		$("#update").removeAttr('disabled');
+		if (document.getElementById("edit").textContent == " Edit") {
+			document.getElementById("edit").innerHTML = '<i class="glyphicon glyphicon-edit"></i> Cancel';
+		}
+		else {
+			document.getElementById("edit").innerHTML = '<i class="glyphicon glyphicon-edit"></i> Edit';
+			update.setAttribute("disabled", "disabled");
+			validator.resetForm();
+		}
+	};
+
+	var validator = $('#updateinformation').validate({
+		rules: {
+			email: {
+				required: true,
+				email: true
+			},
+			name: {
+				required: true,
+				minlength: 2
+			},
+			password: {
+				required: true,
+				minlength: 6
+			},
+
+			newpassword: {
+				required: true,
+				minlength: 6
+			},
+
+			confirmpassword: {
+				equalTo: '#cfpwd',
+			},
+
+			address: {
+				required: true,
+				minlength: 2
+			}
+		},
+
+		messages: {
+			email: {
+				required: 'Please input the email.',
+				email: 'Email invalidate'
+			},
+			name: {
+				required: 'Please input your real name',
+				minlength: 'Name must at least 2 characters'
+			},
+			password: {
+				required: 'Password is required field',
+				minlength: 'Password must at least 6 characters'
+			},
+			address: {
+				required: 'Please provide your current address',
+				minlength: 'Address must at least 2 characters'
+			}
+		},
+
+		errorElement: 'span',
+		errorClass: 'help-block',
+
+		hightlight: function (element) {
+			$(element).closest('.form-group')
+				.addClass('.has-error');
+		},
+
+		success: function (label) {
+			$(label).closest('.form-group')
+				.removeClass('.has-error');
+
+			label.remove();
+		},
+	});
+
+</script>
+{{/section}} 
+{{#section 'profilemenu'}}
+	<li id="pro_1" class="active">
+		<a href="profile">
+			<i class="glyphicon glyphicon-home"></i>
+			Overview </a>
+	</li>
+	<li id="pro_3">
+		<a href="detail-feedback">
+			<i class="glyphicon glyphicon-edit"></i>
+			Detail Feedback </a>
+	</li>
+	<li id="pro_4" class="">
+		<a href="change-password">
+			<i class="glyphicon glyphicon-lock"></i>
+			Change Password </a>
+	</li>
+	{{#if user.type}} 
+	{{else}}
+	<li id="pro_2" class="">
+		<a href="#">
+				<i class="glyphicon glyphicon-cloud-upload"></i>
+				Upgrade account </a>
+	</li>
+	{{/if}} 
+{{/section}} 
+
+{{#section 'auctionmenu'}}
+<a href="products-auctioning" class="list-group-item">List products auctioning</a>
+<a href="products-follows" class="list-group-item">List products following</a>
+<a href="products-auctioned" class="list-group-item">List result products auctioned</a> {{#if user.type}}
+<a href="#" class="list-group-item">List products selling</a> {{else}} {{/if}} {{/section}}
