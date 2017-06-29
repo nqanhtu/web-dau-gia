@@ -1,6 +1,5 @@
 var controllers = require('../controllers/index');
-var bodyParser = require('body-parser');
-var request = require('request');
+
 
 module.exports = function (app, passport) {
     // Home page
@@ -27,26 +26,7 @@ module.exports = function (app, passport) {
     app.get('/user/products-follows', controllers.user.isLoggedIn, controllers.user.LoadProductsFollows);
 
     app.get('/user/register', controllers.user.register);
-    app.post('/user/register', function (req, res) {
-
-        //reCapCha
-        if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
-            return res.json({ "responseCode": 1, "responseDesc": "Please select captcha" });
-        }
-        // Put your secret key here.
-        var secretKey = "6LcWVScUAAAAAIaqzgtahZvqUClIxb-CD9GHNcim";
-        // req.connection.remoteAddress will provide IP address of connected user.
-        var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
-        // Hitting GET request to the URL, Google will respond with success or error scenario.
-        request(verificationUrl, function (error, response, body) {
-            body = JSON.parse(body);
-            // Success will be true or false depending upon captcha validation.
-            if (body.success !== undefined && !body.success) {
-                return res.json({ "responseCode": 1, "responseDesc": "Failed captcha verification" });
-            }
-            res.json({ "responseCode": 0, "responseDesc": "Sucess" });
-        });
-    }, passport.authenticate('local-register', {
+    app.post('/user/register', passport.authenticate('local-register', {
         successRedirect: '/user/profile',
         failureRedirect: '/user/register',
         failureFlash: true
