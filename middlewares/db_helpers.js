@@ -1,9 +1,14 @@
 var mysql = require('mysql');
 
-var HOST = '192.168.100.6';
-var USER = 'anhvinhitus';
-var PASSWORD = '123456';
-var DATABASE = 'auction_web_db';
+// var HOST = '192.168.100.6';
+// var USER = 'anhvinhitus';
+// var PASSWORD = '123456';
+// var DATABASE = 'auction_web_db';
+
+var HOST = 'eu-cdbr-west-01.cleardb.com';
+var USER = 'b17ec74fc26156';
+var PASSWORD = '6eb4c380';
+var DATABASE = 'heroku_f096d1c00ffe1ff';
 
 module.exports = {
     select: function (query, callback) {
