@@ -1,6 +1,8 @@
 var controllers = require('../controllers/index');
+var bodyParser = require('body-parser');
+var request = require('request');
 
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
     // Home page
     app.get('/', controllers.home.index);
     app.get('/all-products', controllers.home.allProducts);
@@ -10,14 +12,14 @@ module.exports = function(app, passport) {
     app.get('/houseware', controllers.home.houseware);
 
     // User page
-    
+
     app.get('/user/logout', controllers.user.logout);
     app.get('/user/profile', controllers.user.isLoggedIn, controllers.user.profile);
     app.post('/user/profile', controllers.user.isLoggedIn, controllers.user.updateInformation);
 
     app.get('/user/change-password', controllers.user.isLoggedIn, controllers.user.changePassword);
     app.post('/user/change-password', controllers.user.isLoggedIn, controllers.user.updatePassword);
-   
+
     app.get('/user/products-auctioned', controllers.user.isLoggedIn, controllers.user.LoadProductsAuctioned);
 
     app.get('/user/products-auctioning', controllers.user.isLoggedIn, controllers.user.LoadProductsAuctioning);
@@ -25,7 +27,26 @@ module.exports = function(app, passport) {
     app.get('/user/products-follows', controllers.user.isLoggedIn, controllers.user.LoadProductsFollows);
 
     app.get('/user/register', controllers.user.register);
-    app.post('/user/register', passport.authenticate('local-register', {
+    app.post('/user/register', function (req, res) {
+
+        //reCapCha
+        if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+            return res.json({ "responseCode": 1, "responseDesc": "Please select captcha" });
+        }
+        // Put your secret key here.
+        var secretKey = "6LcWVScUAAAAAIaqzgtahZvqUClIxb-CD9GHNcim";
+        // req.connection.remoteAddress will provide IP address of connected user.
+        var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+        // Hitting GET request to the URL, Google will respond with success or error scenario.
+        request(verificationUrl, function (error, response, body) {
+            body = JSON.parse(body);
+            // Success will be true or false depending upon captcha validation.
+            if (body.success !== undefined && !body.success) {
+                return res.json({ "responseCode": 1, "responseDesc": "Failed captcha verification" });
+            }
+            res.json({ "responseCode": 0, "responseDesc": "Sucess" });
+        });
+    }, passport.authenticate('local-register', {
         successRedirect: '/user/profile',
         failureRedirect: '/user/register',
         failureFlash: true
@@ -33,12 +54,12 @@ module.exports = function(app, passport) {
 
     app.get('/user/login', controllers.user.login);
     app.post('/user/login', passport.authenticate('local-login', {
-            successRedirect: '/user/profile',
-            failureRedirect: '/user/login',
-            failureFlash: true
-        }),
+        successRedirect: '/user/profile',
+        failureRedirect: '/user/login',
+        failureFlash: true
+    }),
         function (req, res) {
-            if(req.body.remember) {
+            if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
                 req.session.cookie.expires = false;
@@ -52,7 +73,7 @@ module.exports = function(app, passport) {
 };
 
 function redirect(user) {
-    if(user.type === -1) {
+    if (user.type === -1) {
         return '/admin/profile'
     }
     return '/user/profile'
