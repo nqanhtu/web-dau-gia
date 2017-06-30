@@ -1,0 +1,35 @@
+{{#section 'script'}}
+<script>
+	{{#each products}}
+	$("#counter-{{product_id}}")
+	.countdown('{{end_time}}', function(event) {
+		$(this).text(event.strftime('%D day(s) %H:%M:%S'));
+	})
+	.on('finish.countdown', function(event) {
+	$(this).html('Expired!')
+		.parent().addClass('disabled')
+	});
+	{{/each}}
+</script>
+{{/section}}
+
+<div class="row">
+    {{#if products}}
+    {{#each products}}
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <img style="display:block;max-width:230px;max-height:95px;width:auto;height:auto;" src="{{thumb_url}}" alt="{{name}}">
+            <div class="caption">
+                <div class="text-center"><a href="/product/detail/{{product_id}}"><b>{{name}}</b></a></div>
+                <div class="text-center" style="font-size: 10px;">Bids {{number_bids}} | Price <b>{{formatCurrency lastest_price}}đ</b></div>
+                <div class="text-center" style="font-size: 12px;color:red;">{{lastest_bidder}}</div>
+                <div class="text-center" style="font-size: 12px; font-weight: bold;" id="counter-{{product_id}}"></div>
+                <p><a href="/product/detail/{{product_id}}" class="btn btn-success center-block" role="button">Bid Now</a></p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="col-md-12"><h1>Don't have product in others category.</h1></div>
+    {{/if}}
+</div>

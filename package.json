@@ -1,26 +1,16 @@
 {
-  "name": "auction-web",
+  "name": "auction-website-projects",
   "version": "1.0.0",
-  "description": "A simple auction website based on node",
-  "main": "index.js",
+  "description": "This is auction website projects",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tuleminh396/auction-web.git"
-  },
-  "keywords": [
-    "auction"
-  ],
   "author": "BOP Team",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tuleminh396/auction-web/issues"
-  },
-  "homepage": "https://github.com/tuleminh396/auction-web#readme",
+  "license": "MIT",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
@@ -30,11 +20,11 @@
     "express-handlebars": "^3.0.0",
     "express-handlebars-sections": "^1.0.1",
     "express-session": "^1.15.3",
+    "morgan": "^1.8.2",
     "mustache": "^2.3.0",
     "mysql": "^2.13.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "q": "^1.5.0",
     "wnumb": "^1.1.0"
   }
 }

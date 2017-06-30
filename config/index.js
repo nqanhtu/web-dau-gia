@@ -1,5 +1,4 @@
-module.exports = function(app) {
-    require('./middlewares')(app);
-    require('./routes')(app);
-    require('./views')(app);
-}
+module.exports = function (app, passport) {
+    require('./routes')(app, passport);
+    require('./passport')(passport);
+};

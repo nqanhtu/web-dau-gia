@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<div class="col-md-9">
+    <div class="container-fluid">
+        <div class="panel panel-info">
+            <div class="panel-heading ">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="text-center"> <b>
+                            UPGRADE REQUEST
+                        </b> </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                {{#if user.isUpgrade}}
+                    <div class="alert alert-danger" role="alert">
+                        <div class="text-center">
+                        <b> Opps: </b> Your account is being moderated 
+                        </div>
+                    </div>
+                {{else}}
+                    <form class="form-horizontal" id="upgrade-account" method="post">
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="name">Comment (*):</label>
+                            <div class="col-md-6">
+                                <textarea class="form-control" name="message_text" style="resize:none" rows="4" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-success center-block" id="update"><i class="glyphicon glyphicon-refresh"></i> Send Request</button>
+                            </div>
+                        </div>
+                    </form>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{{#section 'profilemenu'}}
+<li id="pro_1" class="">
+    <a href="profile">
+		<i class="glyphicon glyphicon-home"></i>
+		Overview </a>
+</li>
+
+<li id="pro_3" class="">
+    <a href="detail-feedback">
+		<i class="glyphicon glyphicon-edit"></i>
+		Detail Feedback </a>
+</li>
+<li id="pro_4" class="">
+    <a href="change-password">
+		<i class="glyphicon glyphicon-lock"></i>
+		Change Password </a>
+</li>
+{{#if user.type}} {{else}}
+<li id="pro_2" class="active">
+    <a href="#">
+            <i class="glyphicon glyphicon-cloud-upload"></i>
+            Upgrade account </a>
+</li>
+{{/if}} {{/section}} {{#section 'auctionmenu'}}
+<a href="products-auctioning" class="list-group-item">List products auctioning</a>
+<a href="products-follows" class="list-group-item">List products following</a>
+<a href="products-auctioned" class="list-group-item">List result products auctioned</a> {{#if user.type}}
+<a href="products-selling" class="list-group-item">List products selling</a> 
+<a href="products-bought" class="list-group-item">List products bought</a>
+<a href="/product/add" class="list-group-item">Add product</a>{{else}} {{/if}} {{/section}}
