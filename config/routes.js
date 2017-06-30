@@ -27,7 +27,7 @@ module.exports = function (app, passport) {
     app.get('/user/products-follows', controllers.user.isLoggedIn, controllers.user.LoadProductsFollows);
 
     app.get('/user/register', controllers.user.register);
-    app.post('/user/register', function (req, res) {
+    app.post('/user/register', function (req, res,next) {
         // //reCapCha
         // if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
         //     return res.json({ "responseCode": 1, "responseDesc": "Please select captcha" });
