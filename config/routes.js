@@ -54,19 +54,19 @@ module.exports = function (app, passport) {
         recaptcha.validateRequest(req)
             .then(function () {
                 // validated and secure
-              //  res.json({ formSubmit: true })
-                passport.authenticate('local-register', {
-                    successRedirect: '/user/profile',
-                    failureRedirect: '/user/register',
-                    failureFlash: true
-                })
+                next()
+               // res.json({ formSubmit: true })
             })
             .catch(function (errorCodes) {
                 // invalid
                 res.json({ formSubmit: false, errors: recaptcha.translateErrors(errorCodes) });// translate error codes to human readable text
             });
 
-    }, );
+    }, passport.authenticate('local-register', {
+        successRedirect: '/user/profile',
+        failureRedirect: '/user/register',
+        failureFlash: true
+    }));
 
     app.get('/user/login', controllers.user.login);
     app.post('/user/login', passport.authenticate('local-login', {
