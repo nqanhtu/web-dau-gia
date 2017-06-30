@@ -50,8 +50,6 @@ module.exports = function (app, passport) {
 
     app.get('/product/detail/:id', controllers.product.detail);
 
-<<<<<<< HEAD
-=======
 var crypto = require('crypto');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
@@ -139,7 +137,6 @@ module.exports = function (app) {
 	);
 
 	app.get('/logout', controllers.login.logout);
->>>>>>> fda607159d9c2c8a2e5875a713e74b0a406948d8
 
 };
 
