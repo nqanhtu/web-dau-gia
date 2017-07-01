@@ -68,6 +68,10 @@ module.exports = {
         res.redirect('/user/profile')
       }
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
   },
 
   /* 
@@ -108,6 +112,7 @@ module.exports = {
   /* 
   * Product Auctioned
   */
+<<<<<<< HEAD
   loadProductsAuctioned: function (req, res) {
     models.user.LoadProductsAutioned(req.user.id, function (products) {
       models.user.LoadAllRating(function (rating) {
@@ -160,14 +165,45 @@ module.exports = {
         }
         else
           res.redirect('/user/products-auctioned');
+=======
+  LoadProductsAuctioned: function (req, res) {
+    models.user.LoadProductsAutioned(req.user.id, function (products) {
+
+      for (var i = 0; i < products.length; ++i) {
+        if (products[i].bidder_id == req.user.id)
+          products[i]['status'] = true;
+        else
+          products[i]['status'] = false;
+        products[i].start_time = dateFormat(products[i].start_time, "yyyy/mm/dd hh:MM:ss");
+        products[i].end_time = dateFormat(products[i].end_time, "yyyy/mm/dd hh:MM:ss");
+      }
+      console.log(products);
+      res.render('user/products-auctioned', {
+        title: 'Products auctioned',
+        layout: 'profile',
+        user: req.user,
+        products: products,
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
       });
     });
+  },
+
+<<<<<<< HEAD
+  /*
+  * 
+  */
+  loadProductsAuctioning: function (req, res) {
+=======
+  GetComment: function (req, res) {
+    console.log('z');
+    console.log(req.body.abc);
   },
 
   /*
   * 
   */
-  loadProductsAuctioning: function (req, res) {
+  LoadProductsAuctioning: function (req, res) {
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     models.user.LoadProductsAuctioning(req.user.id, function (products) {
 
       for (var i = 0; i < products.length; ++i) {
@@ -194,7 +230,11 @@ module.exports = {
   /* 
   * Products Follows
   */
+<<<<<<< HEAD
   loadProductsFollows: function (req, res) {
+=======
+  LoadProductsFollows: function (req, res) {
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     models.user.LoadProductsFollows(req.user.id, function (products) {
 
       for (var i = 0; i < products.length; ++i) {
@@ -214,6 +254,7 @@ module.exports = {
     });
   },
 
+<<<<<<< HEAD
 
   /* Products Selling */
   loadProductsSelling: function (req, res) {
@@ -368,3 +409,16 @@ function checkRatedBidder(products, rating) {
   }
 }
 
+=======
+  /*
+  * Detail Feedback
+  */
+  detail_feedback: function (req, res) {
+    res.render('detail_feedback', {
+      title: 'Detail Feedback',
+      layout: 'profile',
+      user: req.user // get the user out of session and pass to template
+    });
+  },
+};
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac

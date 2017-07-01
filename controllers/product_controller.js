@@ -1,4 +1,5 @@
 var models = require('../models/index');
+<<<<<<< HEAD
 var dateFormat = require('dateformat');
 
 module.exports = {
@@ -124,4 +125,16 @@ function encryptFullName (name) {
             + '*' + name.substring(j, name.length);
 
     return name;
+=======
+
+module.exports = {
+    detail: function (req, res) {
+        res.render('./product/detail', {
+            layout: 'product_detail',
+            title: 'ccdsf',
+            user: req.user
+        });
+        //models.product.loadDetail(req.params.id);
+    }
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
 }

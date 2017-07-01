@@ -65,6 +65,7 @@
                             </tr>
                         </thead>
                         <tbody>
+<<<<<<< HEAD
                             {{#each products}} 
                             {{#if this.status}}
                             <tr class="success" data-status="success">
@@ -81,6 +82,19 @@
                                         <i class="fa fa-quote-right"></i>
                                     </a>
                                 {{/if}}
+=======
+                            {{#each products}} {{#if this.status}}
+                            <tr class="success" data-status="success">
+                                <td><a href="/product/detail/{{product_id}}">{{name}}</a></td>
+                                <td class="text-right">{{end_time}}</td>
+                                <td class="text-right">{{bidded_price}}</td>
+                                <td class="text-center">Thành công</td>
+                                <td><a href="javascript:;" data-id="{{bidder_id}}" class="post-id">{{full_name}}</a></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning" data-title="Delete" data-toggle="modal" data-target="#feedbackModel">
+                                        <i class="fa fa-quote-right"></i>
+                                    </button>
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
                                 </td>
                             </tr>
                             {{else}}
@@ -89,8 +103,17 @@
                                 <td class="text-right">{{end_time}}</td>
                                 <td class="text-right">{{bidded_price}}</td>
                                 <td class="text-center">Thất bại</td>
+<<<<<<< HEAD
                                 <td>{{full_name}}</td>
                                 <td class="text-center">
+=======
+                                <td><a href="javascript:;" data-id="{{bidder_id}}" class="post-id">{{full_name}}</a></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning" data-title="Delete" data-toggle="modal" data-target="#feedbackModel">
+                                                    <i class="fa fa-quote-right"></i>
+                                        </button>
+                                </td>
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
                             </tr>
                             {{/if}} {{/each}}
                         </tbody>
@@ -134,10 +157,17 @@
                         </div>
                         <div class="row">
                             <div class="radio col-md-3">
+<<<<<<< HEAD
                                 <label><input type="radio" name="point_radio" value="1">+1</label>
                             </div>
                             <div class="radio col-md-3">
                                 <label><input type="radio" name="point_radio" value="-1">-1</label>
+=======
+                                <label><input type="radio" name="point_radio">+1</label>
+                            </div>
+                            <div class="radio col-md-3">
+                                <label><input type="radio" name="point_radio">-1</label>
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
                             </div>
                         </div>
                     </div>
@@ -149,17 +179,26 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+<<<<<<< HEAD
                 <a href="javascript:;" type="submit" class="btn btn-success class-feedback">Submit</a>
+=======
+                <button type="submit" class="btn btn-success">Submit</button>
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             </div>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 <form method="post" action="/user/products-auctioned" id="form-post">
     <input type="hidden" name="productid" id="productid">
     <input type="hidden" name="point" id="point">
     <input type="hidden" name="sellerid" id="sellerid">
     <input type="hidden" name="message" id="message">
+=======
+<form method="post" action="list_products_auctioned" id="form-post">
+    <input type="hidden" name="abc" id="abc">
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
 </form>
 
 {{#section 'script'}}
@@ -223,6 +262,7 @@
 
 
     </script>
+<<<<<<< HEAD
 
 
 
@@ -238,6 +278,12 @@
             var message = $('#message_text').val();
             $('#point').val(point);
             $('#message').val(message);
+=======
+    <script type="text/javascript">
+        $('.post-id').on('click', function () {
+            var id = $(this).data('id');
+            $('#abc').val(id);
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             $('#form-post').submit();
         });
 
@@ -299,7 +345,11 @@
     {{#if user.type}} 
     {{else}}
     <li id="pro_2" class="">
+<<<<<<< HEAD
         <a href="upgrade-account">
+=======
+        <a href="#">
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             <i class="glyphicon glyphicon-cloud-upload"></i>
             Upgrade account </a>
     </li>
@@ -309,9 +359,13 @@
     <a href="products-follows" class="list-group-item">List products following</a>
     <a href="products-auctioned" class="list-group-item active">List result products auctioned</a> 
     {{#if user.type}} 
+<<<<<<< HEAD
         <a href="products-selling" class="list-group-item">List products selling</a> 
 		<a href="products-bought" class="list-group-item">List products bought</a>
         <a href="/product/add" class="list-group-item">Add product</a>
+=======
+        <a href="#" class="list-group-item">List products selling</a> 
+>>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     {{else}}
     {{/if}}
 {{/section}}
