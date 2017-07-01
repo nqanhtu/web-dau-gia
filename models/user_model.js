@@ -1,7 +1,6 @@
 var mustache = require('mustache');
 database = require('../middlewares/db_helpers');
 
-<<<<<<< HEAD
 module.exports = {
 
     updatePoint: function (entity, callback) {
@@ -13,10 +12,6 @@ module.exports = {
             callback(effectedRows);
         });
     },
-=======
-module.exports  = {
-
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     /**
      * Update a user to database
      * entity: data to insert
@@ -26,11 +21,7 @@ module.exports  = {
             'UPDATE users SET `full_name` = "{{full_name}}", `email` = "{{email}}", `address` = "{{address}}" WHERE `email` = "{{oldemail}}";',
             entity
         );
-<<<<<<< HEAD
         database.update(sql, function (effectedRows) {
-=======
-        database.update(sql, function(effectedRows) {
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             callback(effectedRows);
         });
     },
@@ -44,11 +35,7 @@ module.exports  = {
             'UPDATE users SET `password` = "{{password}}" WHERE `email` = "{{oldemail}}";',
             entity
         );
-<<<<<<< HEAD
         database.update(sql, function (effectedRows) {
-=======
-        database.update(sql, function(effectedRows) {
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             callback(effectedRows);
         });
     },
@@ -63,13 +50,8 @@ module.exports  = {
         };
 
         var sql = mustache.render(
-<<<<<<< HEAD
             'SELECT A.product_id, B.`name`, A.full_name, A.bidder_id, A.bidded_price, B.end_time, U.full_name as seller, P.seller_id \
             FROM 	(	SELECT product_id, bidded_price, full_name, bidder_id \
-=======
-            'SELECT A.product_id, B.`name`, A.full_name, A.bidder_id, A.bidded_price, B.end_time \
-	         FROM 	(	SELECT product_id, bidded_price, full_name, bidder_id \
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
 				        FROM bids b1, users u \
 				        WHERE u.`id` = b1.`bidder_id` \
 				        AND b1.`bidded_price` >= ALL(	SELECT MAX(b2.`bidded_price`) \
@@ -81,7 +63,6 @@ module.exports  = {
 											WHERE bidder_id = {{user_id}} \
 											GROUP BY B.product_id) AS U \
 				        WHERE P.id = U.product_id \
-<<<<<<< HEAD
 				        AND P.end_time < NOW() \
                         AND P.accept = 1) AS B,\
 			        users U, \
@@ -92,18 +73,10 @@ module.exports  = {
             obj
         );
         database.select(sql, function (products) {
-=======
-				        AND P.end_time < NOW()) AS B \
-	        WHERE A.product_id = B.product_id ;',
-            obj
-        );
-        database.select(sql, function(products) {
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             callback(products);
         });
     },
 
-<<<<<<< HEAD
     LoadAllRating: function (callback) {
         var query = 'SELECT * FROM rating';
         database.select(query, function (categories) {
@@ -123,8 +96,6 @@ module.exports  = {
         });
     },
 
-=======
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     /* Product Auctioning */
     LoadProductsAuctioning: function (user_id, callback) {
         var obj = {
@@ -144,25 +115,16 @@ module.exports  = {
 													WHERE B.bidder_id = {{user_id}} \
 													GROUP BY B.product_id) AS U \
 				                WHERE P.id = U.product_id \
-<<<<<<< HEAD
                                 AND P.end_time > NOW() \
                                 AND P.accept = 1) AS B \
             WHERE A.product_id = B.product_id;',
             obj
         );
         database.select(sql, function (products) {
-=======
-                                AND P.end_time > NOW()) AS B \
-            WHERE A.product_id = B.product_id;',
-            obj
-        );
-        database.select(sql, function(products) {
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             callback(products);
         });
     },
 
-<<<<<<< HEAD
     /* Products Selling */
     LoadProductsSelling: function (user_id, callback) {
         var obj = {
@@ -212,8 +174,6 @@ module.exports  = {
         });
     },
     
-=======
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     /* Products Follows */
     LoadProductsFollows: function (user_id, callback) {
         var obj = {
@@ -224,7 +184,6 @@ module.exports  = {
             'SELECT * FROM products p, following f where f.`follower` = {{user_id}} AND f.`product_id` = p.`id`;',
             obj
         );
-<<<<<<< HEAD
         database.select(sql, function (products) {
             callback(products);
         });
@@ -274,10 +233,4 @@ module.exports  = {
             callback(effectedRows);
         });
     },
-=======
-        database.select(sql, function(products) {
-            callback(products);
-        });
-    },
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
 };

@@ -19,11 +19,7 @@ var app = express();
 
 // Set up express application
 app.use(morgan('dev'));
-<<<<<<< HEAD
 app.use(bodyParser.urlencoded({ extended: true }));
-=======
-app.use(bodyParser.urlencoded({ extended: false }));
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.resolve(__dirname, './public')));

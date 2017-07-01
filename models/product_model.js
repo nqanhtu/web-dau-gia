@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 var database = require('../middlewares/db_helpers');
 var mustache = require('mustache');
-=======
-database = require('../middlewares/db_helpers');
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
 
 module.exports = {
     loadAllProducts: function (callback) {
@@ -96,10 +92,7 @@ module.exports = {
             WHERE id = res.product_id AND end_time >= NOW()\
                 AND pi.product_id = res.product_id\
                 AND pi.index = 1\
-<<<<<<< HEAD
 						ORDER BY products.start_price DESC\
-=======
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
             LIMIT 0, 4\
         ';
         database.select(query, function (top4MostBiddedProducts) {
@@ -130,11 +123,7 @@ module.exports = {
         var query = '\
             SELECT p.id product_id, name, start_price, end_time, pi.thumb_url\
             FROM products p, product_images pi\
-<<<<<<< HEAD
             WHERE p.end_time > NOW() AND accept = 1\
-=======
-            WHERE p.end_time >= NOW() AND accept = 1\
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
                 AND pi.product_id = p.id\
                 AND pi.index = 1\
             ORDER BY p.end_time ASC\
@@ -160,18 +149,13 @@ module.exports = {
                                                 GROUP BY B.product_id) AS U\
                             WHERE P.id = U.product_id) AS B\
             WHERE A.product_id = B.product_id\
-<<<<<<< HEAD
                 AND B.end_time >= NOW()\
-=======
-                AND B.end_time > NOW()\
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
         ';
         database.select(query, function (lastestBidderAndPrice) {
             callback (lastestBidderAndPrice);
         });
     },
 
-<<<<<<< HEAD
     loadDetail: function(product_id, callback) {
         var query = '\
             SELECT p.id, p.name, p.start_price, p.step_price, p.start_time, p.end_time, u.id user_id, u.full_name, u.like, u.dislike\
@@ -274,9 +258,5 @@ module.exports = {
             callback (categories);
         });
 
-=======
-    loadDetail: function(product_id) {
-        
->>>>>>> 9a27b571be32885d7cad2ab940bdcb75d1c16fac
     }
 }
