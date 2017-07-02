@@ -72,7 +72,7 @@ module.exports = {
           users[i]['isAdmin'] = false;
         }
       }
-      console.log(users);
+
       res.render('admin/user-management', {
         title: 'User Management',
         layout: 'profile',
@@ -96,6 +96,27 @@ module.exports = {
       layout: 'profile',
       user: req.user
     });
+  },
+
+  editUser: function (req, res) {
+    var entity = {
+      userid: req.body.userid,
+      buttonid: req.body.buttonid
+    }
+
+    if (entity.buttonid == 'delete') {
+      models.admin.deleteUser(entity, function(effectedRows){});
+    } else {
+      var newpassword = 'abcd';
+      var encryptedPassword = crypto.createHash('md5').update(newpassword).digest('hex');
+      var entity = {
+        userid : req.body.userid,
+        encryptedPassword : encryptedPassword
+      }
+      console.log(entity);
+      models.admin.resetPassword(entity, function(effectedRows) {});
+    }
+    res.redirect('/admin/user-management')
   },
 
   /* Product Management */

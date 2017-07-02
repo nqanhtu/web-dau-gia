@@ -51,7 +51,29 @@ module.exports = {
         database.update(query, function (effectedRows) {
             callback(effectedRows);
         });
-    }
+    },
+
+    deleteUser: function (entity, callback) {
+        var query = mustache.render(
+            'UPDATE users SET `lock` = 1 WHERE `id` = {{userid}};',
+            entity
+        );
+        console.log(query);
+        database.update(query, function (effectedRows) {
+            callback(effectedRows);
+        });
+    },
+
+    resetPassword: function (entity, callback) {
+        var query = mustache.render(
+            'UPDATE users SET `reset_password` = 0, `password` = "{{encryptedPassword}}" WHERE `id` = {{userid}};',
+            entity
+        );
+        console.log(query);
+        database.update(query, function (effectedRows) {
+            callback(effectedRows);
+        });
+    }, 
     //       /**
     //  * Update a user to database
     //  * entity: data to insert

@@ -62,12 +62,16 @@ module.exports = function(app, passport) {
 
     app.post('/product/detail/:id', controllers.user.isLoggedIn, controllers.product.bid);
     app.post('/product/detail/follow', controllers.user.isLoggedIn, controllers.product.follow);
-    // Admin Page
+
+    /* 
+    * Admin Page
+    */
+
     app.get('/admin/change-password', controllers.user.isLoggedIn, controllers.admin.changePassword);
     app.post('/admin/change-password', controllers.user.isLoggedIn, controllers.admin.updatePassword);
 
     app.get('/admin/user-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.loadUser);
-    app.post('/admin/user-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.updatePassword);
+    app.post('/admin/user-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.editUser);
     
     app.get('/admin/product-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.loadProduct);
     app.post('/admin/product-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.updatePassword);
