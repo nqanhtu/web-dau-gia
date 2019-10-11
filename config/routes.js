@@ -1,6 +1,6 @@
 var controllers = require('../controllers/index');
 
-module.exports = function(app, passport) {
+module.exports = function (app, passport) {
     // Home page
     app.get('/', controllers.home.index);
     app.get('/all-products', controllers.home.allProducts);
@@ -10,20 +10,20 @@ module.exports = function(app, passport) {
     app.get('/houseware', controllers.home.houseware);
 
     // User page
-    
+
     app.get('/user/logout', controllers.user.logout);
-    
+
     app.get('/user/profile', controllers.user.isLoggedIn, controllers.user.profile);
     app.post('/user/profile', controllers.user.isLoggedIn, controllers.user.updateInformation);
 
     app.get('/user/change-password', controllers.user.isLoggedIn, controllers.user.changePassword);
     app.post('/user/change-password', controllers.user.isLoggedIn, controllers.user.updatePassword);
-   
+
     app.get('/user/products-auctioned', controllers.user.isLoggedIn, controllers.user.loadProductsAuctioned);
     app.post('/user/products-auctioned', controllers.user.isLoggedIn, controllers.user.getCommentSeller);
 
     app.get('/user/products-auctioning', controllers.user.isLoggedIn, controllers.user.loadProductsAuctioning);
-    
+
     app.get('/user/products-selling', controllers.user.isLoggedIn, controllers.user.loadProductsSelling);
 
     app.get('/user/products-bought', controllers.user.isLoggedIn, controllers.user.loadProductsBought);
@@ -45,12 +45,12 @@ module.exports = function(app, passport) {
 
     app.get('/user/login', controllers.user.login);
     app.post('/user/login', passport.authenticate('local-login', {
-            successRedirect: '/user/profile',
-            failureRedirect: '/user/login',
-            failureFlash: true
-        }),
+        successRedirect: '/user/profile',
+        failureRedirect: '/user/login',
+        failureFlash: true
+    }),
         function (req, res) {
-            if(req.body.remember) {
+            if (req.body.remember) {
                 req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
                 req.session.cookie.expires = false;
@@ -72,7 +72,7 @@ module.exports = function(app, passport) {
 
     app.get('/admin/user-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.loadUser);
     app.post('/admin/user-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.editUser);
-    
+
     app.get('/admin/product-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.loadProduct);
     app.post('/admin/product-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.updatePassword);
 
@@ -84,11 +84,11 @@ module.exports = function(app, passport) {
     app.post('/admin/request-management', controllers.user.isLoggedIn, controllers.admin.isAdmin, controllers.admin.updatePassword);
 
     app.get('/product/add', controllers.user.isLoggedIn, controllers.product.add);
-    app.post('/product/add', controllers.user.isLoggedIn,controllers.product.insertProduct);
+    app.post('/product/add', controllers.user.isLoggedIn, controllers.product.insertProduct);
 };
 
 function redirect(user) {
-    if(user.type === -1) {
+    if (user.type === -1) {
         return '/admin/profile'
     }
     return '/user/profile'
