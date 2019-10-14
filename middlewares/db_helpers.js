@@ -4,10 +4,10 @@ var mysql = require('mysql');
 // var USER = 'anhvinhitus';
 // var PASSWORD = '123456';
 // var DATABASE = 'auction_web_db';
-var HOST = 'eu-cdbr-west-01.cleardb.com';
-var USER = 'b17ec74fc26156';
-var PASSWORD = '6eb4c380';
-var DATABASE = 'heroku_f096d1c00ffe1ff';
+var HOST = 'localhost';
+var USER = 'root';
+var PASSWORD = '123456';
+var DATABASE = 'hello';
 
 var pool = mysql.createPool({
     host: HOST,

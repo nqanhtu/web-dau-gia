@@ -1,7 +1,7 @@
 const PORT = process.env.PORT || 8080;
 
 var express = require('express');
-var session  = require('express-session');
+var session = require('express-session');
 var path = require('path');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -29,8 +29,8 @@ app.engine('hbs', expressHandlebars({
     extname: 'hbs',
     helpers: {
         section: expressHandlebarsSections(),
-        formatCurrency: function(num) {
-            return wnumb({thousand: ','}).to(num);
+        formatCurrency: function (num) {
+            return wnumb({ thousand: ',' }).to(num);
         }
     }
 }));
